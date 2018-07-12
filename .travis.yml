@@ -2,4 +2,11 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: LOgpSJM4a+03PayKWC5Eu8+mm3gSjI7O0FLLr5FLsSx5hbcLBBrmCk7WqLYSLnFZLang/UGvSw0ilRX0e/EiF/HkfhhF5lA51yGk/aezLWUj0kLj+X5K94OxIraNd7cSfBSoG43AZk0fdK/gWO1Nhnx4Ex8sl/WdvWPkEwnunPh1eaBbGG9VqVWOhjyTDk1CoQzBtx4GjwQm8dxmmLZlCLs5ouH7GltOkFxSVIaBzA4tz+VlavBLGmd2RfNI+w0HP432dNaJQ77LR0wEhlZkPIc4HT5XlQRnXiJsKfSBDbtJ/2wuSdjZ/kRQuW7sbjNinhopqZO9tMZHZ85khIz3TqZWx/2ygzH1falT1hn5jFseAZg6A3jxhpfF+blNsOlgK9nmeAr1xTm3LwxpaCM4udBnR3kxRLbfvrg8YdGTtIKy3fV0miRwD3hSlnwH0S7STVLzkysevuYmyfLaqFRfpaBRFb+G2sUxX+aZBoTLPIkQCeXSwRrUUJ5dJCOZp9sMP/j55eXasE7B2e6K/qvzyuj4W7gxr0y9QiAKAva/ZNUcax2UnvqW9ZYXPVco0QAQXzf9msvzU6lHTWQpXHlbAWT/EP94tJoqY7jKBBJr617Hjt+kPGIndaYfDXKWTJxZ+VbaJzr7F/zsOSgm+nsNuqf8SWlbEjY0Dwlyz7YtGRc=
+  app: quiet-spire-19343
+  on:
+    repo: mike-crane/dibs-client
