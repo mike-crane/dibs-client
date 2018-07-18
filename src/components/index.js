@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import Header from "./Header";
 import Landing from "./Landing";
@@ -44,7 +44,6 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
         <div className="app">
           <Header title="Dibs" />
           <Route exact path="/" component={Landing} />
@@ -54,7 +53,6 @@ class App extends Component {
           <Route exact path="/add-property" component={AddProperty} />
           <Route exact path="/edit-property" component={EditProperty} />
         </div>
-      </Router>
     );
   }
 }

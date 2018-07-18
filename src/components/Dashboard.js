@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import requiresLogin from './Requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
 import Ribbon from './Ribbon';
+import "../stylesheets/dashboard.css";
 
 class Dashboard extends Component {
   componentDidMount() {
