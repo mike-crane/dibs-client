@@ -1,0 +1,9 @@
+.reservations > h2,
+.reservations > p {
+  text-align: center;
+}
+
+#reserve-property {
+  display: block;
+  margin: 0 auto;
+}

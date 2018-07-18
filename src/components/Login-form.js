@@ -3,6 +3,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 import Input from './Input';
 import { login } from '../actions/auth';
 import { required, nonEmpty } from '../validators';
+import "../stylesheets/login-form.css";
 
 class LoginForm extends Component {
   onSubmit(values) {
@@ -18,34 +19,22 @@ class LoginForm extends Component {
         </div>
       );
     }
-    return (
-      <form
-        className="login-form"
-        onSubmit={this.props.handleSubmit(values =>
-          this.onSubmit(values)
+    return <form className="login-form" onSubmit={this.props.handleSubmit(
+          values => this.onSubmit(values)
         )}>
         {error}
-        <label htmlFor="username">Username</label>
-        <Field
-          component={Input}
-          type="text"
-          name="username"
-          id="username"
-          validate={[required, nonEmpty]}
-        />
-        <label htmlFor="password">Password</label>
-        <Field
-          component={Input}
-          type="password"
-          name="password"
-          id="password"
-          validate={[required, nonEmpty]}
-        />
-        <button disabled={this.props.pristine || this.props.submitting}>
-          Log in
-                </button>
-      </form>
-    );
+        <h2>Start Calling Dibs on Your Family Properties Now</h2>
+        <div className="login-form-section">
+          <label htmlFor="username">Username</label>
+          <Field component={Input} type="text" name="username" id="username" validate={[required, nonEmpty]} />
+          <label htmlFor="password">Password</label>
+          <Field component={Input} type="password" name="password" id="password" validate={[required, nonEmpty]} />
+        
+          <button disabled={this.props.pristine || this.props.submitting}>
+            Log in
+          </button>
+        </div>
+      </form>;
   }
 }
 

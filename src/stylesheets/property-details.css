@@ -1,0 +1,29 @@
+.property-details {
+  text-align: center;
+}
+
+.property-image, 
+.property-info {
+  display: inline-block;
+}
+
+.property-info {
+  vertical-align: top;
+  font-size: 1.25em;
+}
+
+.property-info ul {
+  text-align: left;
+}
+
+.property-info li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.property-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+}
+

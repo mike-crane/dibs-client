@@ -17,7 +17,7 @@ class Header extends Component {
     }
     return (
       <div className="header-bar">
-        <h1>Dibs</h1>
+        <h1>{this.props.title}</h1>
         {logOutButton}
       </div>
     );

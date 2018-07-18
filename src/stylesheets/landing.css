@@ -1,0 +1,9 @@
+.home h2 {
+  text-align: center;
+}
+
+.home a {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+}

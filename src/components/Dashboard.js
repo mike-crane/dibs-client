@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import requiresLogin from './Requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
+import Ribbon from './Ribbon';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -11,13 +12,14 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        <div className="dashboard-username">
-          Username: {this.props.username}
+        <div className="welcome-message">
+          <h2>Welcome {this.props.username}</h2>
         </div>
-        <div className="dashboard-name">Name: {this.props.name}</div>
         <div className="dashboard-protected-data">
-          Protected data: {this.props.protectedData}
+          <p>[<em>Calendar Component goes here</em>]</p>
+          <Ribbon heading="Active Reservations" subheading={this.props.protectedData} />
         </div>
+        <button type="button">Reserve a Property</button>
       </div>
     );
   }

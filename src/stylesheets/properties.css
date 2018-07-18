@@ -1,0 +1,22 @@
+.properties > h3 {
+  text-align: center;
+}
+
+.property-thumbnails {
+  text-align: center;
+}
+
+.property-thumbnails img {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+
+.property-thumbnails button {
+  width: 150px;
+  height: 150px;
+  vertical-align: top;
+  border-radius: 10px;
+  cursor: pointer;
+}
