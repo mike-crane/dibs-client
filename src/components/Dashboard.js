@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import requiresLogin from './Requires-login';
 import { fetchPropertyData } from '../actions/protected-data';
 import Ribbon from './Ribbon';
+import BigCalendar from "react-big-calendar";
+import moment from 'moment';
 import "../stylesheets/dashboard.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
 class Dashboard extends Component {
   // componentDidMount() {
@@ -11,14 +15,23 @@ class Dashboard extends Component {
   // }
 
   render() {
+    let events = this.props.reservations.map((reservation, index) => {
+      return {
+        id: index,
+        title: reservation.propertyName,
+        start: new Date(reservation.start),
+        end: new Date(reservation.end),
+        resourceId: index
+      }
+    })
     let reservations = this.props.reservations.map((reservation, index) => <p key={index}>{reservation.propertyName} {reservation.start}</p>)
     return (
       <div className="dashboard">
         <div className="welcome-message">
           <h2>Welcome {this.props.username}</h2>
         </div>
+        <BigCalendar events={events} />
         <div className="dashboard-protected-data">
-          <p>[<em>Calendar Component goes here</em>]</p>
           <Ribbon heading="Active Reservations" subheading="" />
           {reservations}
         </div>
