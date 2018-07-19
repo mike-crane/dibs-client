@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import requiresLogin from './Requires-login';
-import { fetchProtectedData } from '../actions/protected-data';
+import { fetchPropertyData } from '../actions/protected-data';
 import Ribbon from './Ribbon';
 import "../stylesheets/dashboard.css";
 
 class Dashboard extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
-  }
+  // componentDidMount() {
+  //   this.props.dispatch(fetchProtectedData());
+  // }
 
   render() {
     return (
@@ -18,7 +18,7 @@ class Dashboard extends Component {
         </div>
         <div className="dashboard-protected-data">
           <p>[<em>Calendar Component goes here</em>]</p>
-          <Ribbon heading="Active Reservations" subheading={this.props.protectedData} />
+          <Ribbon heading="Active Reservations" subheading={ this.props.properties } />
         </div>
         <button type="button">Reserve a Property</button>
       </div>
@@ -31,7 +31,7 @@ const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data
+    properties: state.protectedData.properties
   };
 };
 
