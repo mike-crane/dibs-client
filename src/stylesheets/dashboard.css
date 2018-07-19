@@ -7,3 +7,7 @@
   display: block;
   margin: 0 auto;
 }
+
+.calendar-container {
+  height: 580px;
+}

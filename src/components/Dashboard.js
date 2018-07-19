@@ -25,19 +25,19 @@ class Dashboard extends Component {
       }
     })
     let reservations = this.props.reservations.map((reservation, index) => <p key={index}>{reservation.propertyName} {reservation.start}</p>)
-    return (
-      <div className="dashboard">
+    return <div className="dashboard">
         <div className="welcome-message">
           <h2>Welcome {this.props.username}</h2>
         </div>
-        <BigCalendar events={events} />
+        <div className="calendar-container">
+          <BigCalendar events={events} />
+        </div>
         <div className="dashboard-protected-data">
           <Ribbon heading="Active Reservations" subheading="" />
           {reservations}
         </div>
         <button type="button">Reserve a Property</button>
-      </div>
-    );
+      </div>;
   }
 }
 

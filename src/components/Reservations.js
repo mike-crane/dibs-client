@@ -19,7 +19,9 @@ export class Reservations extends Component {
         <h2>Reservations</h2>
         <Properties />
         <PropertyDetails />
-        <BigCalendar events={events} />
+        <div className="calendar-container">
+          <BigCalendar events={events} />
+        </div>
         <button id="reserve-property" type="button">
           Add to Calendar
         </button>
