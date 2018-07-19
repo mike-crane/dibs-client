@@ -50,36 +50,42 @@ const initialState = {
   reservations: [
     {
       propertyID: 3423141,
+      propertyName: "Beach House",
       username: "mommaD05",
       start: "5-2-2018",
       end: "5-6-2018"
     },
     {
       propertyID: 9231230,
+      propertyName: "Downtown Apartment",
       username: "beachBum",
       start: "6-22-2018",
       end: "6-31-2018"
     },
     {
       propertyID: 7897234,
+      propertyName: "Mountain House",
       username: "globeTr0ttr",
       start: "8-12-2018",
       end: "8-16-2018"
     },
     {
       propertyID: 7897234,
+      propertyName: "Mountain House",
       username: "beachBum",
       start: "8-25-2018",
       end: "8-28-2018"
     },
     {
       propertyID: 3423141,
+      propertyName: "Beach House",
       username: "globeTr0ttr",
       start: "9-2-2018",
       end: "9-10-2018"
     },
     {
       propertyID: 9231230,
+      propertyName: "Downtown Apartment",
       username: "mommaD05",
       start: "10-8-2018",
       end: "10-10-2018"

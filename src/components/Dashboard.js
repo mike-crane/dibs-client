@@ -11,6 +11,7 @@ class Dashboard extends Component {
   // }
 
   render() {
+    let reservations = this.props.reservations.map((reservation, index) => <p key={index}>{reservation.propertyName} {reservation.start}</p>)
     return (
       <div className="dashboard">
         <div className="welcome-message">
@@ -18,7 +19,8 @@ class Dashboard extends Component {
         </div>
         <div className="dashboard-protected-data">
           <p>[<em>Calendar Component goes here</em>]</p>
-          <Ribbon heading="Active Reservations" subheading={ this.props.properties } />
+          <Ribbon heading="Active Reservations" subheading="" />
+          {reservations}
         </div>
         <button type="button">Reserve a Property</button>
       </div>
@@ -31,7 +33,8 @@ const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    properties: state.protectedData.properties
+    properties: state.protectedData.properties,
+    reservations: state.protectedData.reservations
   };
 };
 
