@@ -20,7 +20,9 @@ const initialState = {
         zipcode: 28480
       },
       type: "house",
-      owner: "beachBum"
+      owner: "beachBum",
+      thumbUrl:
+        "https://github.com/mike-crane/dibs-client/blob/master/src/images/beach-house.jpg"
     },
     {
       id: 9231230,
@@ -32,7 +34,9 @@ const initialState = {
         zipcode: 28105
       },
       type: "apartment",
-      owner: "globeTr0ttr"
+      owner: "globeTr0ttr",
+      thumbUrl:
+        "https://github.com/mike-crane/dibs-client/blob/master/src/images/downtown-apartment.jpg"
     },
     {
       id: 7897234,
@@ -44,7 +48,9 @@ const initialState = {
         zipcode: 28715
       },
       type: "house",
-      owner: "mommaD05"
+      owner: "mommaD05",
+      thumbUrl:
+        "https://github.com/mike-crane/dibs-client/blob/master/src/images/mountain-house.jpg"
     }
   ],
   reservations: [
