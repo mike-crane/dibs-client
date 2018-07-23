@@ -22,7 +22,7 @@ const initialState = {
       type: "house",
       owner: "beachBum",
       thumbUrl:
-        "https://github.com/mike-crane/dibs-client/blob/master/src/images/beach-house.jpg"
+        "https://github.com/mike-crane/dibs-client/blob/master/src/images/beach-house.jpg?raw=true"
     },
     {
       id: 9231230,
@@ -36,7 +36,7 @@ const initialState = {
       type: "apartment",
       owner: "globeTr0ttr",
       thumbUrl:
-        "https://github.com/mike-crane/dibs-client/blob/master/src/images/downtown-apartment.jpg"
+        "https://github.com/mike-crane/dibs-client/blob/master/src/images/downtown-apartment.jpg?raw=true"
     },
     {
       id: 7897234,
@@ -50,7 +50,7 @@ const initialState = {
       type: "house",
       owner: "mommaD05",
       thumbUrl:
-        "https://github.com/mike-crane/dibs-client/blob/master/src/images/mountain-house.jpg"
+        "https://github.com/mike-crane/dibs-client/blob/master/src/images/mountain-house.jpg?raw=true"
     }
   ],
   reservations: [
