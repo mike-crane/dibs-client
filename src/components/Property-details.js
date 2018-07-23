@@ -1,24 +1,31 @@
 import React from 'react';
-import Placeholder from '../images/img-placeholder.png';
+import { connect } from "react-redux";
 import "../stylesheets/property-details.css";
 
-const PropertyDetails = () => {
-  return (
-    <div className="property-details">
+const PropertyDetails = (props) => {
+  return <div className="property-details">
       <h3>Property Details</h3>
       <div className="property-image">
-        <img src={Placeholder} alt="placeholder" />
+        <img src={props.property.thumbUrl} alt="placeholder" />
       </div>
       <div className="property-info">
         <ul>
-          <li>Incididunt pariatur ea sunt ullamco est ex ipsum</li>
-          <li>Magna aute qui consectetur aliqua</li>
-          <li>Dolore ea laborum adipisicing eu anim exercitation</li>
+          <li>{props.property.name}</li>
+          <li>
+            {props.property.address.city}, {props.property.address.state}
+          </li>
         </ul>
       </div>
-      <button id="edit-property" type="button">Edit</button>
-    </div>
-  )
+      <button id="edit-property" type="button">
+        Edit
+      </button>
+    </div>;
 }
 
-export default PropertyDetails
+const mapStateToProps = state => {
+  return {
+    property: state.protectedData.selectedProperty
+  };
+};
+
+export default (connect(mapStateToProps)(PropertyDetails));

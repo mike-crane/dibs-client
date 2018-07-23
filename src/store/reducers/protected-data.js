@@ -9,6 +9,20 @@ const initialState = {
     lastName: "Doe",
     username: "beachBum"
   },
+  selectedProperty: {
+    id: 3423141,
+    name: "Beach House",
+    address: {
+        street: "150 Ocean Blvd",
+        state: "NC",
+        city: "Wrightsville",
+        zipcode: 28480
+    },
+    type: "house",
+    owner: "beachBum",
+    thumbUrl:
+        "https://github.com/mike-crane/dibs-client/blob/master/src/images/beach-house.jpg?raw=true"
+  },
   properties: [
     {
       id: 3423141,
