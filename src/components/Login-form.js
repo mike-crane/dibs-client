@@ -23,14 +23,14 @@ class LoginForm extends Component {
           values => this.onSubmit(values)
         )}>
         {error}
-        <h2>Start Calling Dibs on Your Family Properties Now</h2>
+        <h2>Start Calling Dibs Now</h2>
         <div className="login-form-section">
           <label htmlFor="username">Username</label>
           <Field component={Input} type="text" name="username" id="username" validate={[required, nonEmpty]} />
           <label htmlFor="password">Password</label>
           <Field component={Input} type="password" name="password" id="password" validate={[required, nonEmpty]} />
         
-          <button disabled={this.props.pristine || this.props.submitting}>
+          <button className="login-button" disabled={this.props.pristine || this.props.submitting}>
             Log in
           </button>
         </div>

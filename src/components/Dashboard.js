@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 import requiresLogin from './Requires-login';
 import { fetchPropertyData } from '../actions/protected-data';
 import Ribbon from './Ribbon';
@@ -29,14 +30,14 @@ class Dashboard extends Component {
         <div className="welcome-message">
           <h2>Welcome {this.props.username}</h2>
         </div>
-        <div className="calendar-container">
-          <BigCalendar events={events} />
-        </div>
         <div className="dashboard-protected-data">
           <Ribbon heading="Active Reservations" subheading="" />
           {reservations}
         </div>
-        <button type="button">Reserve a Property</button>
+        <div className="calendar-container">
+          <BigCalendar events={events} />
+        </div>
+        <Link className="reservations-button" to="/reservations">Reserve a Property</Link>
       </div>;
   }
 }

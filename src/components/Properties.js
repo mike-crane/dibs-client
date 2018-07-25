@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import requiresLogin from "./Requires-login";
-import { fetchPropertyData } from "../actions/protected-data";
-import Placeholder from '../images/img-placeholder.png';
+import { fetchPropertyData, setSelectedProperty } from "../actions/protected-data";
+import FaPlus from "react-icons/lib/fa/plus";
 import '../stylesheets/properties.css';
 
 class Properties extends Component {
+  onPropertySelect(property) {
+    this.props.dispatch(setSelectedProperty(property));
+  }
+
   render() {
-    let propertyList = this.props.properties.map((property, index) => <img key={index} src={property.thumbUrl} />);
-    return (
-      <div className='properties'>
+    let propertyList = this.props.properties.map(property => <img src={property.thumbUrl} key={property.id} 
+      onClick={ () => this.onPropertySelect(property) } />);
+    return <div className="properties">
         <h3>Properties</h3>
-        <div className='property-thumbnails'>
+        <div className="property-thumbnails">
           {propertyList}
-          <button type='button'>Add Property</button>
+          <Link className="add-property-button" to="/add-property"><FaPlus /></Link>
         </div>
-      </div>
-    )
+      </div>;
   }
 };
 

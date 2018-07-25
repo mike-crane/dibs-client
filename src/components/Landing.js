@@ -16,6 +16,8 @@ export function Landing(props) {
 
   return <div className="home">
       <h2>a reservation system for family shared vacation properties</h2>
+      <LoginForm />
+      <Link to="/register">Register</Link>
       <Ribbon heading="Share a Property" 
               subheading="Dibs helps you make the most of your family properties by providing a central system for listing properties and making them available for others to use."
               image={<img src={Placeholder} alt="placeholder" />} />
@@ -25,8 +27,6 @@ export function Landing(props) {
       <Ribbon heading="Reserve an property" 
               subheading="Dibs makes it easy to reserve a property during a specified date, allowing you to make plans in advance."
               image={<img src={Placeholder} alt="placeholder" />} />
-      <LoginForm />
-      <Link to="/register">Register</Link>
       <Footer />
     </div>;
 }

@@ -13,10 +13,19 @@
   border-radius: 10px;
 }
 
-.property-thumbnails button {
+.add-property-button {
+  display: inline-block;
+  vertical-align: top;
+  color: #fff;
+  background: lightgray;
   width: 150px;
   height: 150px;
-  vertical-align: top;
+  line-height: 150px;
   border-radius: 10px;
-  cursor: pointer;
+  text-decoration: none;
+}
+
+.add-property-button svg {
+  width: 50px;
+  height: 50px;
 }

@@ -13,6 +13,12 @@ export const fetchPropertyDataError = error => ({
   error
 });
 
+export const SET_SELECTED_PROPERTY = 'SET_SELECTED_PROPERTY';
+export const setSelectedProperty = property => ({
+  type: SET_SELECTED_PROPERTY,
+  property
+});
+
 export const fetchPropertyData = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/properties`, {
@@ -27,5 +33,20 @@ export const fetchPropertyData = () => (dispatch, getState) => {
     .then(({ data }) => dispatch(fetchPropertyDataSuccess(data)))
     .catch(err => {
       dispatch(fetchPropertyDataError(err));
+    });
+};
+
+export const propertyDetails = id => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/properties/${id}`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => res.json())
+    .then(({ data }) => {
+      dispatch(fetchPropertyDataSuccess(data));
     });
 };

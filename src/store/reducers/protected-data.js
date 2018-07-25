@@ -1,6 +1,7 @@
 import {
   FETCH_PROPERTY_DATA_SUCCESS,
-  FETCH_PROPERTY_DATA_ERROR
+  FETCH_PROPERTY_DATA_ERROR,
+  SET_SELECTED_PROPERTY
 } from '../../actions/protected-data';
 
 const initialState = {
@@ -122,6 +123,10 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === FETCH_PROPERTY_DATA_ERROR) {
     return Object.assign({}, state, {
       error: action.error
+    });
+  } else if (action.type === SET_SELECTED_PROPERTY) {
+    return Object.assign({}, state, {
+      selectedProperty: action.property
     });
   }
   return state;

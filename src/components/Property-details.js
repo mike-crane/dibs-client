@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "../stylesheets/property-details.css";
 
 const PropertyDetails = (props) => {
@@ -16,9 +17,7 @@ const PropertyDetails = (props) => {
           </li>
         </ul>
       </div>
-      <button id="edit-property" type="button">
-        Edit
-      </button>
+      <Link className="edit-property-button" to="/edit-property">Edit</Link>
     </div>;
 }
 

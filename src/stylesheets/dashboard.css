@@ -3,11 +3,16 @@
   text-align: center;
 }
 
-.dashboard button {
-  display: block;
-  margin: 0 auto;
-}
-
 .calendar-container {
   height: 580px;
+}
+
+.reservations-button {
+  display: block;
+  width: 140px;
+  margin: 10px auto;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 5px 10px;
+  text-decoration: none;
 }

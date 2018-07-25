@@ -3,6 +3,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 import Input from './Input';
 // import { login } from '../actions/auth';
 import { required, nonEmpty } from '../validators';
+import "../stylesheets/edit-property.css";
 
 class EditProperty extends Component {
 
@@ -58,10 +59,10 @@ class EditProperty extends Component {
           <Field component={Input} type="text" name="zipcode" id="zipcode" validate={[required, nonEmpty]} />
         </fieldset>
 
-        <button disabled={this.props.pristine || this.props.submitting}>
+        <button className="save-property-button" disabled={this.props.pristine || this.props.submitting}>
             Save
         </button>
-        <button disabled={this.props.pristine || this.props.submitting}>
+      <button className="delete-property-button" disabled={this.props.pristine || this.props.submitting}>
           Delete
         </button>
       </form>
