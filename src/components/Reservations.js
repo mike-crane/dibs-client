@@ -20,7 +20,7 @@ export class Reservations extends Component {
         <Properties />
         <PropertyDetails />
         <div className="calendar-container">
-          <BigCalendar events={events} />
+          <BigCalendar events={events} selectable='true' />
         </div>
         <button id="reserve-property" type="button">
           Add to Calendar

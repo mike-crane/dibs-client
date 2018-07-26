@@ -1,7 +1,8 @@
 import {
   FETCH_PROPERTY_DATA_SUCCESS,
   FETCH_PROPERTY_DATA_ERROR,
-  SET_SELECTED_PROPERTY
+  SET_SELECTED_PROPERTY,
+  CLEAR_SELECTED_PROPERTY
 } from '../../actions/protected-data';
 
 const initialState = {
@@ -10,20 +11,7 @@ const initialState = {
     lastName: "Doe",
     username: "beachBum"
   },
-  selectedProperty: {
-    id: 3423141,
-    name: "Beach House",
-    address: {
-        street: "150 Ocean Blvd",
-        state: "NC",
-        city: "Wrightsville",
-        zipcode: 28480
-    },
-    type: "house",
-    owner: "beachBum",
-    thumbUrl:
-        "https://github.com/mike-crane/dibs-client/blob/master/src/images/beach-house.jpg?raw=true"
-  },
+  selectedProperty: null,
   properties: [
     {
       id: 3423141,
@@ -116,18 +104,13 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   if (action.type === FETCH_PROPERTY_DATA_SUCCESS) {
-    return Object.assign({}, state, {
-      data: action.data,
-      error: null
-    });
+    return Object.assign({}, state, { data: action.data, error: null });
   } else if (action.type === FETCH_PROPERTY_DATA_ERROR) {
-    return Object.assign({}, state, {
-      error: action.error
-    });
+    return Object.assign({}, state, { error: action.error });
   } else if (action.type === SET_SELECTED_PROPERTY) {
-    return Object.assign({}, state, {
-      selectedProperty: action.property
-    });
+    return Object.assign({}, state, { selectedProperty: action.property });
+  } else if (action.type === CLEAR_SELECTED_PROPERTY) {
+    return Object.assign({}, state, { selectedProperty: null });
   }
   return state;
 }

@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { clearAuth } from "../actions/auth";
+import { clearSelectedProperty } from "../actions/protected-data";
 import { clearAuthToken } from "../local-storage";
 import "../stylesheets/header.css";
 
 class Header extends Component {
   logOut() {
     this.props.dispatch(clearAuth());
+    this.props.dispatch(clearSelectedProperty());
     clearAuthToken();
   }
 

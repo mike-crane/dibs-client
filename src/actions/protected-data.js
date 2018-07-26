@@ -19,6 +19,11 @@ export const setSelectedProperty = property => ({
   property
 });
 
+export const CLEAR_SELECTED_PROPERTY = 'CLEAR_SELECTED_PROPERTY';
+export const clearSelectedProperty = property => ({
+  type: CLEAR_SELECTED_PROPERTY
+});
+
 export const fetchPropertyData = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/properties`, {
