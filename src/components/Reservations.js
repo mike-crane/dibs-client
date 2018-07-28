@@ -19,27 +19,38 @@ export class Reservations extends Component {
   render() {
     let events = this.props.reservations.map((reservation, index) => {
       return { id: index, title: reservation.propertyName, start: new Date(reservation.start), end: new Date(reservation.end), resourceId: index };
-    })
-    return <div className='reservations'>
-        <h2>Reservations</h2>
-        <Properties />
-        <div className='reservation-section'>
-          <div className='selected-property'>
-            <PropertyDetails />
+    });
+
+    if (this.props.selectedProperty) {
+      return <div className="reservations">
+          <h2>Reservations</h2>
+          <Properties />
+          <div className="reservation-section">
+            <div className="selected-property">
+              <PropertyDetails />
+            </div>
+            <div className="reservation-info">
+              <ReservationDetails />
+            </div>
           </div>
-          <div className='reservation-info'>
-            <ReservationDetails />
+          <div className="calendar-container">
+            <BigCalendar selectable events={events} views={["month", "week"]} onSelectSlot={slotInfo => this.onDateSelect(slotInfo)} />
           </div>
-        </div>
-        <div className='calendar-container'>
-          <BigCalendar 
-            selectable 
-            events={events}
-            views={['month', 'week']} 
-            onSelectSlot={ slotInfo => this.onDateSelect(slotInfo) } 
-          />
-        </div>
-      </div>;
+        </div>;
+    } else {
+      return <div className="reservations">
+          <h2>Reservations</h2>
+          <Properties />
+          <div className="reservation-section">
+            <div className="selected-property">
+              <PropertyDetails />
+            </div>
+            <div className="reservation-info">
+              <ReservationDetails />
+            </div>
+          </div>
+        </div>;
+    }
   }
 }
 
@@ -50,7 +61,8 @@ const mapStateToProps = state => {
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     properties: state.protectedData.properties,
     reservations: state.protectedData.reservations,
-    currentReservation: state.protectedData.currentReservation  
+    currentReservation: state.protectedData.currentReservation,
+    selectedProperty: state.protectedData.selectedProperty  
   };
 };
 

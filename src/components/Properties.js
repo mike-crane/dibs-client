@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import requiresLogin from './Requires-login';
-import { fetchPropertyData, setSelectedProperty } from '../actions/protected-data';
+import { fetchPropertyData, setSelectedProperty, clearSelectedDate } from '../actions/protected-data';
 import FaPlus from 'react-icons/lib/fa/plus';
 import '../stylesheets/properties.css';
 
 class Properties extends Component {
   onPropertySelect(property, username) {
     this.props.dispatch(setSelectedProperty(property, username));
+    this.props.dispatch(clearSelectedDate());
   }
 
   render() {

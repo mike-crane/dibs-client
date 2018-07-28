@@ -5,7 +5,8 @@ import {
   FETCH_PROPERTY_DATA_ERROR,
   SET_SELECTED_PROPERTY,
   CLEAR_SELECTED_PROPERTY,
-  SET_SELECTED_DATE
+  SET_SELECTED_DATE,
+  CLEAR_SELECTED_DATE
 } from "../../actions/protected-data";
 
 const initialState = {
@@ -122,7 +123,7 @@ export default function reducer(state = initialState, action) {
     newReservation.propertyID = action.property.id;
     newReservation.propertyName = action.property.name;
     newReservation.username = action.username;
-    return Object.assign({}, state, { 
+    return Object.assign({}, state, {
       selectedProperty: action.property,
       currentReservation: newReservation
     });
@@ -133,6 +134,11 @@ export default function reducer(state = initialState, action) {
     reservationDates.start = action.slotInfo.start;
     reservationDates.end = action.slotInfo.end;
     return Object.assign({}, state, { currentReservation: reservationDates });
-  }
+  } else if (action.type === CLEAR_SELECTED_DATE) {
+    const clearDates = deepcopy(state.currentReservation);
+    clearDates.start = "";
+    clearDates.end = "";
+    return Object.assign({}, state, { currentReservation: clearDates });
+  } 
   return state;
 }

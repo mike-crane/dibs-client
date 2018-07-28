@@ -31,6 +31,11 @@ export const setSelectedDate = slotInfo => ({
   slotInfo
 });
 
+export const CLEAR_SELECTED_DATE = 'CLEAR_SELECTED_DATE';
+export const clearSelectedDate = () => ({
+  type: CLEAR_SELECTED_DATE,
+});
+
 export const fetchPropertyData = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/properties`, {
