@@ -14,9 +14,10 @@ export const fetchPropertyDataError = error => ({
 });
 
 export const SET_SELECTED_PROPERTY = 'SET_SELECTED_PROPERTY';
-export const setSelectedProperty = property => ({
+export const setSelectedProperty = (property, username) => ({
   type: SET_SELECTED_PROPERTY,
-  property
+  property,
+  username
 });
 
 export const CLEAR_SELECTED_PROPERTY = 'CLEAR_SELECTED_PROPERTY';

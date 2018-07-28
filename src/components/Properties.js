@@ -7,20 +7,25 @@ import FaPlus from 'react-icons/lib/fa/plus';
 import '../stylesheets/properties.css';
 
 class Properties extends Component {
-  onPropertySelect(property) {
-    this.props.dispatch(setSelectedProperty(property));
+  onPropertySelect(property, username) {
+    this.props.dispatch(setSelectedProperty(property, username));
   }
 
   render() {
     let propertyList = this.props.properties.map(property => <img src={property.thumbUrl} key={property.id} 
-      onClick={ () => this.onPropertySelect(property) } />);
-    return <div className='properties'>
+      onClick={ () => this.onPropertySelect(property, username) } />);
+
+    let username = this.props.username;
+
+    return (
+      <div className='properties'>
         <h3>Properties</h3>
         <div className='property-thumbnails'>
           {propertyList}
           <Link className='add-property-button' to='/add-property'><FaPlus /></Link>
         </div>
-      </div>;
+      </div>
+    );
   }
 };
 

@@ -121,6 +121,7 @@ export default function reducer(state = initialState, action) {
     const newReservation = deepcopy(state.currentReservation);
     newReservation.propertyID = action.property.id;
     newReservation.propertyName = action.property.name;
+    newReservation.username = action.username;
     return Object.assign({}, state, { 
       selectedProperty: action.property,
       currentReservation: newReservation

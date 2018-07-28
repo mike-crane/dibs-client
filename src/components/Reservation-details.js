@@ -5,17 +5,23 @@ import '../stylesheets/reservation-details.css';
 
 class ReservationDetails extends Component {
   render() {
-    return <div className="reservation-details">
-      <h3>Reservation</h3>
-      <div className="reservation-info">
-        <div>Guest: {this.props.name}</div>
-        <div>Start: {this.props.currentReservation.start.toLocaleString()}</div>
-        <div>End: {this.props.currentReservation.end.toLocaleString()}</div>
+    if (this.props.currentReservation.propertyID) {
+    return (
+      <div className="reservation-details">
+        <h3>Reservation</h3>
+        <div className="reservation-info">
+          <div>Guest: {this.props.name}</div>
+          <div>Start: {this.props.currentReservation.start.toLocaleString()}</div>
+          <div>End: {this.props.currentReservation.end.toLocaleString()}</div>
+        </div>
+        <Link className="edit-reservation-button" to="/edit-reservation">
+          Save Reservation
+        </Link>
       </div>
-      <Link className="edit-reservation-button" to="/edit-reservation">
-        Save Reservation
-      </Link>
-    </div>;
+    );
+    } else {
+      return <div></div>;
+    }
   }
 }
 

@@ -24,9 +24,12 @@ class Dashboard extends Component {
         end: new Date(reservation.end),
         resourceId: index
       }
-    })
-    let reservations = this.props.reservations.map((reservation, index) => <p key={index}>{reservation.propertyName} {reservation.start}</p>)
-    return <div className='dashboard'>
+    });
+
+    let reservations = this.props.reservations.map((reservation, index) => <p key={index}>{reservation.propertyName} {reservation.start}</p>);
+
+    return (
+      <div className='dashboard'>
         <div className='welcome-message'>
           <h2>Welcome {this.props.username}</h2>
         </div>
@@ -35,10 +38,11 @@ class Dashboard extends Component {
           {reservations}
         </div>
         <div className='calendar-container'>
-        <BigCalendar events={events} selectable={true} views={['month', 'week']} />
+        <BigCalendar events={events} selectable views={['month', 'week']} />
         </div>
         <Link className='reservations-button' to='/reservations'>Reserve a Property</Link>
-      </div>;
+      </div>
+    );
   }
 }
 
