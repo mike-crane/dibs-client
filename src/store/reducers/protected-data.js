@@ -1,3 +1,5 @@
+import deepcopy from "deepcopy";
+
 import {
   FETCH_PROPERTY_DATA_SUCCESS,
   FETCH_PROPERTY_DATA_ERROR,
@@ -116,7 +118,7 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === FETCH_PROPERTY_DATA_ERROR) {
     return Object.assign({}, state, { error: action.error });
   } else if (action.type === SET_SELECTED_PROPERTY) {
-    let newReservation = state.currentReservation;
+    const newReservation = deepcopy(state.currentReservation);
     newReservation.propertyID = action.property.id;
     newReservation.propertyName = action.property.name;
     return Object.assign({}, state, { 
@@ -126,7 +128,7 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === CLEAR_SELECTED_PROPERTY) {
     return Object.assign({}, state, { selectedProperty: null });
   } else if (action.type === SET_SELECTED_DATE) {
-    let reservationDates = state.currentReservation;
+    const reservationDates = deepcopy(state.currentReservation);
     reservationDates.start = action.slotInfo.start;
     reservationDates.end = action.slotInfo.end;
     return Object.assign({}, state, { currentReservation: reservationDates });
