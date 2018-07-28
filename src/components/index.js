@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import Header from "./Header";
-import Landing from "./Landing";
+import Header from './Header';
+import Landing from './Landing';
 import Dashboard from './Dashboard';
 import RegistrationPage from './Registration-page';
 import Reservations from './Reservations';
 import AddProperty from './Add-property';
 import EditProperty from './Edit-property';
 import { refreshAuthToken } from '../actions/auth';
-import "../stylesheets/index.css";
+import '../stylesheets/index.css';
 
 class App extends Component {
   componentDidUpdate(prevProps) {
@@ -44,14 +44,14 @@ class App extends Component {
 
   render() {
     return (
-        <div className="app">
-          <Header title="Dibs" />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/register" component={RegistrationPage} />
-          <Route exact path="/reservations" component={Reservations} />
-          <Route exact path="/add-property" component={AddProperty} />
-          <Route exact path="/edit-property" component={EditProperty} />
+        <div className='app'>
+          <Header title='Dibs' />
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/dashboard' component={Dashboard} />
+          <Route exact path='/register' component={RegistrationPage} />
+          <Route exact path='/reservations' component={Reservations} />
+          <Route exact path='/add-property' component={AddProperty} />
+          <Route exact path='/edit-property' component={EditProperty} />
         </div>
     );
   }

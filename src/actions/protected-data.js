@@ -20,8 +20,14 @@ export const setSelectedProperty = property => ({
 });
 
 export const CLEAR_SELECTED_PROPERTY = 'CLEAR_SELECTED_PROPERTY';
-export const clearSelectedProperty = property => ({
+export const clearSelectedProperty = () => ({
   type: CLEAR_SELECTED_PROPERTY
+});
+
+export const SET_SELECTED_DATE = 'SET_SELECTED_DATE';
+export const setSelectedDate = slotInfo => ({
+  type: SET_SELECTED_DATE,
+  slotInfo
 });
 
 export const fetchPropertyData = () => (dispatch, getState) => {

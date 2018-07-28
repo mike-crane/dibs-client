@@ -3,11 +3,12 @@
   text-align: center;
 }
 
-#reserve-property {
-  display: block;
+.calendar-container {
+  height: 580px;
+  width: 70%;
   margin: 0 auto;
 }
 
-.calendar-container {
-  height: 580px;
+.reservation-section {
+  padding: 1em 0;
 }

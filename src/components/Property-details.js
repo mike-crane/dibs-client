@@ -1,16 +1,17 @@
 import React from 'react';
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import "../stylesheets/property-details.css";
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import '../stylesheets/property-details.css';
 
 const PropertyDetails = (props) => {
   if (props.property) {
-    return <div className="property-details">
+    return (
+      <div className='property-details'>
         <h3>Property Details</h3>
-        <div className="property-image">
-          <img src={props.property.thumbUrl} alt="placeholder" />
+        <div className='property-image'>
+          <img src={props.property.thumbUrl} alt='placeholder' />
         </div>
-        <div className="property-info">
+        <div className='property-info'>
           <ul>
             <li>{props.property.name}</li>
             <li>
@@ -18,10 +19,11 @@ const PropertyDetails = (props) => {
             </li>
           </ul>
         </div>
-        <Link className="edit-property-button" to="/edit-property">
+        <Link className='edit-property-button' to='/edit-property'>
           Edit
         </Link>
-      </div>;
+      </div>
+    );
   } else {
     return <div></div>;
   }

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import requiresLogin from './Requires-login';
 import { fetchPropertyData } from '../actions/protected-data';
 import Ribbon from './Ribbon';
-import BigCalendar from "react-big-calendar";
+import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import "../stylesheets/dashboard.css";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import '../stylesheets/dashboard.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
 class Dashboard extends Component {
@@ -26,18 +26,18 @@ class Dashboard extends Component {
       }
     })
     let reservations = this.props.reservations.map((reservation, index) => <p key={index}>{reservation.propertyName} {reservation.start}</p>)
-    return <div className="dashboard">
-        <div className="welcome-message">
+    return <div className='dashboard'>
+        <div className='welcome-message'>
           <h2>Welcome {this.props.username}</h2>
         </div>
-        <div className="dashboard-protected-data">
-          <Ribbon heading="Active Reservations" subheading="" />
+        <div className='dashboard-protected-data'>
+          <Ribbon heading='Active Reservations' subheading='' />
           {reservations}
         </div>
-        <div className="calendar-container">
-          <BigCalendar events={events} />
+        <div className='calendar-container'>
+        <BigCalendar events={events} selectable={true} views={['month', 'week']} />
         </div>
-        <Link className="reservations-button" to="/reservations">Reserve a Property</Link>
+        <Link className='reservations-button' to='/reservations'>Reserve a Property</Link>
       </div>;
   }
 }

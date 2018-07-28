@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import requiresLogin from "./Requires-login";
-import { fetchPropertyData, setSelectedProperty } from "../actions/protected-data";
-import FaPlus from "react-icons/lib/fa/plus";
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import requiresLogin from './Requires-login';
+import { fetchPropertyData, setSelectedProperty } from '../actions/protected-data';
+import FaPlus from 'react-icons/lib/fa/plus';
 import '../stylesheets/properties.css';
 
 class Properties extends Component {
@@ -14,11 +14,11 @@ class Properties extends Component {
   render() {
     let propertyList = this.props.properties.map(property => <img src={property.thumbUrl} key={property.id} 
       onClick={ () => this.onPropertySelect(property) } />);
-    return <div className="properties">
+    return <div className='properties'>
         <h3>Properties</h3>
-        <div className="property-thumbnails">
+        <div className='property-thumbnails'>
           {propertyList}
-          <Link className="add-property-button" to="/add-property"><FaPlus /></Link>
+          <Link className='add-property-button' to='/add-property'><FaPlus /></Link>
         </div>
       </div>;
   }

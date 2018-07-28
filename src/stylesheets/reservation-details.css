@@ -1,0 +1,9 @@
+.reservation-info {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+
+.reservation-info h3 {
+  text-align: center;
+}

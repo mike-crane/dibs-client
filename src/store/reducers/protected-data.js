@@ -2,8 +2,9 @@ import {
   FETCH_PROPERTY_DATA_SUCCESS,
   FETCH_PROPERTY_DATA_ERROR,
   SET_SELECTED_PROPERTY,
-  CLEAR_SELECTED_PROPERTY
-} from '../../actions/protected-data';
+  CLEAR_SELECTED_PROPERTY,
+  SET_SELECTED_DATE
+} from "../../actions/protected-data";
 
 const initialState = {
   user: {
@@ -56,13 +57,20 @@ const initialState = {
         "https://github.com/mike-crane/dibs-client/blob/master/src/images/mountain-house.jpg?raw=true"
     }
   ],
+  currentReservation: {
+    propertyID: null,
+    propertyName: "",
+    username: "",
+    start: "",
+    end: ""
+  },
   reservations: [
     {
       propertyID: 3423141,
       propertyName: "Beach House",
       username: "mommaD05",
-      start: "5-2-2018",
-      end: "5-6-2018"
+      start: "7-2-2018",
+      end: "7-6-2018"
     },
     {
       propertyID: 9231230,
@@ -75,8 +83,8 @@ const initialState = {
       propertyID: 7897234,
       propertyName: "Mountain House",
       username: "globeTr0ttr",
-      start: "8-12-2018",
-      end: "8-16-2018"
+      start: "7-12-2018",
+      end: "7-16-2018"
     },
     {
       propertyID: 7897234,
@@ -108,9 +116,20 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === FETCH_PROPERTY_DATA_ERROR) {
     return Object.assign({}, state, { error: action.error });
   } else if (action.type === SET_SELECTED_PROPERTY) {
-    return Object.assign({}, state, { selectedProperty: action.property });
+    let newReservation = state.currentReservation;
+    newReservation.propertyID = action.property.id;
+    newReservation.propertyName = action.property.name;
+    return Object.assign({}, state, { 
+      selectedProperty: action.property,
+      currentReservation: newReservation
+    });
   } else if (action.type === CLEAR_SELECTED_PROPERTY) {
     return Object.assign({}, state, { selectedProperty: null });
+  } else if (action.type === SET_SELECTED_DATE) {
+    let reservationDates = state.currentReservation;
+    reservationDates.start = action.slotInfo.start;
+    reservationDates.end = action.slotInfo.end;
+    return Object.assign({}, state, { currentReservation: reservationDates });
   }
   return state;
 }
