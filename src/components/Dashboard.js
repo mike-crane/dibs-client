@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import requiresLogin from './Requires-login';
-import { fetchPropertyData } from '../actions/protected-data';
 import Ribbon from './Ribbon';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';

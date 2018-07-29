@@ -14,7 +14,8 @@ export function Landing(props) {
     return <Redirect to='/dashboard' />;
   }
 
-  return <div className='home'>
+  return (
+    <div className='home'>
       <h2>a reservation system for family shared vacation properties</h2>
       <LoginForm />
       <Link to='/register'>Register</Link>
@@ -28,7 +29,8 @@ export function Landing(props) {
               subheading='Dibs makes it easy to reserve a property during a specified date, allowing you to make plans in advance.'
               image={<img src={Placeholder} alt='placeholder' />} />
       <Footer />
-    </div>;
+    </div>
+  );
 }
 
 const mapStateToProps = state => ({

@@ -16,12 +16,15 @@ class AddProperty extends Component {
         </div>
       );
     }
-    return <form className='list-property' onSubmit={this.props.handleSubmit(
+    return (
+      <form 
+        className='list-property' 
+        onSubmit={this.props.handleSubmit(
           values => this.onSubmit(values)
-        )}>
+        )}>     
         {error}
         <h2>New Property</h2>
-        <div class='form-section'>
+        <div className='form-section'>
           <label htmlFor='property-name'>Property name</label>
           <Field component={Input} type='text' name='property-name' id='property-name' validate={[required, nonEmpty]} />
         </div>
@@ -62,7 +65,8 @@ class AddProperty extends Component {
         <button className='submit-property-button' disabled={this.props.pristine || this.props.submitting}>
             Submit
         </button>
-      </form>;
+      </form>
+    );
   }
 }
 

@@ -6,7 +6,8 @@ import {
   SET_SELECTED_PROPERTY,
   CLEAR_SELECTED_PROPERTY,
   SET_SELECTED_DATE,
-  CLEAR_SELECTED_DATE
+  CLEAR_SELECTED_DATE,
+  SAVE_RESERVATION
 } from "../../actions/protected-data";
 
 const initialState = {
@@ -139,6 +140,10 @@ export default function reducer(state = initialState, action) {
     clearDates.start = "";
     clearDates.end = "";
     return Object.assign({}, state, { currentReservation: clearDates });
-  } 
+  } else if (action.type === SAVE_RESERVATION) {
+    let reservations = action.reservations;
+    let newReservation = action.newReservation;
+    return Object.assign({}, state, { reservations: [newReservation, ...reservations] });
+  }
   return state;
 }

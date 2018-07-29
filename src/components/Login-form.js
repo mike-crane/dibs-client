@@ -19,7 +19,8 @@ class LoginForm extends Component {
         </div>
       );
     }
-    return <form className='login-form' onSubmit={this.props.handleSubmit(
+    return (
+      <form className='login-form' onSubmit={this.props.handleSubmit(
           values => this.onSubmit(values)
         )}>
         {error}
@@ -34,7 +35,8 @@ class LoginForm extends Component {
             Log in
           </button>
         </div>
-      </form>;
+      </form>
+    );
   }
 }
 

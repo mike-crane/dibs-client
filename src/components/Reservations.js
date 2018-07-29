@@ -22,7 +22,8 @@ export class Reservations extends Component {
     });
 
     if (this.props.selectedProperty) {
-      return <div className="reservations">
+      return (
+        <div className="reservations">
           <h2>Reservations</h2>
           <Properties />
           <div className="reservation-section">
@@ -36,7 +37,8 @@ export class Reservations extends Component {
           <div className="calendar-container">
             <BigCalendar selectable events={events} views={["month", "week"]} onSelectSlot={slotInfo => this.onDateSelect(slotInfo)} />
           </div>
-        </div>;
+        </div>
+      );
     } else {
       return <div className="reservations">
           <h2>Reservations</h2>

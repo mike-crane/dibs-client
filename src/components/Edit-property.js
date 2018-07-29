@@ -16,12 +16,15 @@ class EditProperty extends Component {
         </div>
       );
     }
-    return <form className='list-property' onSubmit={this.props.handleSubmit(
+    return (
+      <form 
+        className='list-property' 
+        onSubmit={this.props.handleSubmit(
           values => this.onSubmit(values)
         )}>
         {error}
         <h2>Edit Property</h2>
-        <div class='form-section'>
+        <div className='form-section'>
           <label htmlFor='property-name'>Property name</label>
           <Field component={Input} type='text' name='property-name' id='property-name' validate={[required, nonEmpty]} />
         </div>
@@ -66,6 +69,7 @@ class EditProperty extends Component {
           Delete
         </button>
       </form>
+    );
   }
 }
 

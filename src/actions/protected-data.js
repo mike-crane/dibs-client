@@ -36,6 +36,13 @@ export const clearSelectedDate = () => ({
   type: CLEAR_SELECTED_DATE,
 });
 
+export const SAVE_RESERVATION = 'SAVE_RESERVATION';
+export const saveReservation = (newReservation, reservations) => ({
+  type: SAVE_RESERVATION,
+  newReservation,
+  reservations
+});
+
 export const fetchPropertyData = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/properties`, {
