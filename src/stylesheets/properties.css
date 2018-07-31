@@ -1,16 +1,54 @@
+.property-container {
+  position: relative;
+  display: inline-block;
+  width: 125px;
+  height: 125px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.property-container:hover .property-thumbnail {
+  opacity: 0.3;
+}
+
+.property-container:hover .middle {
+  opacity: 1;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text {
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .properties > h3 {
   text-align: center;
+  margin-top: 3em;
 }
 
 .property-thumbnails {
   text-align: center;
 }
 
-.property-thumbnails img {
-  width: 150px;
-  height: 150px;
-  margin-right: 15px;
+.property-thumbnail {
   border-radius: 10px;
+  opacity: 1;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
 
 .add-property-button {
@@ -18,9 +56,9 @@
   vertical-align: top;
   color: #fff;
   background: lightgray;
-  width: 150px;
-  height: 150px;
-  line-height: 150px;
+  width: 125px;
+  height: 125px;
+  line-height: 125px;
   border-radius: 10px;
   text-decoration: none;
 }

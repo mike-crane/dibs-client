@@ -18,7 +18,7 @@ class Dashboard extends Component {
     let events = this.props.reservations.map((reservation, index) => {
       return {
         id: index,
-        title: reservation.propertyName,
+        title: `${reservation.propertyName} | ${reservation.username}`,
         start: new Date(reservation.start),
         end: new Date(reservation.end),
         resourceId: index
@@ -32,14 +32,16 @@ class Dashboard extends Component {
         <div className='welcome-message'>
           <h2>Welcome {this.props.username}</h2>
         </div>
-        <div className='dashboard-protected-data'>
-          <Ribbon heading='Active Reservations' subheading='' />
-          {reservations}
+        <div className="dashboard-container">
+          <div className='dashboard-protected-data'>
+            <Ribbon heading='Active Reservations' subheading='' />
+            {reservations}
+            <Link className='reservations-button' to='/reservations'>Reserve a Property</Link>
+          </div>
+          <div className='dashboard-calendar-container'>
+          <BigCalendar events={events} selectable views={['month']} />
+          </div>
         </div>
-        <div className='calendar-container'>
-        <BigCalendar events={events} selectable views={['month', 'week']} />
-        </div>
-        <Link className='reservations-button' to='/reservations'>Reserve a Property</Link>
       </div>
     );
   }

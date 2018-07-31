@@ -18,7 +18,7 @@ export class Reservations extends Component {
 
   render() {
     let events = this.props.reservations.map((reservation, index) => {
-      return { id: index, title: reservation.propertyName, start: new Date(reservation.start), end: new Date(reservation.end), resourceId: index };
+      return { id: index, title: `${reservation.propertyName} | ${reservation.username}`, start: new Date(reservation.start), end: new Date(reservation.end), resourceId: index };
     });
 
     if (this.props.selectedProperty) {
@@ -26,6 +26,7 @@ export class Reservations extends Component {
         <div className="reservations">
           <h2>Reservations</h2>
           <Properties />
+          <h3>Drag the mouse over the calendar to select a date/time range</h3>
           <div className="reservation-section">
             <div className="selected-property">
               <PropertyDetails />
@@ -35,23 +36,17 @@ export class Reservations extends Component {
             </div>
           </div>
           <div className="calendar-container">
-            <BigCalendar selectable events={events} views={["month", "week"]} onSelectSlot={slotInfo => this.onDateSelect(slotInfo)} />
+            <BigCalendar selectable events={events} views={["month"]} onSelectSlot={slotInfo => this.onDateSelect(slotInfo)} />
           </div>
         </div>
       );
     } else {
-      return <div className="reservations">
+      return (
+        <div className="reservations">
           <h2>Reservations</h2>
           <Properties />
-          <div className="reservation-section">
-            <div className="selected-property">
-              <PropertyDetails />
-            </div>
-            <div className="reservation-info">
-              <ReservationDetails />
-            </div>
-          </div>
-        </div>;
+        </div>
+      );
     }
   }
 }

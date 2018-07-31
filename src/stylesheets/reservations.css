@@ -1,14 +1,25 @@
 .reservations > h2,
-.reservations > p {
+.reservations > h3 {
   text-align: center;
+  margin-top: 3em;
 }
 
 .calendar-container {
   height: 580px;
-  width: 70%;
+  width: 725px;
   margin: 0 auto;
 }
 
 .reservation-section {
-  padding: 1em 0;
+  width: 700px;
+  margin: 1em auto 3em;
+  border: 10px solid #d3d3d3;
+  border-radius: 10px;
+  background: #d3d3d3;
+}
+
+.rbc-toolbar .rbc-toolbar-label {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.25em;
 }

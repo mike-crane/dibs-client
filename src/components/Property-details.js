@@ -6,22 +6,20 @@ import '../stylesheets/property-details.css';
 const PropertyDetails = (props) => {
   if (props.property) {
     return (
-      <div className='property-details'>
-        <h3>Property Details</h3>
-        <div className='property-image'>
-          <img src={props.property.thumbUrl} alt='placeholder' />
+      <div className="property-details">
+        <div className="property-image">
+          <img src={props.property.thumbUrl} alt={props.property.name} />
         </div>
-        <div className='property-info'>
+        <div className="property-info">
+        <h4>{props.property.name}</h4>
           <ul>
-            <li>{props.property.name}</li>
+            <li>{props.property.address.street}</li>
             <li>
-              {props.property.address.city}, {props.property.address.state}
+            {props.property.address.city}, {props.property.address.state} {props.property.address.zipcode}
             </li>
           </ul>
+          <Link className="edit-property-button" to="/edit-property">Edit</Link>
         </div>
-        <Link className='edit-property-button' to='/edit-property'>
-          Edit
-        </Link>
       </div>
     );
   } else {

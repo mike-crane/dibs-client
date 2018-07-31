@@ -13,14 +13,13 @@ class Properties extends Component {
   }
 
   render() {
-    let propertyList = this.props.properties.map(property => <img src={property.thumbUrl} key={property.id} 
-      onClick={ () => this.onPropertySelect(property, username) } />);
+    let propertyList = this.props.properties.map(property => <div className="property-container" key={property.id} onClick={() => this.onPropertySelect(property, username)}><img className="property-thumbnail" src={property.thumbUrl} /><div className="middle"><div className="text">{property.name}</div></div></div>);
 
     let username = this.props.username;
 
     return (
       <div className='properties'>
-        <h3>Properties</h3>
+        <h3>Select a Property</h3>
         <div className='property-thumbnails'>
           {propertyList}
           <Link className='add-property-button' to='/add-property'><FaPlus /></Link>
