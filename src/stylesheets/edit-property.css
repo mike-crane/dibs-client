@@ -1,7 +1,68 @@
-/* .save-property-button,
-.delete-property-button {
+.save-property-button,
+.delete-property-button,
+.submit-property-button {
   border: 1px solid #000;
   border-radius: 4px;
   padding: 5px 10px;
   cursor: pointer;
-} */
+}
+
+.save-property-button,
+.delete-property-button {
+  display: inline-block;
+  width: 45%;
+  margin-top: 1em;
+}
+
+.save-property-button {
+  margin-right: 8%;
+  margin-left: 1%;
+}
+
+.submit-property-button {
+  width: 99%;
+  display: block;
+  margin: 1em auto;
+}
+
+fieldset {
+  margin-top: 1em;
+}
+
+.form-section {
+  margin-top: .5em;
+}
+
+legend {
+  font-weight: bold;
+}
+
+.list-property {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.list-property h2 {
+  text-align: center;
+}
+
+.form-input {
+  display: inline-block;
+}
+
+#property-type {
+  margin-right: 1em;
+}
+
+.address-label {
+  width: 80px;
+  display: inline-block;
+}
+
+.address-name {
+  width: 170px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.25em;
+  margin: 1em 0;
+}

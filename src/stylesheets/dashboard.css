@@ -1,18 +1,17 @@
-.welcome-message,
-.dashboard-protected-data p {
-  /* text-align: center; */
+.welcome-message {
+  text-align: center;
 }
 
 .dashboard-calendar-container {
   height: 450px;
-  width: 75%;
+  width: 70%;
   display: inline-block;
   vertical-align: top;
 }
 
 .reservations-button {
   display: block;
-  width: 210px;
+  /* width: 210px; */
   text-align: center;
   border: 1px solid #000;
   border-radius: 4px;
@@ -23,6 +22,7 @@
 .dashboard-protected-data {
   display: inline-block;
   width: 25%;
+  padding: 1em;
 }
 
 .dashboard-container {
