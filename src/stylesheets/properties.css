@@ -8,7 +8,7 @@
 }
 
 .property-container:hover .property-thumbnail {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .property-container:hover .middle {
@@ -27,7 +27,7 @@
 }
 
 .text {
-  color: #000;
+  color: #3A7C98;
   font-size: 16px;
   font-weight: bold;
 }
@@ -55,7 +55,7 @@
   display: inline-block;
   vertical-align: top;
   color: #fff;
-  background: lightgray;
+  background: #d3d3d3;
   width: 125px;
   height: 125px;
   line-height: 125px;

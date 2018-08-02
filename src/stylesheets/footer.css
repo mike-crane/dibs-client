@@ -1,9 +1,14 @@
 .footer {
-  padding: .5em;
+  padding: 1em;
   background: #4A4A4A;
+  text-align: center;
 }
 
 .footer p {
   text-align: center;
   color: #fff;
+}
+
+.footer img {
+  width: 75px;
 }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { clearSelectedProperty } from '../actions/protected-data';
 import { clearAuthToken } from '../local-storage';
+import Logo from '../images/logo.svg';
 import '../stylesheets/header.css';
 
 class Header extends Component {
@@ -20,7 +21,7 @@ class Header extends Component {
     }
     return (
       <div className='header-bar'>
-        <h1>{this.props.title}</h1>
+        <img src={Logo} alt={this.props.title} />
         {logOutButton}
       </div>
     );

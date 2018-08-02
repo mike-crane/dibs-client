@@ -8,9 +8,8 @@ class ReservationDetails extends Component {
   onSaveReservation(event) {
     let newReservation = this.props.currentReservation;
     let reservations = this.props.reservations;
-    event.preventDefault();
     this.props.dispatch(saveReservation(newReservation, reservations));
-    // this.props.history.push('/dashboard');
+    event.preventDefault();
   }
 
   render() {
@@ -32,7 +31,7 @@ class ReservationDetails extends Component {
             </div>
             
             <div className="res-block">
-              <label htmlFor='res-start'>Start: </label>
+              <label htmlFor='res-start'>From: </label>
               <input
                 id='res-start'
                 type='text'
@@ -42,7 +41,7 @@ class ReservationDetails extends Component {
             </div>
             
             <div className="res-block">
-              <label htmlFor='res-end'>End: </label>
+              <label htmlFor='res-end'>To: </label>
               <input
                 id='res-end'
                 type='text'

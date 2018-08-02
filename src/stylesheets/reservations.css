@@ -1,4 +1,10 @@
-.reservations > h2,
+.reservations > h2 {
+  text-align: center;
+  padding: .25em 0;
+  margin: 0;
+  background: #d3d3d3;
+}
+
 .reservations > h3 {
   text-align: center;
   margin-top: 3em;
@@ -10,12 +16,18 @@
   margin: 0 auto;
 }
 
+.rbc-event {
+  background-color: #3A7C98;
+  color: #FFE554;
+  border: 2px solid #3A7C98;
+}
+
 .reservation-section {
   width: 700px;
   margin: 1em auto 3em;
-  border: 10px solid #d3d3d3;
+  border: 10px solid #FFE554;
   border-radius: 10px;
-  background: #d3d3d3;
+  background: #FFE554;
 }
 
 .rbc-toolbar .rbc-toolbar-label {

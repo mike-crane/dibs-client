@@ -1,14 +1,13 @@
 import React from 'react';
+import Logo from "../images/logo.svg";
 import '../stylesheets/footer.css';
 
 const Footer = (props) => {
-  return (
-    <div className='footer'>
+  return <div className="footer">
       <footer>
-        <p>Dibs</p>
+        <img src={Logo} alt="Dibs logo" />
       </footer>
-    </div>
-  );
+    </div>;
 };
 
 export default Footer;
