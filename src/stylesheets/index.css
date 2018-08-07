@@ -14,6 +14,11 @@ h3 {
   font-size: 1.5em;
 }
 
+button:focus,
+input:focus { 
+  outline: none; 
+}
+
 .App {
   text-align: center;
 }
