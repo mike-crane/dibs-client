@@ -13,7 +13,7 @@
 .calendar-container {
   height: 580px;
   width: 725px;
-  margin: 0 auto;
+  margin: 1em auto 3em;
 }
 
 .rbc-event {

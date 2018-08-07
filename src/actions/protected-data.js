@@ -20,6 +20,12 @@ export const setSelectedProperty = (property, username) => ({
   username
 });
 
+export const EDIT_SELECTED_PROPERTY = 'EDIT_SELECTED_PROPERTY';
+export const editProperty = property => ({
+  type: EDIT_SELECTED_PROPERTY,
+  property
+});
+
 export const CLEAR_SELECTED_PROPERTY = 'CLEAR_SELECTED_PROPERTY';
 export const clearSelectedProperty = () => ({
   type: CLEAR_SELECTED_PROPERTY

@@ -31,6 +31,13 @@
   display: inline-block;
   width: 25%;
   padding: 1em;
+  background: #FFE554;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.dashboard-protected-data h2 {
+  font-size: 1.25em;
 }
 
 .dashboard-container {

@@ -25,7 +25,6 @@ const PropertyDetails = (props) => {
   } else {
     return <div></div>;
   }
-  
 }
 
 const mapStateToProps = state => {

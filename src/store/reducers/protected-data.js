@@ -4,6 +4,7 @@ import {
   FETCH_PROPERTY_DATA_SUCCESS,
   FETCH_PROPERTY_DATA_ERROR,
   SET_SELECTED_PROPERTY,
+  EDIT_SELECTED_PROPERTY,
   CLEAR_SELECTED_PROPERTY,
   SET_SELECTED_DATE,
   CLEAR_SELECTED_DATE,
@@ -107,6 +108,8 @@ export default function reducer(state = initialState, action) {
       selectedProperty: action.property,
       currentReservation: newReservation
     });
+  } else if (action.type === EDIT_SELECTED_PROPERTY) {
+    return Object.assign({}, state, { property: action.property });
   } else if (action.type === CLEAR_SELECTED_PROPERTY) {
     return Object.assign({}, state, { selectedProperty: null });
   } else if (action.type === SET_SELECTED_DATE) {

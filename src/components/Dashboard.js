@@ -39,7 +39,7 @@ class Dashboard extends Component {
             <Link className='reservations-button' to='/reservations'>Reserve a Property</Link>
           </div>
           <div className='dashboard-calendar-container'>
-          <BigCalendar events={events} selectable views={['month']} />
+          <BigCalendar events={events} views={['month']} />
           </div>
         </div>
       </div>

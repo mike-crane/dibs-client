@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { saveReservation } from '../actions/protected-data';
 import '../stylesheets/reservation-details.css';
 

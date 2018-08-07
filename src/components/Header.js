@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { clearSelectedProperty } from '../actions/protected-data';
@@ -19,12 +20,12 @@ class Header extends Component {
     if (this.props.loggedIn) {
       logOutButton = <button className='logout-button' onClick={() => this.logOut()}>Log out</button>;
     }
-    return (
-      <div className='header-bar'>
-        <img src={Logo} alt={this.props.title} />
+    return <div className="header-bar">
+        <Link to="/dashboard">
+          <img src={Logo} alt={this.props.title} />
+        </Link>
         {logOutButton}
-      </div>
-    );
+      </div>;
   }
 }
 
