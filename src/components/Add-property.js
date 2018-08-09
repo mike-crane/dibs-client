@@ -1,38 +1,29 @@
 import React, { Component } from 'react';
-import { Field, reduxForm, focus } from 'redux-form';
-// import Input from './Input';
+import { Field, reduxForm } from 'redux-form';
+import Input from './Input';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-// import { login } from '../actions/auth';
-import { required, nonEmpty } from '../validators';
+import { postPropertyData } from '../actions/protected-data';
 import '../stylesheets/edit-property.css';
 
 class AddProperty extends Component {
-  fileSelectedHandler = event => {
-    console.log(event.target.files[0]);
+
+  onSubmit(values) {
+    console.log(values);
+    this.props.dispatch(postPropertyData(values));
   }
 
   render() {
-    let error;
-    if (this.props.error) {
-      error = (
-        <div className='form-error' aria-live='polite'>
-          {this.props.error}
-        </div>
-      );
-    }
     return <div className="new-property">
         <h2>New Propery</h2>
         <form className="list-property" onSubmit={this.props.handleSubmit(
             values => this.onSubmit(values)
           )}>
-          {error}
-
           <div className="form-section">
-            <label htmlFor="property-name" className="address-name">
+            <label htmlFor="name" className="address-name">
               Property name
             </label>
-            <Field component="input" type="text" name="property-name" id="property-name" validate={[required, nonEmpty]} />
+            <Field component={Input} type="text" name="name" id="name" autoComplete="off" />
           </div>
 
           <fieldset>
@@ -41,36 +32,37 @@ class AddProperty extends Component {
               <label htmlFor="street" className="address-label">
                 Street
               </label>
-              <Field component="input" type="text" name="street" id="street" validate={[required, nonEmpty]} />
+              <Field component={Input} type="text" name="street" id="street" autoComplete="off" />
             </div>
 
             <div className="form-section">
               <label htmlFor="city" className="address-label">
                 City
               </label>
-              <Field component="input" type="text" name="city" id="city" validate={[required, nonEmpty]} />
+              <Field component={Input} type="text" name="city" id="city" autoComplete="off" />
             </div>
 
             <div className="form-section">
               <label htmlFor="state" className="address-label">
                 State
               </label>
-              <Field component="input" type="text" name="state" id="state" validate={[required, nonEmpty]} />
+              <Field component={Input} type="text" name="state" id="state" autoComplete="off" />
             </div>
 
             <div className="form-section">
               <label htmlFor="zipcode" className="address-label">
                 Zip Code
               </label>
-              <Field component="input" type="text" name="zipcode" id="zipcode" validate={[required, nonEmpty]} />
+              <Field component={Input} type="text" name="zipcode" id="zipcode" autoComplete="off" />
             </div>
           </fieldset>
 
           <div className="form-section">
-            <label htmlFor="property-type" className="property-label">
+            <label htmlFor="type" className="property-label">
               Property type
-              </label>
-            <Field name="property-type" component="select">
+            </label>
+            <Field name="type" id="type" component="select" required>
+              <option value="select">Select Type</option>
               <option value="house">House</option>
               <option value="condo">Condo</option>
               <option value="apartment">Apartment</option>
@@ -78,14 +70,14 @@ class AddProperty extends Component {
           </div>
 
           <div className="form-section">
-            <label htmlFor="property-photo" className="property-label">
-              Property Photo
+            <label htmlFor="thumbUrl" className="property-photo">
+              Property Image Address
             </label>
-            <input type="file" onChange={this.fileSelectedHandler} />
-            {/* <Field name="property-photo" component="input" type="file" onChange={this.fileSelectedHandler} /> */}
+            {/* <input type="file" onChange={this.fileSelectedHandler} /> */}
+            <Field component={Input} type="text" name="thumbUrl" autoComplete="off" />
           </div>
 
-          <button className="save-property-button" disabled={this.props.pristine || this.props.submitting}>
+          <button className="save-property-button" type="submit" disabled={this.props.pristine || this.props.submitting}>
             Submit
           </button>
           <Link className="cancel-button" to="/reservations">
@@ -96,14 +88,12 @@ class AddProperty extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    properties: state.protectedData.properties,
-    selectedProperty: state.protectedData.selectedProperty 
-  };
-};
+const mapStateToProps = state => ({
+  properties: state.protectedData.properties,
+  selectedProperty: state.protectedData.selectedProperty
+});
 
 export default reduxForm({
-  form: 'add-property',
-  onSubmitFail: (errors, dispatch) => dispatch(focus('add-property', Object.keys(errors)[0]))
+  form: 'addProperty',
+  // onSubmitSuccess: console.log('Property has been added successfully!')
 })(connect(mapStateToProps)(AddProperty));

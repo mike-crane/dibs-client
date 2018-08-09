@@ -26,14 +26,15 @@ class RegistrationForm extends Component {
         )}>
         <div className='registration-form-section'>
           <label htmlFor='firstName'>First name</label>
-          <Field component={Input} type='text' name='firstName' />
+          <Field component={Input} type='text' name='firstName' autoComplete='off' />
           <label htmlFor='lastName'>Last name</label>
-          <Field component={Input} type='text' name='lastName' />
+          <Field component={Input} type='text' name='lastName' autoComplete='off' />
           <label htmlFor='username'>Username</label>
           <Field
             component={Input}
             type='text'
-            name='username'
+            name='username' 
+            autoComplete='off'
             validate={[required, nonEmpty, isTrimmed]}
           />
           <label htmlFor='password'>Password</label>

@@ -27,9 +27,9 @@ class LoginForm extends Component {
         <h2>Start Calling Dibs Now</h2>
         <div className='login-form-section'>
           <label htmlFor='username'>Username</label>
-          <Field component={Input} type='text' name='username' id='username' validate={[required, nonEmpty]} />
+          <Field component={Input} type='text' name='username' id='username' autoComplete='off' validate={[required, nonEmpty]} />
           <label htmlFor='password'>Password</label>
-          <Field component={Input} type='password' name='password' id='password' validate={[required, nonEmpty]} />
+          <Field component={Input} type='password' name='password' id='password' autoComplete='off' validate={[required, nonEmpty]} />
         
           <button className='login-button' disabled={this.props.pristine || this.props.submitting}>
             Log in

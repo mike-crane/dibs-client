@@ -16,7 +16,6 @@ export function Landing(props) {
 
   return (
     <div className='home'>
-      <h2>a reservation system for family shared vacation properties</h2>
       <LoginForm />
       <Link to='/register'>Register</Link>
       <Ribbon heading='Share a Property' 

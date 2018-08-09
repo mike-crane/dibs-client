@@ -13,9 +13,9 @@ const PropertyDetails = (props) => {
         <div className="property-info">
         <h4>{props.property.name}</h4>
           <ul>
-            <li>{props.property.address.street}</li>
+            <li>{props.property.street}</li>
             <li>
-            {props.property.address.city}, {props.property.address.state} {props.property.address.zipcode}
+            {props.property.city}, {props.property.state} {props.property.zipcode}
             </li>
           </ul>
           <Link className="edit-property-button" to="/edit-property">Edit</Link>

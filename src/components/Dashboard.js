@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchReservationData } from "../actions/protected-data";
 import requiresLogin from './Requires-login';
 import Ribbon from './Ribbon';
 import BigCalendar from 'react-big-calendar';
@@ -10,9 +11,9 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
 class Dashboard extends Component {
-  // componentDidMount() {
-  //   this.props.dispatch(fetchProtectedData());
-  // }
+  componentWillMount() {
+    this.props.dispatch(fetchReservationData());
+  }
 
   render() {
     let events = this.props.reservations.map((reservation, index) => {

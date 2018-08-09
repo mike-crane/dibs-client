@@ -6,12 +6,16 @@ import PropertyDetails from './Property-details';
 import ReservationDetails from './Reservation-details';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import { setSelectedDate } from "../actions/protected-data";
+import { setSelectedDate, fetchPropertyData } from "../actions/protected-data";
 import '../stylesheets/reservations.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
 export class Reservations extends Component {
+  componentWillMount() {
+    this.props.dispatch(fetchPropertyData());
+  }
+
   onDateSelect(slotInfo) {
     this.props.dispatch(setSelectedDate(slotInfo));
   }
