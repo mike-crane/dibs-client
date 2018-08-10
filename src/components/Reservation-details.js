@@ -5,9 +5,9 @@ import '../stylesheets/reservation-details.css';
 
 class ReservationDetails extends Component {
   onPostReservationData(event) {
-    let newReservation = this.props.currentReservation;
+    // let newReservation = this.props.currentReservation;
     // let reservations = this.props.reservations;
-    this.props.dispatch(postReservationData(newReservation));
+    this.props.dispatch(postReservationData(this.props.currentReservation));
     event.preventDefault();
   }
 
@@ -15,7 +15,8 @@ class ReservationDetails extends Component {
     let options = { weekday: "long", month: "short", day: "numeric" };
 
     if (this.props.currentReservation.propertyID) {
-      return <div className="reservation-details">
+      return (
+        <div className="reservation-details">
           <h4>Reserve this Property</h4>
           <form onSubmit={e => this.onPostReservationData(e)}>
             <div className="res-block">
@@ -35,7 +36,8 @@ class ReservationDetails extends Component {
 
             <button>Save Reservation</button>
           </form>
-        </div>;
+        </div>
+      );
     } else {
       return <div />;
     }

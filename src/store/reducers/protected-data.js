@@ -134,7 +134,7 @@ export default function reducer(state = initialState, action) {
   }
   if (action.type === POST_RESERVATION_DATA_SUCCESS) {
     return Object.assign({}, state, {
-      properties: [...state.reservations, action.data],
+      reservations: [...state.reservations, action.data],
       error: null
     });
   }
