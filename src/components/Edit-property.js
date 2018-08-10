@@ -75,11 +75,10 @@ class EditProperty extends Component {
           </div>
 
           <div className="form-section">
-            <label htmlFor="property-photo" className="property-label">
-              Property Photo
-              </label>
-            <input type="file" onChange={this.fileSelectedHandler} />
-            {/* <Field name="property-photo" component={Input} type="file" onChange={this.fileSelectedHandler} /> */}
+            <label htmlFor="thumbUrl" className="property-photo">
+              Property Image Address
+            </label>
+            <Field component={Input} type="text" name="thumbUrl" />
           </div>
 
           <button className="save-property-button" type="submit" disabled={this.props.pristine || this.props.submitting}>

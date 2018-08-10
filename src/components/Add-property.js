@@ -7,10 +7,13 @@ import { postPropertyData } from '../actions/protected-data';
 import '../stylesheets/edit-property.css';
 
 class AddProperty extends Component {
-
   onSubmit(values) {
+    if (!values.thumbUrl) {
+      values.thumbUrl = "https://github.com/mike-crane/dibs-client/blob/master/src/images/default-property.png?raw=true";
+    }
     console.log(values);
     this.props.dispatch(postPropertyData(values));
+    this.props.history.push("/reservations");
   }
 
   render() {
@@ -23,7 +26,7 @@ class AddProperty extends Component {
             <label htmlFor="name" className="address-name">
               Property name
             </label>
-            <Field component={Input} type="text" name="name" id="name" autoComplete="off" />
+          <Field component={Input} type="text" name="name" id="name" />
           </div>
 
           <fieldset>
@@ -32,28 +35,28 @@ class AddProperty extends Component {
               <label htmlFor="street" className="address-label">
                 Street
               </label>
-              <Field component={Input} type="text" name="street" id="street" autoComplete="off" />
+              <Field component={Input} type="text" name="street" id="street" />
             </div>
 
             <div className="form-section">
               <label htmlFor="city" className="address-label">
                 City
               </label>
-              <Field component={Input} type="text" name="city" id="city" autoComplete="off" />
+              <Field component={Input} type="text" name="city" id="city" />
             </div>
 
             <div className="form-section">
               <label htmlFor="state" className="address-label">
                 State
               </label>
-              <Field component={Input} type="text" name="state" id="state" autoComplete="off" />
+              <Field component={Input} type="text" name="state" id="state" />
             </div>
 
             <div className="form-section">
               <label htmlFor="zipcode" className="address-label">
                 Zip Code
               </label>
-              <Field component={Input} type="text" name="zipcode" id="zipcode" autoComplete="off" />
+              <Field component={Input} type="text" name="zipcode" id="zipcode" />
             </div>
           </fieldset>
 
@@ -73,8 +76,7 @@ class AddProperty extends Component {
             <label htmlFor="thumbUrl" className="property-photo">
               Property Image Address
             </label>
-            {/* <input type="file" onChange={this.fileSelectedHandler} /> */}
-            <Field component={Input} type="text" name="thumbUrl" autoComplete="off" />
+          <Field component={Input} type="text" name="thumbUrl" />
           </div>
 
           <button className="save-property-button" type="submit" disabled={this.props.pristine || this.props.submitting}>
@@ -94,6 +96,5 @@ const mapStateToProps = state => ({
 });
 
 export default reduxForm({
-  form: 'addProperty',
-  // onSubmitSuccess: console.log('Property has been added successfully!')
+  form: "addProperty"
 })(connect(mapStateToProps)(AddProperty));

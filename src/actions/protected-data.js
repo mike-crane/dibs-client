@@ -218,7 +218,7 @@ export const setSelectedDate = slotInfo => ({
 
 export const CLEAR_SELECTED_DATE = 'CLEAR_SELECTED_DATE';
 export const clearSelectedDate = () => ({
-  type: CLEAR_SELECTED_DATE,
+  type: CLEAR_SELECTED_DATE
 });
 
 // export const SAVE_RESERVATION = 'SAVE_RESERVATION';
@@ -227,21 +227,6 @@ export const clearSelectedDate = () => ({
 //   newReservation,
 //   reservations
 // });
-
-// export const propertyDetails = id => (dispatch, getState) => {
-//   const authToken = getState().auth.authToken;
-//   return fetch(`${API_BASE_URL}/dibs/properties/${id}`, {
-//     method: 'GET',
-//     headers: {
-//       // Provide our auth token as credentials
-//       Authorization: `Bearer ${authToken}`
-//     }
-//   })
-//     .then(res => res.json())
-//     .then(data => {
-//       dispatch(fetchPropertyDataSuccess(data));
-//     });
-// };
 
 
 

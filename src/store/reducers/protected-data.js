@@ -18,8 +18,7 @@ import {
   SET_SELECTED_PROPERTY,
   CLEAR_SELECTED_PROPERTY,
   SET_SELECTED_DATE,
-  CLEAR_SELECTED_DATE,
-  SAVE_RESERVATION
+  CLEAR_SELECTED_DATE
 } from "../../actions/protected-data";
 
 const initialState = {
