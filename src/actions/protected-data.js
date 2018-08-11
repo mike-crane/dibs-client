@@ -205,6 +205,12 @@ export const setSelectedProperty = (property, username) => ({
   username
 });
 
+export const SHOW_SELECTED_RESERVATION = 'SHOW_SELECTED_RESERVATION';
+export const showSelectedReservation = reservation => ({
+  type: SHOW_SELECTED_RESERVATION,
+  reservation
+});
+
 export const CLEAR_SELECTED_PROPERTY = 'CLEAR_SELECTED_PROPERTY';
 export const clearSelectedProperty = () => ({
   type: CLEAR_SELECTED_PROPERTY
@@ -221,12 +227,15 @@ export const clearSelectedDate = () => ({
   type: CLEAR_SELECTED_DATE
 });
 
-// export const SAVE_RESERVATION = 'SAVE_RESERVATION';
-// export const saveReservation = (newReservation, reservations) => ({
-//   type: SAVE_RESERVATION,
-//   newReservation,
-//   reservations
-// });
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const showModal = () => ({
+  type: SHOW_MODAL
+});
+
+export const HIDE_MODAL = 'HIDE_MODAL';
+export const hideModal = () => ({
+  type: HIDE_MODAL
+});
 
 
 

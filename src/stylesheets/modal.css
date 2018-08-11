@@ -1,0 +1,42 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.modal-content {
+  position: absolute;
+  top: 40px;
+  left: 25%;
+  right: 25%;
+  bottom: 40px;
+  border: 1px solid #ccc;
+  background: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px 60px;
+  z-index: 999;
+}
+
+.modal-content span {
+  font-weight: 700;
+  padding-right: 1em;
+}
+
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-button svg {
+  height: 30px;
+  width: 30px;
+}

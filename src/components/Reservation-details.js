@@ -5,8 +5,6 @@ import '../stylesheets/reservation-details.css';
 
 class ReservationDetails extends Component {
   onPostReservationData(event) {
-    // let newReservation = this.props.currentReservation;
-    // let reservations = this.props.reservations;
     this.props.dispatch(postReservationData(this.props.currentReservation));
     event.preventDefault();
   }

@@ -6,31 +6,61 @@ import PropertyDetails from './Property-details';
 import ReservationDetails from './Reservation-details';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import { setSelectedDate, fetchPropertyData } from "../actions/protected-data";
+import ReactModal from "react-modal";
+import Close from "react-icons/lib/io/close-round";
+import {
+  setSelectedDate,
+  fetchPropertyData,
+  fetchReservationData,
+  showSelectedReservation,
+  showModal,
+  hideModal
+} from "../actions/protected-data";
 import '../stylesheets/reservations.css';
+import "../stylesheets/modal.css";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
+ReactModal.setAppElement("#root");
 
 export class Reservations extends Component {
   componentWillMount() {
     this.props.dispatch(fetchPropertyData());
+    this.props.dispatch(fetchReservationData());
   }
 
   onDateSelect(slotInfo) {
     this.props.dispatch(setSelectedDate(slotInfo));
   }
 
+  handleSelectEvent(event) {
+    this.props.dispatch(showModal());
+    this.props.dispatch(showSelectedReservation(event));
+  }
+
+  handleCloseModal() {
+    this.props.dispatch(hideModal());
+  }
+
   render() {
+    let options = { weekday: "long", month: "long", day: "numeric" };
     let events = this.props.reservations.map((reservation, index) => {
-      return { id: index, title: `${reservation.propertyName} | ${reservation.username}`, start: new Date(reservation.start), end: new Date(reservation.end), resourceId: index };
+      return { 
+        id: index, 
+        title: `${reservation.propertyName}`, 
+        guest: `${reservation.username}`, 
+        start: new Date(reservation.start), 
+        end: new Date(reservation.end), 
+        resourceId: index 
+      };
     });
 
     if (this.props.selectedProperty) {
-      return (
-        <div className="reservations">
+      return <div className="reservations">
           <h2>Reservations</h2>
           <Properties />
-          <h3>Drag the mouse over the calendar to select a date/time range</h3>
+          <h3>
+            Drag the mouse over the calendar to select a date/time range
+          </h3>
           <div className="reservation-section">
             <div className="selected-property">
               <PropertyDetails />
@@ -40,10 +70,18 @@ export class Reservations extends Component {
             </div>
           </div>
           <div className="calendar-container">
-            <BigCalendar selectable events={events} views={["month"]} onSelectSlot={slotInfo => this.onDateSelect(slotInfo)} />
+            <BigCalendar selectable events={events} views={["month"]} onSelectSlot={slotInfo => this.onDateSelect(slotInfo)} onSelectEvent={event => this.handleSelectEvent(event)} />
           </div>
-        </div>
-      );
+          <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
+            <h2>{this.props.selectedReservation.title}</h2>
+            <p><span>Reserved by:</span> {this.props.selectedReservation.guest}</p>
+            <p><span>From:</span> {this.props.selectedReservation.start.toLocaleString("en-US", options)}</p>
+            <p><span>To:</span> {this.props.selectedReservation.end.toLocaleString("en-US", options)}</p>
+            <button className="modal-button" onClick={() => this.handleCloseModal()}>
+              <Close />
+            </button>
+          </ReactModal>
+        </div>;
     } else {
       return (
         <div className="reservations">
@@ -63,7 +101,9 @@ const mapStateToProps = state => {
     properties: state.protectedData.properties,
     reservations: state.protectedData.reservations,
     currentReservation: state.protectedData.currentReservation,
-    selectedProperty: state.protectedData.selectedProperty  
+    selectedProperty: state.protectedData.selectedProperty,
+    showModal: state.protectedData.showModal,
+    selectedReservation: state.protectedData.selectedReservation  
   };
 };
 

@@ -17,8 +17,11 @@ import {
   DELETE_RESERVATION_ERROR,
   SET_SELECTED_PROPERTY,
   CLEAR_SELECTED_PROPERTY,
+  SHOW_SELECTED_RESERVATION,
   SET_SELECTED_DATE,
-  CLEAR_SELECTED_DATE
+  CLEAR_SELECTED_DATE,
+  SHOW_MODAL,
+  HIDE_MODAL
 } from "../../actions/protected-data";
 
 const initialState = {
@@ -32,7 +35,14 @@ const initialState = {
     start: "",
     end: ""
   },
+  selectedReservation: {
+    title: "",
+    guest: "",
+    start: "",
+    end: ""
+  },
   reservations: [],
+  showModal: false,
   error: null
 };
 
@@ -172,6 +182,9 @@ export default function reducer(state = initialState, action) {
   if (action.type === CLEAR_SELECTED_PROPERTY) {
     return Object.assign({}, state, { selectedProperty: null });
   } 
+  if (action.type === SHOW_SELECTED_RESERVATION) {
+    return Object.assign({}, state, { selectedReservation: action.reservation });
+  }
   if (action.type === SET_SELECTED_DATE) {
     const reservationDates = deepcopy(state.currentReservation);
     reservationDates.start = action.slotInfo.start;
@@ -184,10 +197,11 @@ export default function reducer(state = initialState, action) {
     clearDates.end = "";
     return Object.assign({}, state, { currentReservation: clearDates });
   } 
-  // if (action.type === SAVE_RESERVATION) {
-  //   let reservations = action.reservations;
-  //   let newReservation = action.newReservation;
-  //   return Object.assign({}, state, { reservations: [newReservation, ...reservations] });
-  // }
+  if (action.type === SHOW_MODAL) {
+    return Object.assign({}, state, { showModal: true });
+  } 
+  if (action.type === HIDE_MODAL) {
+    return Object.assign({}, state, { showModal: false });
+  } 
   return state;
 }
