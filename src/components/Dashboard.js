@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchReservationData, showModal, hideModal, showSelectedReservation } from "../actions/protected-data";
+import {
+  fetchReservationData,
+  showModal,
+  hideModal,
+  showSelectedReservation,
+  clearSelectedReservation
+} from "../actions/protected-data";
 import requiresLogin from './Requires-login';
 import Ribbon from './Ribbon';
 import BigCalendar from 'react-big-calendar';
@@ -26,6 +32,7 @@ class Dashboard extends Component {
 
   handleCloseModal() {
     this.props.dispatch(hideModal());
+    this.props.dispatch(clearSelectedReservation());
   }
 
   render() {
@@ -48,32 +55,65 @@ class Dashboard extends Component {
       </p>
     ));
 
-    return <div className="dashboard">
-        <div className="welcome-message">
-          <h2>Welcome {this.props.username}</h2>
-        </div>
-        <div className="dashboard-container">
-          <div className="dashboard-protected-data">
-            <Ribbon heading="Active Reservations" subheading="" />
-            {reservations}
-            <Link className="reservations-button" to="/reservations">
-              Reserve a Property
-            </Link>
+    if (this.props.reservations.length === 0) {
+      return (
+        <div className="dashboard">
+          <div className="welcome-message">
+            <h2>Welcome {this.props.username}</h2>
           </div>
-          <div className="dashboard-calendar-container">
-            <BigCalendar events={events} views={["month"]} onSelectEvent={event => this.handleSelectEvent(event)} />
+          <div className="dashboard-container">
+            <div className="dashboard-protected-data">
+              <Ribbon heading="Active Reservations" subheading="" />
+              <p><em>You do not have any active reservations</em></p>
+              <Link className="reservations-button" to="/reservations">
+                Reserve a Property
+              </Link>
+            </div>
+            <div className="dashboard-calendar-container">
+              <BigCalendar events={events} views={["month"]} onSelectEvent={event => this.handleSelectEvent(event)} />
+            </div>
+            <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
+              {this.props.selectedReservation.title}
+              {this.props.selectedReservation.guest}
+              {this.props.selectedReservation.start.toLocaleString("en-US", options)}
+              {this.props.selectedReservation.end.toLocaleString("en-US", options)}
+              <button className="modal-button" onClick={() => this.handleCloseModal()}>
+                <Close />
+              </button>
+            </ReactModal>
           </div>
-          <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
-            <h2>{this.props.selectedReservation.title}</h2>
-            <p><span>Reserved by:</span> {this.props.selectedReservation.guest}</p>
-            <p><span>From:</span> {this.props.selectedReservation.start.toLocaleString("en-US", options)}</p>
-            <p><span>To:</span> {this.props.selectedReservation.end.toLocaleString("en-US", options)}</p>
-            <button className="modal-button" onClick={() => this.handleCloseModal()}>
-              <Close />
-            </button>
-          </ReactModal>
         </div>
-      </div>;
+      );  
+    } else {
+      return (
+        <div className="dashboard">
+          <div className="welcome-message">
+            <h2>Welcome {this.props.username}</h2>
+          </div>
+          <div className="dashboard-container">
+            <div className="dashboard-protected-data">
+              <Ribbon heading="Active Reservations" subheading="" />
+              {reservations}
+              <Link className="reservations-button" to="/reservations">
+                Reserve a Property
+              </Link>
+            </div>
+            <div className="dashboard-calendar-container">
+              <BigCalendar events={events} views={["month"]} onSelectEvent={event => this.handleSelectEvent(event)} />
+            </div>
+            <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
+              {this.props.selectedReservation.title}
+              {this.props.selectedReservation.guest}
+              {this.props.selectedReservation.start.toLocaleString("en-US", options)}
+              {this.props.selectedReservation.end.toLocaleString("en-US", options)}
+              <button className="modal-button" onClick={() => this.handleCloseModal()}>
+                <Close />
+              </button>
+            </ReactModal>
+          </div>
+        </div>
+      ); 
+    } 
   }
 }
 

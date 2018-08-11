@@ -17,19 +17,30 @@ class Properties extends Component {
   }
 
   render() {
-    let propertyList = this.props.properties.map(property => <div className="property-container" key={property.id} onClick={() => this.onPropertySelect(property, username)}><img className="property-thumbnail" src={property.thumbUrl} alt={property.name} /><div className="middle"><div className="text">{property.name}</div></div></div>);
-
-    let username = this.props.username;
-
-    return (
+    if (this.props.properties.length === 0) {
+      return (
       <div className='properties'>
-        <h3>Select a Property</h3>
+        <h3>Click the button below to add a property</h3>
         <div className='property-thumbnails'>
-          {propertyList}
           <Link className='add-property-button' to='/add-property'><FaPlus /></Link>
         </div>
       </div>
     );
+    } else {
+      let username = this.props.username;
+
+      let propertyList = this.props.properties.map(property => <div className="property-container" key={property.id} onClick={() => this.onPropertySelect(property, username)}><img className="property-thumbnail" src={property.thumbUrl} alt={property.name} /><div className="middle"><div className="text">{property.name}</div></div></div>);
+
+      return (
+        <div className='properties'>
+          <h3>Select a Property</h3>
+          <div className='property-thumbnails'>
+            {propertyList}
+            <Link className='add-property-button' to='/add-property'><FaPlus /></Link>
+          </div>
+        </div>
+      );
+    }
   }
 };
 

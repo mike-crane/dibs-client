@@ -18,6 +18,7 @@ import {
   SET_SELECTED_PROPERTY,
   CLEAR_SELECTED_PROPERTY,
   SHOW_SELECTED_RESERVATION,
+  CLEAR_SELECTED_RESERVATION,
   SET_SELECTED_DATE,
   CLEAR_SELECTED_DATE,
   SHOW_MODAL,
@@ -184,6 +185,9 @@ export default function reducer(state = initialState, action) {
   } 
   if (action.type === SHOW_SELECTED_RESERVATION) {
     return Object.assign({}, state, { selectedReservation: action.reservation });
+  }
+  if (action.type === CLEAR_SELECTED_RESERVATION) {
+    return Object.assign({}, state, { selectedReservation: {title: "", guest: "", start: "", end: ""} });
   }
   if (action.type === SET_SELECTED_DATE) {
     const reservationDates = deepcopy(state.currentReservation);

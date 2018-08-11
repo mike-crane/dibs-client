@@ -14,7 +14,8 @@ import {
   fetchReservationData,
   showSelectedReservation,
   showModal,
-  hideModal
+  hideModal,
+  clearSelectedReservation
 } from "../actions/protected-data";
 import '../stylesheets/reservations.css';
 import "../stylesheets/modal.css";
@@ -39,6 +40,7 @@ export class Reservations extends Component {
 
   handleCloseModal() {
     this.props.dispatch(hideModal());
+    this.props.dispatch(clearSelectedReservation());
   }
 
   render() {
@@ -73,10 +75,10 @@ export class Reservations extends Component {
             <BigCalendar selectable events={events} views={["month"]} onSelectSlot={slotInfo => this.onDateSelect(slotInfo)} onSelectEvent={event => this.handleSelectEvent(event)} />
           </div>
           <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
-            <h2>{this.props.selectedReservation.title}</h2>
-            <p><span>Reserved by:</span> {this.props.selectedReservation.guest}</p>
-            <p><span>From:</span> {this.props.selectedReservation.start.toLocaleString("en-US", options)}</p>
-            <p><span>To:</span> {this.props.selectedReservation.end.toLocaleString("en-US", options)}</p>
+            {this.props.selectedReservation.title}
+            {this.props.selectedReservation.guest}
+            {this.props.selectedReservation.start.toLocaleString("en-US", options)}
+            {this.props.selectedReservation.end.toLocaleString("en-US", options)}
             <button className="modal-button" onClick={() => this.handleCloseModal()}>
               <Close />
             </button>

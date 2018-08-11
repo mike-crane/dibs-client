@@ -211,6 +211,11 @@ export const showSelectedReservation = reservation => ({
   reservation
 });
 
+export const CLEAR_SELECTED_RESERVATION = 'CLEAR_SELECTED_RESERVATION';
+export const clearSelectedReservation = () => ({
+  type: CLEAR_SELECTED_RESERVATION
+});
+
 export const CLEAR_SELECTED_PROPERTY = 'CLEAR_SELECTED_PROPERTY';
 export const clearSelectedProperty = () => ({
   type: CLEAR_SELECTED_PROPERTY

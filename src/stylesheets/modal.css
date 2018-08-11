@@ -4,15 +4,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(58, 124, 152, .75);
 }
 
 .modal-content {
   position: absolute;
-  top: 40px;
+  top: 30%;
   left: 25%;
   right: 25%;
-  bottom: 40px;
+  bottom: 30%;
   border: 1px solid #ccc;
   background: #fff;
   overflow: auto;
