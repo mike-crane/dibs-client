@@ -4,23 +4,27 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(58, 124, 152, .75);
+  background-color: rgba(58, 124, 152, .5);
 }
 
 .modal-content {
   position: absolute;
   top: 30%;
-  left: 25%;
-  right: 25%;
-  bottom: 30%;
+  left: 30%;
+  right: 30%;
+  bottom: 40%;
   border: 1px solid #ccc;
   background: #fff;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 4px;
   outline: none;
-  padding: 20px 60px;
+  padding: 10px 40px;
   z-index: 999;
+}
+
+.modal-content h2 {
+  font-size: 1.2em;
 }
 
 .modal-content span {
@@ -39,4 +43,19 @@
 .modal-button svg {
   height: 30px;
   width: 30px;
+}
+
+.delete-res-button {
+  color: #E55E59;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+}
+
+.delete-res-button svg {
+  width: 40px;
+  height: 40px;
 }

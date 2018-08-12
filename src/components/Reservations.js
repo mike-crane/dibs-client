@@ -6,8 +6,9 @@ import PropertyDetails from './Property-details';
 import ReservationDetails from './Reservation-details';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import ReactModal from "react-modal";
-import Close from "react-icons/lib/io/close-round";
+import ReactModal from 'react-modal';
+import Close from 'react-icons/lib/io/close-round';
+import Trash from 'react-icons/lib/ti/trash';
 import {
   setSelectedDate,
   fetchPropertyData,
@@ -15,7 +16,9 @@ import {
   showSelectedReservation,
   showModal,
   hideModal,
-  clearSelectedReservation
+  clearSelectedReservation,
+  deleteReservation,
+  clearSelectedDate
 } from "../actions/protected-data";
 import '../stylesheets/reservations.css';
 import "../stylesheets/modal.css";
@@ -43,11 +46,17 @@ export class Reservations extends Component {
     this.props.dispatch(clearSelectedReservation());
   }
 
+  handleDeleteRes(id, reservation) {
+    this.props.dispatch(deleteReservation(id, reservation));
+    this.props.dispatch(hideModal());
+  }
+
   render() {
     let options = { weekday: "long", month: "long", day: "numeric" };
+
     let events = this.props.reservations.map((reservation, index) => {
       return { 
-        id: index, 
+        id: `${reservation.id}`, 
         title: `${reservation.propertyName}`, 
         guest: `${reservation.username}`, 
         start: new Date(reservation.start), 
@@ -75,12 +84,15 @@ export class Reservations extends Component {
             <BigCalendar selectable events={events} views={["month"]} onSelectSlot={slotInfo => this.onDateSelect(slotInfo)} onSelectEvent={event => this.handleSelectEvent(event)} />
           </div>
           <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
-            {this.props.selectedReservation.title}
-            {this.props.selectedReservation.guest}
-            {this.props.selectedReservation.start.toLocaleString("en-US", options)}
-            {this.props.selectedReservation.end.toLocaleString("en-US", options)}
+            <h2>{this.props.selectedReservation.title}</h2>
+            <p><strong>{this.props.selectedReservation.guest} has reserved this property</strong></p>
+            <p><strong>From:</strong>&nbsp;&nbsp;&nbsp;{this.props.selectedReservation.start.toLocaleString("en-US", options)}</p>
+            <p><strong>To:</strong>&nbsp;&nbsp;&nbsp;{this.props.selectedReservation.end.toLocaleString("en-US", options)}</p>
             <button className="modal-button" onClick={() => this.handleCloseModal()}>
               <Close />
+            </button>
+            <button className="delete-res-button" onClick={() => this.handleDeleteRes(this.props.selectedReservation.id, this.props.reservations)}>
+              <Trash />
             </button>
           </ReactModal>
         </div>;

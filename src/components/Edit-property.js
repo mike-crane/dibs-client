@@ -19,17 +19,16 @@ class EditProperty extends Component {
 
   render() {
 
-    return (
-      <div className="edit-property">
+    return <div className="edit-property">
         <h2>Edit Property</h2>
-        <form className="list-property" onSubmit={this.props.handleSubmit(
+        <form className="list-property" autoComplete="off" onSubmit={this.props.handleSubmit(
             values => this.onEditProperty(values)
           )}>
           <div className="form-section">
             <label htmlFor="property-name" className="address-name">
               Property name
             </label>
-          <Field component={Input} type="text" name="property-name" id="property-name" autoComplete='off' />
+            <Field component={Input} type="text" name="property-name" id="property-name" autoComplete="off" />
           </div>
 
           <fieldset>
@@ -38,35 +37,35 @@ class EditProperty extends Component {
               <label htmlFor="street" className="address-label">
                 Street
               </label>
-            <Field component={Input} type="text" name="street" id="street" autoComplete='off' />
+              <Field component={Input} type="text" name="street" id="street" autoComplete="off" />
             </div>
 
             <div className="form-section">
               <label htmlFor="city" className="address-label">
                 City
               </label>
-              <Field component={Input} type="text" name="city" id="city" autoComplete='off' />
+              <Field component={Input} type="text" name="city" id="city" autoComplete="off" />
             </div>
 
             <div className="form-section">
               <label htmlFor="state" className="address-label">
                 State
               </label>
-              <Field component={Input} type="text" name="state" id="state" autoComplete='off' />
+              <Field component={Input} type="text" name="state" id="state" autoComplete="off" />
             </div>
 
             <div className="form-section">
               <label htmlFor="zipcode" className="address-label">
                 Zip Code
               </label>
-              <Field component={Input} type="text" name="zipcode" id="zipcode" autoComplete='off' />
+              <Field component={Input} type="text" name="zipcode" id="zipcode" autoComplete="off" />
             </div>
           </fieldset>
 
           <div className="form-section">
             <label htmlFor="property-type" className="property-label">
               Property type
-                </label>
+            </label>
             <Field name="property-type" component="select">
               <option value="house">House</option>
               <option value="condo">Condo</option>
@@ -84,7 +83,9 @@ class EditProperty extends Component {
           <button className="save-property-button" type="submit" disabled={this.props.pristine || this.props.submitting}>
             Save
           </button>
-        <Link className="cancel-button" to="/reservations">Cancel</Link>
+          <Link className="cancel-button" to="/reservations">
+            Cancel
+          </Link>
           <button className="delete-property-button" type="button" disabled={this.props.pristine || this.props.submitting}>
             Delete Property
           </button>
@@ -92,8 +93,7 @@ class EditProperty extends Component {
             Delete Property
           </button> */}
         </form>
-      </div>
-    );
+      </div>;
   }
 }
 

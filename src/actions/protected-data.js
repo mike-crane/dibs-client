@@ -189,13 +189,14 @@ export const deleteReservationError = error => ({
 export const deleteReservation = (id, data) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/dibs/reservations/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
       // Provide our auth token as credentials
       Authorization: `Bearer ${authToken}`
     }
   })
     .then(res => dispatch(deleteReservationSuccess(id, data)))
+    .then(res => dispatch(fetchReservationData()));
 };
 
 export const SET_SELECTED_PROPERTY = 'SET_SELECTED_PROPERTY';

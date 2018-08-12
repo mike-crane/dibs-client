@@ -40,7 +40,8 @@ const initialState = {
     title: "",
     guest: "",
     start: "",
-    end: ""
+    end: "",
+    id: null
   },
   reservations: [],
   showModal: false,
@@ -165,7 +166,10 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, { error: action.error })
   }
   if (action.type === DELETE_RESERVATION_SUCCESS) {
-    return Object.assign({}, state, { reservations: action.data });
+    return Object.assign({}, state, {
+      ...state.reservations.slice(0, action.index),
+      ...state.reservations.slice(action.index + 1) 
+    });
   }
   if (action.type === DELETE_RESERVATION_ERROR) {
     return Object.assign({}, state, { error: action.error });
