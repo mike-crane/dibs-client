@@ -51,8 +51,6 @@ export class Reservations extends Component {
   }
 
   render() {
-    let options = { weekday: "long", month: "long", day: "numeric" };
-
     let events = this.props.reservations.map((reservation, index) => {
       return { 
         id: `${reservation.id}`, 
@@ -84,9 +82,24 @@ export class Reservations extends Component {
           </div>
           <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
             <h2>{this.props.selectedReservation.title}</h2>
-            <p><strong>{this.props.selectedReservation.guest} has reserved this property</strong></p>
-            <p><strong>From:</strong>&nbsp;&nbsp;&nbsp;{this.props.selectedReservation.start.toLocaleString("en-US", options)}</p>
-            <p><strong>To:</strong>&nbsp;&nbsp;&nbsp;{this.props.selectedReservation.end.toLocaleString("en-US", options)}</p>
+            <p>
+              <strong>
+                {this.props.selectedReservation.guest} has reserved this
+                property
+              </strong>
+            </p>
+            <p>
+              <strong>From:</strong>
+              &nbsp;&nbsp;&nbsp;
+              {moment(this.props.selectedReservation.start).format("dddd, ")}
+              &nbsp; {moment(this.props.selectedReservation.start).format("MMM Do")}
+            </p>
+            <p>
+              <strong>To:</strong>
+              &nbsp;&nbsp;&nbsp;
+              {moment(this.props.selectedReservation.end).format("dddd, ")}
+            &nbsp; {moment(this.props.selectedReservation.end).format("MMM Do")}
+            </p>
             <button className="modal-button" onClick={() => this.handleCloseModal()}>
               <Close />
             </button>

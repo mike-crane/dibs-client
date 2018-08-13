@@ -183,13 +183,14 @@ export const deleteSelectedPropertyError = error => ({
 export const deleteProperty = (id, data) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/dibs/properties/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
       // Provide our auth token as credentials
       Authorization: `Bearer ${authToken}`
     }
   })
     .then(res => dispatch(deleteSelectedPropertySuccess(id, data)))
+    // .then(res => dispatch(fetchPropertyData()));
 };
 
 export const DELETE_RESERVATION_SUCCESS = "DELETE_RESERVATION_SUCCESS";

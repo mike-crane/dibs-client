@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import Input from './Input';
-import { editSelectedProperty, deleteProperty, fetchPropertyData, setSelectedProperty } from "../actions/protected-data";
+import { editSelectedProperty, deleteProperty, fetchPropertyData, setSelectedProperty, clearSelectedProperty } from "../actions/protected-data";
 import '../stylesheets/edit-property.css';
 
 class EditProperty extends Component {
@@ -37,10 +37,11 @@ class EditProperty extends Component {
     this.props.history.push("/reservations");
   }
 
-  // onDeleteProperty(data_id, data) {
-  //   let newPropertiesArray = data.filter(item => item._id !== data_id);
-  //   this.props.dispatch(deleteProperty(data_id, newPropertiesArray));
-  // }
+  handleDeleteProperty(id, property) {
+    this.props.dispatch(deleteProperty(id, property));
+    this.props.dispatch(clearSelectedProperty());
+    this.props.history.push("/reservations");
+  }
 
   render() {
     return (
@@ -132,13 +133,15 @@ class EditProperty extends Component {
           <button
             className="delete-property-button"
             type="button"
-            disabled={this.props.pristine || this.props.submitting}
+            onClick={() =>
+              this.handleDeleteProperty(
+              this.props.selectedProperty.id,
+              this.props.properties
+              )
+            }
           >
             Delete Property
           </button>
-          {/* <button className="delete-property-button" type="button" onClick={() => this.deleteProperty(selectedProperty._id, this.props.property)} disabled={this.props.pristine || this.props.submitting}>
-            Delete Property
-          </button> */}
         </form>
       </div>
     );

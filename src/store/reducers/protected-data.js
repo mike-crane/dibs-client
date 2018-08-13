@@ -87,7 +87,10 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, { properties: action.error });
   }
   if (action.type === DELETE_SELECTED_PROPERTY_SUCCESS) {
-    return Object.assign({}, state, { properties: action.data });
+    return Object.assign({}, state, {
+      ...state.properties.slice(0, action.index),
+      ...state.properties.slice(action.index + 1)
+    });
   }
   if (action.type === DELETE_SELECTED_PROPERTY_ERROR) {
     return Object.assign({}, state, { error: action.error })
