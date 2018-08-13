@@ -7,7 +7,8 @@ import {
   hideModal,
   showSelectedReservation,
   clearSelectedReservation,
-  clearSelectedProperty
+  clearSelectedProperty,
+  deleteReservation
 } from "../actions/protected-data";
 import requiresLogin from './Requires-login';
 import Ribbon from './Ribbon';
@@ -15,6 +16,7 @@ import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import ReactModal from "react-modal";
 import Close from "react-icons/lib/io/close-round";
+import Trash from "react-icons/lib/ti/trash";
 import '../stylesheets/dashboard.css';
 import "../stylesheets/modal.css";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -35,6 +37,11 @@ class Dashboard extends Component {
   handleCloseModal() {
     this.props.dispatch(hideModal());
     this.props.dispatch(clearSelectedReservation());
+  }
+
+  handleDeleteRes(id, reservation) {
+    this.props.dispatch(deleteReservation(id, reservation));
+    this.props.dispatch(hideModal());
   }
 
   render() {
@@ -60,38 +67,84 @@ class Dashboard extends Component {
     let reservationData;
 
     if (this.props.reservations.length === 0) {
-      reservationData = <p><em>You do not have any active reservations</em></p>;
+      reservationData = (
+        <p>
+          <em>You do not have any active reservations</em>
+        </p>
+      );
     }
 
-      return (
-        <div className="dashboard">
-          <div className="welcome-message">
-            <h2>Welcome {this.props.username}</h2>
-          </div>
-          <div className="dashboard-container">
-            <div className="dashboard-protected-data">
-              <Ribbon heading="Active Reservations" subheading="" />
-              {reservationData}
-              {reservations}
-              <Link className="reservations-button" to="/reservations">
-                Reserve a Property
-              </Link>
-            </div>
-            <div className="dashboard-calendar-container">
-              <BigCalendar events={events} views={["month"]} onSelectEvent={event => this.handleSelectEvent(event)} />
-            </div>
-            <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
-              <h2>{this.props.selectedReservation.title}</h2>
-              <p><strong>{this.props.selectedReservation.guest} has reserved this property</strong></p>
-              <p><strong>From:</strong>&nbsp;&nbsp;&nbsp;{this.props.selectedReservation.start.toLocaleString("en-US", options)}</p>
-              <p><strong>To:</strong>&nbsp;&nbsp;&nbsp;{this.props.selectedReservation.end.toLocaleString("en-US", options)}</p>
-              <button className="modal-button" onClick={() => this.handleCloseModal()}>
-                <Close />
-              </button>
-            </ReactModal>
-          </div>
+    return (
+      <div className="dashboard">
+        <div className="welcome-message">
+          <h2>Welcome {this.props.username}</h2>
         </div>
-      );  
+        <div className="dashboard-container">
+          <div className="dashboard-protected-data">
+            <Ribbon heading="Active Reservations" subheading="" />
+            {reservationData}
+            {reservations}
+            <Link className="reservations-button" to="/reservations">
+              Reserve a Property
+            </Link>
+          </div>
+          <div className="dashboard-calendar-container">
+            <BigCalendar
+              events={events}
+              views={["month"]}
+              onSelectEvent={event => this.handleSelectEvent(event)}
+            />
+          </div>
+          <ReactModal
+            className="modal-content"
+            overlayClassName="modal-overlay"
+            isOpen={this.props.showModal}
+            contentLabel="Reservation Details"
+          >
+            <h2>{this.props.selectedReservation.title}</h2>
+            <p>
+              <strong>
+                {this.props.selectedReservation.guest} has reserved this
+                property
+              </strong>
+            </p>
+            <p>
+              <strong>From:</strong>
+              &nbsp;&nbsp;&nbsp;
+              {this.props.selectedReservation.start.toLocaleString(
+                "en-US",
+                options
+              )}
+            </p>
+            <p>
+              <strong>To:</strong>
+              &nbsp;&nbsp;&nbsp;
+              {this.props.selectedReservation.end.toLocaleString(
+                "en-US",
+                options
+              )}
+            </p>
+            <button
+              className="modal-button"
+              onClick={() => this.handleCloseModal()}
+            >
+              <Close />
+            </button>
+            <button
+              className="delete-res-button"
+              onClick={() =>
+                this.handleDeleteRes(
+                  this.props.selectedReservation.id,
+                  this.props.reservations
+                )
+              }
+            >
+              <Trash />
+            </button>
+          </ReactModal>
+        </div>
+      </div>
+    );
   }
 }
 

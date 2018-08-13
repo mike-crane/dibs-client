@@ -1,34 +1,61 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from "redux-form";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import Input from './Input';
-import { editSelectedProperty, deleteProperty } from "../actions/protected-data";
+import { editSelectedProperty, deleteProperty, fetchPropertyData, setSelectedProperty } from "../actions/protected-data";
 import '../stylesheets/edit-property.css';
 
 class EditProperty extends Component {
-  onEditProperty(values) {
-    console.log(values);
-    this.props.dispatch(editSelectedProperty(values._id, values));
+  componentDidMount() {
+    this.handleInitialize();
   }
 
-  onDeleteProperty(data_id, data) {
-    let newPropertiesArray = data.filter(item => item._id !== data_id);
-    this.props.dispatch(deleteProperty(data_id, newPropertiesArray));
+  handleInitialize() {
+    const initData = {
+      name: this.props.selectedProperty.name,
+      street: this.props.selectedProperty.street,
+      city: this.props.selectedProperty.city,
+      state: this.props.selectedProperty.state,
+      zipcode: this.props.selectedProperty.zipcode,
+      type: this.props.selectedProperty.type,
+      thumbUrl: this.props.selectedProperty.thumbUrl,
+      id: this.props.selectedProperty.id
+    };
+
+    this.props.initialize(initData);
   }
+
+  onSubmit(values) {
+    if (!values.thumbUrl) {
+      values.thumbUrl =
+        "https://github.com/mike-crane/dibs-client/blob/master/src/images/default-property.png?raw=true";
+    }
+    this.props.dispatch(editSelectedProperty(values));
+    this.props.dispatch(fetchPropertyData());
+    this.props.dispatch(setSelectedProperty(values, this.props.username));
+    this.props.history.push("/reservations");
+  }
+
+  // onDeleteProperty(data_id, data) {
+  //   let newPropertiesArray = data.filter(item => item._id !== data_id);
+  //   this.props.dispatch(deleteProperty(data_id, newPropertiesArray));
+  // }
 
   render() {
-
-    return <div className="edit-property">
+    return (
+      <div className="edit-property">
         <h2>Edit Property</h2>
-        <form className="list-property" autoComplete="off" onSubmit={this.props.handleSubmit(
-            values => this.onEditProperty(values)
-          )}>
+        <form
+          className="list-property"
+          autoComplete="off"
+          onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+        >
           <div className="form-section">
-            <label htmlFor="property-name" className="address-name">
+            <label htmlFor="name" className="address-name">
               Property name
             </label>
-            <Field component={Input} type="text" name="property-name" id="property-name" autoComplete="off" />
+            <Field component={Input} type="text" name="name" id="name" />
           </div>
 
           <fieldset>
@@ -37,39 +64,51 @@ class EditProperty extends Component {
               <label htmlFor="street" className="address-label">
                 Street
               </label>
-              <Field component={Input} type="text" name="street" id="street" autoComplete="off" />
+              <Field component={Input} type="text" name="street" id="street" />
             </div>
 
             <div className="form-section">
               <label htmlFor="city" className="address-label">
                 City
               </label>
-              <Field component={Input} type="text" name="city" id="city" autoComplete="off" />
+              <Field component={Input} type="text" name="city" id="city" />
             </div>
 
             <div className="form-section">
               <label htmlFor="state" className="address-label">
                 State
               </label>
-              <Field component={Input} type="text" name="state" id="state" autoComplete="off" />
+              <Field component={Input} type="text" name="state" id="state" />
             </div>
 
             <div className="form-section">
               <label htmlFor="zipcode" className="address-label">
                 Zip Code
               </label>
-              <Field component={Input} type="text" name="zipcode" id="zipcode" autoComplete="off" />
+              <Field
+                component={Input}
+                type="text"
+                name="zipcode"
+                id="zipcode"
+              />
             </div>
           </fieldset>
 
           <div className="form-section">
-            <label htmlFor="property-type" className="property-label">
+            <label htmlFor="type" className="property-label">
               Property type
             </label>
-            <Field name="property-type" component="select">
-              <option value="house">House</option>
-              <option value="condo">Condo</option>
-              <option value="apartment">Apartment</option>
+            <Field name="type" component="select">
+              <option />
+              <option value="house" name="house">
+                House
+              </option>
+              <option value="condo" name="condo">
+                Condo
+              </option>
+              <option value="apartment" name="apartment">
+                Apartment
+              </option>
             </Field>
           </div>
 
@@ -80,29 +119,38 @@ class EditProperty extends Component {
             <Field component={Input} type="text" name="thumbUrl" />
           </div>
 
-          <button className="save-property-button" type="submit" disabled={this.props.pristine || this.props.submitting}>
+          <button
+            className="save-property-button"
+            type="submit"
+            disabled={this.props.pristine || this.props.submitting}
+          >
             Save
           </button>
           <Link className="cancel-button" to="/reservations">
             Cancel
           </Link>
-          <button className="delete-property-button" type="button" disabled={this.props.pristine || this.props.submitting}>
+          <button
+            className="delete-property-button"
+            type="button"
+            disabled={this.props.pristine || this.props.submitting}
+          >
             Delete Property
           </button>
           {/* <button className="delete-property-button" type="button" onClick={() => this.deleteProperty(selectedProperty._id, this.props.property)} disabled={this.props.pristine || this.props.submitting}>
             Delete Property
           </button> */}
         </form>
-      </div>;
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => ({
+  username: state.auth.currentUser.username,
   properties: state.protectedData.properties,
   selectedProperty: state.protectedData.selectedProperty
-})
+});
 
 export default reduxForm({
-  form: 'editProperty',
-  // onSubmitSuccess: console.log('Changes have been added successfully!')
+  form: 'editProperty'
 })(connect(mapStateToProps)(EditProperty));

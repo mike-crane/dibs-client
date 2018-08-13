@@ -17,8 +17,7 @@ import {
   showModal,
   hideModal,
   clearSelectedReservation,
-  deleteReservation,
-  clearSelectedDate
+  deleteReservation
 } from "../actions/protected-data";
 import '../stylesheets/reservations.css';
 import "../stylesheets/modal.css";

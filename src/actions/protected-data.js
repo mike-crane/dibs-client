@@ -122,9 +122,9 @@ export const postReservationData = reservation => (dispatch, getState) => {
 };
 
 export const EDIT_SELECTED_PROPERTY_SUCCESS = 'EDIT_SELECTED_PROPERTY_SUCCESS';
-export const editSelectedPropertySuccess = data => ({
+export const editSelectedPropertySuccess = property => ({
   type: EDIT_SELECTED_PROPERTY_SUCCESS,
-  data
+  property
 });
 
 export const EDIT_SELECTED_PROPERTY_ERROR = "EDIT_SELECTED_PROPERTY_ERROR";
@@ -133,21 +133,39 @@ export const editSelectedPropertyError = error => ({
   error
 });
 
-export const editSelectedProperty = (id, selectedProperty) => (dispatch, getState) => {
+// export const editSelectedProperty = (id, data) => (dispatch, getState) => {
+//   const authToken = getState().auth.authToken;
+//   return fetch(`${API_BASE_URL}/dibs/properties/${id}`, {
+//     method: 'PUT',
+//     headers: {
+//       // Provide our auth token as credentials
+//       Authorization: `Bearer ${authToken}`,
+//       "Content-Type": 'application/json'
+//     },
+//     body: JSON.stringify(data)
+//   })
+//     .then(res => normalizeResponseErrors(res))
+//     .then(res => res.json())
+//     .then(data => dispatch(editSelectedPropertySuccess(id, data)))
+//     // .then(res => dispatch(fetchPropertyData()))
+//     .catch(err => dispatch(editSelectedPropertyError(err)))
+// };
+
+export const editSelectedProperty = (property) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/dibs/properties/${id}`, {
+  fetch(`${API_BASE_URL}/dibs/properties/${property.id}`, {
     method: 'PUT',
     headers: {
-      // Provide our auth token as credentials
-      Authorization: `Bearer ${authToken}`,
-      "Content-Type": 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`
     },
-    body: JSON.stringify(selectedProperty)
+    body: JSON.stringify(property)
   })
-    .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(data => dispatch(editSelectedPropertySuccess(id, data)))
-    .catch(err => dispatch(editSelectedPropertyError(err)))
+    .then(res => dispatch(editSelectedPropertySuccess(res)))
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 export const DELETE_SELECTED_PROPERTY_SUCCESS = "DELETE_SELECTED_PROPERTY_SUCCESS";
