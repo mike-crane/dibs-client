@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import Input from './Input';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { required, nonEmpty } from "../validators";
 import { postPropertyData } from '../actions/protected-data';
 import '../stylesheets/edit-property.css';
 
@@ -25,7 +26,7 @@ class AddProperty extends Component {
             <label htmlFor="name" className="address-name">
               Property name
             </label>
-          <Field component={Input} type="text" name="name" id="name" />
+          <Field component={Input} type="text" name="name" id="name" validate={[required, nonEmpty]} />
           </div>
 
           <fieldset>
@@ -34,28 +35,28 @@ class AddProperty extends Component {
               <label htmlFor="street" className="address-label">
                 Street
               </label>
-              <Field component={Input} type="text" name="street" id="street" />
+              <Field component={Input} type="text" name="street" id="street" validate={[required, nonEmpty]} />
             </div>
 
             <div className="form-section">
               <label htmlFor="city" className="address-label">
                 City
               </label>
-              <Field component={Input} type="text" name="city" id="city" />
+              <Field component={Input} type="text" name="city" id="city" validate={[required, nonEmpty]} />
             </div>
 
             <div className="form-section">
               <label htmlFor="state" className="address-label">
                 State
               </label>
-              <Field component={Input} type="text" name="state" id="state" />
+              <Field component={Input} type="text" name="state" id="state" validate={[required, nonEmpty]} />
             </div>
 
             <div className="form-section">
               <label htmlFor="zipcode" className="address-label">
                 Zip Code
               </label>
-              <Field component={Input} type="text" name="zipcode" id="zipcode" />
+              <Field component={Input} type="text" name="zipcode" id="zipcode" validate={[required, nonEmpty]} />
             </div>
           </fieldset>
 
@@ -63,7 +64,7 @@ class AddProperty extends Component {
             <label htmlFor="type" className="property-label">
               Property type
             </label>
-            <Field name="type" id="type" component="select" required>
+            <Field name="type" id="type" component="select" validate={[required, nonEmpty]}>
               <option value="select">Select Type</option>
               <option value="house">House</option>
               <option value="condo">Condo</option>
@@ -73,7 +74,7 @@ class AddProperty extends Component {
 
           <div className="form-section">
             <label htmlFor="thumbUrl" className="property-photo">
-              Property Image Address
+              Property Image Url  <span>(optional)</span>
             </label>
           <Field component={Input} type="text" name="thumbUrl" />
           </div>

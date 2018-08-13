@@ -113,9 +113,14 @@ legend {
 }
 
 .property-photo {
-  width: 200px;
+  width: 220px;
   display: inline-block;
   margin: 1em 0 0 15px;
+}
+
+.property-photo span {
+  color: lightgray;
+  font-size: .9em;
 }
 
 .address-name {
