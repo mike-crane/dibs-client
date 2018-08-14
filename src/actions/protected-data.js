@@ -59,6 +59,35 @@ export const fetchReservationData = () => (dispatch, getState) => {
     });
 };
 
+export const FETCH_USER_RESERVATION_DATA_SUCCESS = 'FETCH_USER_RESERVATION_DATA_SUCCESS';
+export const fetchUserReservationDataSuccess = data => ({
+  type: FETCH_USER_RESERVATION_DATA_SUCCESS,
+  data
+});
+
+export const FETCH_USER_RESERVATION_DATA_ERROR = 'FETCH_USER_RESERVATION_DATA_ERROR';
+export const fetchUserReservationDataError = error => ({
+  type: FETCH_USER_RESERVATION_DATA_ERROR,
+  error
+});
+
+export const fetchUserReservationData = (user) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/dibs/reservations/${user}`, {
+    method: "GET",
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(data => dispatch(fetchUserReservationDataSuccess(data)))
+    .catch(err => {
+      dispatch(fetchUserReservationDataError(err));
+    });
+};
+
 export const POST_PROPERTY_DATA_SUCCESS = 'POST_PROPERTY_DATA_SUCCESS';
 export const postPropertyDataSuccess = data => ({
   type: POST_PROPERTY_DATA_SUCCESS,

@@ -20,7 +20,7 @@ class LoginForm extends Component {
       );
     }
     return (
-      <form className='login-form' onSubmit={this.props.handleSubmit(
+      <form className='login-form' autoComplete="off" onSubmit={this.props.handleSubmit(
           values => this.onSubmit(values)
         )}>
         {error}

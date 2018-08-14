@@ -88,13 +88,13 @@ export class Reservations extends Component {
                 property
               </strong>
             </p>
-            <p>
+            <p className="modal-dates">
               <strong>From:</strong>
               &nbsp;&nbsp;&nbsp;
               {moment(this.props.selectedReservation.start).format("dddd, ")}
               &nbsp; {moment(this.props.selectedReservation.start).format("MMM Do")}
             </p>
-            <p>
+            <p className="modal-dates">
               <strong>To:</strong>
               &nbsp;&nbsp;&nbsp;
               {moment(this.props.selectedReservation.end).format("dddd, ")}

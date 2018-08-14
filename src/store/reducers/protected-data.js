@@ -5,6 +5,8 @@ import {
   FETCH_PROPERTY_DATA_ERROR,
   FETCH_RESERVATION_DATA_SUCCESS,
   FETCH_RESERVATION_DATA_ERROR,
+  FETCH_USER_RESERVATION_DATA_SUCCESS,
+  FETCH_USER_RESERVATION_DATA_ERROR,
   POST_PROPERTY_DATA_SUCCESS,
   POST_PROPERTY_DATA_ERROR,
   POST_RESERVATION_DATA_SUCCESS,
@@ -61,6 +63,12 @@ export default function reducer(state = initialState, action) {
   if (action.type === FETCH_RESERVATION_DATA_ERROR) {
     return Object.assign({}, state, { error: action.error });
   } 
+  if (action.type === FETCH_USER_RESERVATION_DATA_SUCCESS) {
+    return Object.assign({}, state, { reservations: action.data, error: null });
+  }
+  if (action.type === FETCH_USER_RESERVATION_DATA_ERROR) {
+    return Object.assign({}, state, { error: action.error });
+  }
   if (action.type === POST_PROPERTY_DATA_SUCCESS) {
     return Object.assign({}, state, { properties: [...state.properties, action.data], error: null });
   }

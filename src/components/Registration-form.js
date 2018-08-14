@@ -20,7 +20,7 @@ class RegistrationForm extends Component {
   render() {
     return (
       <form
-        className='login-form'
+        className='login-form' autoComplete="off"
         onSubmit={this.props.handleSubmit(values =>
           this.onSubmit(values)
         )}>

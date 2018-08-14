@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { clearSelectedProperty } from '../actions/protected-data';
@@ -12,6 +12,7 @@ class Header extends Component {
     this.props.dispatch(clearAuth());
     this.props.dispatch(clearSelectedProperty());
     clearAuthToken();
+    this.props.history.push("/");
   }
 
   render() {
@@ -33,4 +34,4 @@ const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

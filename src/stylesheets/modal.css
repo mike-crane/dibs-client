@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(58, 124, 152, .5);
+  background-color: rgba(74, 74, 74, .85);
 }
 
 .modal-content {
@@ -25,6 +25,7 @@
 
 .modal-content h2 {
   font-size: 1.2em;
+  margin: .5em 0 1.5em;
 }
 
 .modal-content span {
@@ -43,6 +44,11 @@
 .modal-button svg {
   height: 30px;
   width: 30px;
+}
+
+.modal-dates {
+  margin-top: .5em;
+  margin-bottom: 0;
 }
 
 .delete-res-button {
