@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import '../stylesheets/property-details.css';
 
 const PropertyDetails = (props) => {
+
+  let edit;
+  if (props.property.owner !== props.username) {
+    edit = <Link className="edit-property-button" to="/edit-property">Edit</Link>;
+  } 
   if (props.property) {
     return (
       <div className="property-details">
@@ -18,7 +23,7 @@ const PropertyDetails = (props) => {
             {props.property.city}, {props.property.state} {props.property.zipcode}
             </li>
           </ul>
-          <Link className="edit-property-button" to="/edit-property">Edit</Link>
+          {edit}
         </div>
       </div>
     );
@@ -29,7 +34,8 @@ const PropertyDetails = (props) => {
 
 const mapStateToProps = state => {
   return {
-    property: state.protectedData.selectedProperty
+    property: state.protectedData.selectedProperty,
+    username: state.auth.currentUser.username
   };
 };
 
