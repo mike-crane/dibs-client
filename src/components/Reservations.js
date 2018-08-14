@@ -51,6 +51,13 @@ export class Reservations extends Component {
   }
 
   render() {
+    let deleteButton;
+    if (this.props.selectedReservation.guest === this.props.username) {
+      deleteButton = <button className="delete-res-button" onClick={() => this.handleDeleteRes(this.props.selectedReservation.id, this.props.reservations)}>
+        <Trash />
+      </button>;
+    } 
+
     let events = this.props.reservations.map((reservation, index) => {
       return { 
         id: `${reservation.id}`, 
@@ -103,9 +110,7 @@ export class Reservations extends Component {
             <button className="modal-button" onClick={() => this.handleCloseModal()}>
               <Close />
             </button>
-            <button className="delete-res-button" onClick={() => this.handleDeleteRes(this.props.selectedReservation.id, this.props.reservations)}>
-              <Trash />
-            </button>
+            {deleteButton}
           </ReactModal>
         </div>;
     } else {

@@ -6,7 +6,7 @@ import '../stylesheets/property-details.css';
 const PropertyDetails = (props) => {
 
   let edit;
-  if (props.property.owner !== props.username) {
+  if (props.property.owner === props.username) {
     edit = <Link className="edit-property-button" to="/edit-property">Edit</Link>;
   } 
   if (props.property) {

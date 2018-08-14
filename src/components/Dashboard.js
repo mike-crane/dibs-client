@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-  fetchReservationData,
   fetchUserReservationData,
   showModal,
   hideModal,
@@ -72,9 +71,9 @@ class Dashboard extends Component {
     //   ));
 
     let reservations = this.props.reservations.map((reservation, index) => (
-      <p key={index}>
+      <div key={index}>
         <div className="active-res-property">{reservation.propertyName}</div> <div className="active-res-time">{moment(reservation.start).format("MMM Do")} - {moment(reservation.end).format("MMM Do")}</div>
-      </p>
+      </div>
     ));
 
     let reservationData;

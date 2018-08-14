@@ -9,9 +9,11 @@ import '../stylesheets/edit-property.css';
 
 class AddProperty extends Component {
   onSubmit(values) {
+    values.owner = this.props.username;
     if (!values.thumbUrl) {
       values.thumbUrl = "https://github.com/mike-crane/dibs-client/blob/master/src/images/default-property.png?raw=true";
     }
+    console.log(values);
     this.props.dispatch(postPropertyData(values));
     this.props.history.push("/reservations");
   }
@@ -91,6 +93,7 @@ class AddProperty extends Component {
 }
 
 const mapStateToProps = state => ({
+  username: state.auth.currentUser.username,
   properties: state.protectedData.properties,
   selectedProperty: state.protectedData.selectedProperty
 });
