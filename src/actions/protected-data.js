@@ -162,38 +162,19 @@ export const editSelectedPropertyError = error => ({
   error
 });
 
-// export const editSelectedProperty = (id, data) => (dispatch, getState) => {
-//   const authToken = getState().auth.authToken;
-//   return fetch(`${API_BASE_URL}/dibs/properties/${id}`, {
-//     method: 'PUT',
-//     headers: {
-//       // Provide our auth token as credentials
-//       Authorization: `Bearer ${authToken}`,
-//       "Content-Type": 'application/json'
-//     },
-//     body: JSON.stringify(data)
-//   })
-//     .then(res => normalizeResponseErrors(res))
-//     .then(res => res.json())
-//     .then(data => dispatch(editSelectedPropertySuccess(id, data)))
-//     // .then(res => dispatch(fetchPropertyData()))
-//     .catch(err => dispatch(editSelectedPropertyError(err)))
-// };
-
 export const editSelectedProperty = (property) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/dibs/properties/${property.id}`, {
-    method: 'PUT',
+    method: "PUT",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify(property)
   })
-    .then(res => res.json())
     .then(res => dispatch(editSelectedPropertySuccess(res)))
     .catch(err => {
-      console.log(err);
+      dispatch(editSelectedPropertyError(err));
     });
 };
 
@@ -218,8 +199,7 @@ export const deleteProperty = (id, data) => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     }
   })
-    .then(res => dispatch(deleteSelectedPropertySuccess(id, data)))
-    // .then(res => dispatch(fetchPropertyData()));
+    .then(res => dispatch(deleteSelectedPropertySuccess(id, data)));
 };
 
 export const DELETE_RESERVATION_SUCCESS = "DELETE_RESERVATION_SUCCESS";
@@ -243,8 +223,7 @@ export const deleteReservation = (id, data) => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     }
   })
-    .then(res => dispatch(deleteReservationSuccess(id, data)))
-    .then(res => dispatch(fetchReservationData()));
+    .then(res => dispatch(deleteReservationSuccess(id, data)));
 };
 
 export const SET_SELECTED_PROPERTY = 'SET_SELECTED_PROPERTY';

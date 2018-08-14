@@ -89,7 +89,8 @@ legend {
   margin: 3em auto 1em;
 }
 
-.list-property h2 {
+.list-property h2,
+.list-property h3 {
   text-align: center;
 }
 

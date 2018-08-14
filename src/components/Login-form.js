@@ -24,7 +24,7 @@ class LoginForm extends Component {
           values => this.onSubmit(values)
         )}>
         {error}
-        <h2>Start Calling Dibs Now</h2>
+        <h2>Log in to Start Calling Dibs Now</h2>
         <div className='login-form-section'>
           <label htmlFor='username'>Username</label>
           <Field component={Input} type='text' name='username' id='username' autoComplete='off' validate={[required, nonEmpty]} />

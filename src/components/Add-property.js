@@ -13,14 +13,13 @@ class AddProperty extends Component {
     if (!values.thumbUrl) {
       values.thumbUrl = "https://github.com/mike-crane/dibs-client/blob/master/src/images/default-property.png?raw=true";
     }
-    console.log(values);
     this.props.dispatch(postPropertyData(values));
     this.props.history.push("/reservations");
   }
 
   render() {
     return <div className="new-property">
-        <h2>New Propery</h2>
+        <h2>New Property</h2>
       <form className="list-property" autoComplete="off" onSubmit={this.props.handleSubmit(
             values => this.onSubmit(values)
           )}>

@@ -50,13 +50,13 @@ class EditProperty extends Component {
         <form className="list-property" autoComplete="off" onSubmit={this.props.handleSubmit(
             values => this.onSubmit(values)
           )}>
-          <div className="form-section">
+          {/* <div className="form-section">
             <label htmlFor="name" className="address-name">
               Property name
             </label>
             <Field component={Input} type="text" name="name" id="name" validate={[required]} />
-          </div>
-
+          </div> */}
+          <h3>{this.props.selectedProperty.name}</h3>
           <fieldset>
             <legend>Property Address</legend>
             <div className="form-section">

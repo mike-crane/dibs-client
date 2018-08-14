@@ -39,9 +39,10 @@ class Dashboard extends Component {
     this.props.dispatch(clearSelectedReservation());
   }
 
-  handleDeleteRes(id, reservation) {
+  handleDeleteRes(user, id, reservation) {
     this.props.dispatch(deleteReservation(id, reservation));
     this.props.dispatch(hideModal());
+    this.props.dispatch(fetchUserReservationData(user));
   }
 
   render() {
@@ -55,20 +56,6 @@ class Dashboard extends Component {
         resourceId: index
       };
     });
-
-    // let reservations = this.props.reservations
-    //   .filter(reservation => reservation.username === this.props.username)
-    //   .map((reservation, index) => (
-    //     <div key={index}>
-    //       <div className="active-res-property">
-    //         {reservation.propertyName}
-    //       </div>{" "}
-    //       <div className="active-res-time">
-    //         {moment(reservation.start).format("MMM Do")} -{" "}
-    //         {moment(reservation.end).format("MMM Do")}
-    //       </div>
-    //     </div>
-    //   ));
 
     let reservations = this.props.reservations.map((reservation, index) => (
       <div key={index}>
@@ -125,7 +112,7 @@ class Dashboard extends Component {
             <button className="modal-button" onClick={() => this.handleCloseModal()}>
               <Close />
             </button>
-            <button className="delete-res-button" onClick={() => this.handleDeleteRes(this.props.selectedReservation.id, this.props.reservations)}>
+          <button className="delete-res-button" onClick={() => this.handleDeleteRes(this.props.selectedReservation.guest, this.props.selectedReservation.id, this.props.reservations)}>
               <Trash />
             </button>
           </ReactModal>
