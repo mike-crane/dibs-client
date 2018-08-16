@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
-
 import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';

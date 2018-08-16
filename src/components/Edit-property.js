@@ -4,7 +4,13 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { required } from "../validators";
 import Input from './Input';
-import { editSelectedProperty, deleteProperty, fetchPropertyData, setSelectedProperty, clearSelectedProperty } from "../actions/protected-data";
+import { 
+  editSelectedProperty, 
+  deleteProperty, 
+  fetchPropertyData, 
+  setSelectedProperty, 
+  clearSelectedProperty 
+} from "../actions/protected-data";
 import '../stylesheets/edit-property.css';
 
 class EditProperty extends Component {
@@ -50,12 +56,6 @@ class EditProperty extends Component {
         <form className="list-property" autoComplete="off" onSubmit={this.props.handleSubmit(
             values => this.onSubmit(values)
           )}>
-          {/* <div className="form-section">
-            <label htmlFor="name" className="address-name">
-              Property name
-            </label>
-            <Field component={Input} type="text" name="name" id="name" validate={[required]} />
-          </div> */}
           <h3>{this.props.selectedProperty.name}</h3>
           <fieldset>
             <legend>Property Address</legend>
