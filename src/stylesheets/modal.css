@@ -38,6 +38,7 @@
 }
 
 .modal-button {
+  background-color: transparent;
   position: absolute;
   top: 8px;
   right: 3px;
@@ -56,6 +57,7 @@
 }
 
 .delete-res-button {
+  background-color: transparent;
   color: #E55E59;
   border: none;
   cursor: pointer;
@@ -70,12 +72,17 @@
   height: 40px;
 }
 
+.form-input input[type="text"],
+.form-input input[type="password"] {
+    width: 125px;
+}
+
 /* MEDIA QUERIES */
 @media only screen and (min-width: 550px) {
   .modal-content {
     top: 30%;
-    left: 30%;
-    right: 30%;
+    left: 15%;
+    right: 15%;
     bottom: 40%;
     padding: 10px 40px;
   }
@@ -89,9 +96,19 @@
 }
 
 @media only screen and (min-width: 850px) {
-
+  .modal-content {
+    left: 27%;
+    right: 27%;
+  }
+  .form-input input[type="text"],
+  .form-input input[type="password"] {
+    width: 150px;
+  }
 }
 
 @media only screen and (min-width: 1350px) {
-
+  .form-input input[type="text"],
+  .form-input input[type="password"] {
+    width: 170px;
+  }
 }

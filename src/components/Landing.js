@@ -19,14 +19,19 @@ export function Landing(props) {
   return (
     <div className='home'>
       <LoginForm />
-      <Link to='/register'>Register</Link>
+      <div className="login-wrapper">
+        <p>Not registered?</p> <Link to='/register'>Register</Link>
+      </div>
+      <div className="demo-wrapper">
+        <p>For demo<br /><span>username:&nbsp;&nbsp;</span>dibs_demo<br /><span>password:&nbsp;&nbsp;</span>password123</p>
+      </div>
       <Ribbon heading='Share a Property' subheading='Dibs helps you make the most of your family properties by providing a central system for listing properties and making them available for others to use.' />
       <div className="image-wrapper"><img src={Feature2} alt="" /></div>
 
-      <Ribbon heading='Reserve an property' subheading='Dibs makes it easy to reserve a property during a specified date, allowing you to make plans in advance.' />
+      <Ribbon heading='Reserve a Property' subheading='Dibs makes it easy to reserve a property during a specified date, allowing you to make plans in advance.' />
       <div className="image-wrapper"><img src={Feature1} alt="" /></div>
 
-      <Ribbon heading='See property availability' subheading='Dibs provides you with a simple and intuative interface with an integrated calendar that makes booking properties a breeze.' />
+      <Ribbon heading='See Property Availability' subheading='Dibs provides you with a simple and intuative interface with an integrated calendar that makes booking properties a breeze.' />
       <div className="image-wrapper"><img src={Feature3} alt="" /></div>
       
       <Footer />

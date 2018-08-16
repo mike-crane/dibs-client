@@ -14,7 +14,6 @@
 
 .reservation-details form {
   text-align: left;
-  /* margin: 0 15%; */
 }
 
 .reservation-details button {
@@ -53,7 +52,7 @@
 }
 
 /* MEDIA QUERIES */
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 700px) {
   .reservation-info {
     display: inline-block;
     vertical-align: top;
@@ -77,12 +76,4 @@
   .res-block label {
     font-size: 1em;
   }
-}
-
-@media only screen and (min-width: 850px) {
-
-}
-
-@media only screen and (min-width: 1350px) {
-
 }

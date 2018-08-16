@@ -2,10 +2,22 @@
   text-align: center;
 }
 
+.home p,
 .home a {
-  display: block;
-  width: 150px;
-  margin: 0 auto;
+  display: inline-block;
+}
+
+.login-wrapper,
+.demo-wrapper {
+  text-align: center;
+}
+
+.demo-wrapper p {
+  margin: 0;
+}
+
+.demo-wrapper span {
+  font-weight: bold;
 }
 
 .home .ribbon {
@@ -14,7 +26,7 @@
 
 .home .ribbon h2 {
   margin: 0 0 .5em;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 .home .ribbon p {
@@ -44,6 +56,9 @@
   .home .ribbon p {
     font-size: 1em;
   }
+  .image-wrapper {
+    width: 80%;
+  }
 }
 
 @media only screen and (min-width: 850px) {
@@ -51,10 +66,12 @@
       width: 600px;
   }
   .image-wrapper {
-    width: 80%;
+    width: 65%;
   }
 }
 
 @media only screen and (min-width: 1350px) {
-
+  .image-wrapper {
+    width: 50%;
+  }
 }

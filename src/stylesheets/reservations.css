@@ -21,7 +21,7 @@
 }
 
 .calendar-container {
-  height: 250px;
+  height: 300px;
   width: 95%;
   margin: 1em auto 3em;
   position: relative;
@@ -50,7 +50,7 @@
 }
 
 .rbc-calendar .rbc-month-row {
-  font-size: 7px;
+  font-size: .5em;
 }
 
 .rbc-calendar .rbc-date-cell {
@@ -69,6 +69,18 @@
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 550px) {
+  .reservation-section {
+    width: 70%;
+  }
+  .calendar-container {
+    height: 400px;
+  }
+  .rbc-calendar .rbc-month-row {
+    font-size: .8em;
+  }
+}
+
+@media only screen and (min-width: 700px) {
   .reservations h2 {
     font-size: 1.5em;
   }
@@ -79,11 +91,12 @@
   }
   .reservation-section {
     margin: 1em auto 3em;
-    width: 700px;
+    width: 625px;
+    /* width: 700px; */
   }
   .calendar-container {
     height: 580px;
-    width: 725px;
+    width: 700px;
     margin: 1em auto 3em;
   }
   .rbc-calendar .rbc-toolbar .rbc-toolbar-label {
@@ -111,9 +124,7 @@
 }
 
 @media only screen and (min-width: 850px) {
-
-}
-
-@media only screen and (min-width: 1350px) {
-
+  .reservation-section {
+    width: 700px;
+  }
 }

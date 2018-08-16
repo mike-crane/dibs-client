@@ -71,14 +71,14 @@
 /* MEDIA QUERIES */
 @media only screen and (min-width: 550px) {
   .property-container {
-    width: 125px;
-    height: 125px;
-    margin-right: 25px;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
   }
   .add-property-button {
-    width: 125px;
-    height: 125px;
-    line-height: 125px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
     border-radius: 10px;
   }
   .property-thumbnail {
@@ -99,10 +99,19 @@
   }
 }
 
-@media only screen and (min-width: 850px) {
-
-}
-
-@media only screen and (min-width: 1350px) {
-
+@media only screen and (min-width: 700px) {
+  .property-container {
+    width: 125px;
+    height: 125px;
+    margin-right: 25px;
+  }
+  .add-property-button {
+    width: 125px;
+    height: 125px;
+    line-height: 125px;
+    border-radius: 15px;
+  }
+  .property-thumbnail {
+    border-radius: 15px;
+  }
 }

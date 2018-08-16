@@ -21,7 +21,7 @@ class RegistrationForm extends Component {
     return <form className="login-form" autoComplete="off" onSubmit={this.props.handleSubmit(
           values => this.onSubmit(values)
         )}>
-        <h2>Register to Start Reserving Your Family Porperties Today</h2>
+        <h2>Register to Start Reserving Your Properties Today</h2>
         <div className="registration-form-section">
           <label htmlFor="firstName">First name</label>
           <Field component={Input} type="text" name="firstName" autoComplete="off" />

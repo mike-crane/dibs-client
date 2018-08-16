@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { clearSelectedProperty } from '../actions/protected-data';
 import { clearAuthToken } from '../local-storage';
-import Logo from '../images/logo3.svg';
+import Logo from '../images/logo.svg';
 import '../stylesheets/header.css';
 
 class Header extends Component {

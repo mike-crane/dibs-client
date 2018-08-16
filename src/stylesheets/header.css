@@ -28,7 +28,6 @@
 
 /* MEDIA QUERIES */
 
-/* TABLET */
 @media only screen and (min-width: 550px) {
   .header-bar {
     padding: .5em 1em .25em;
@@ -46,7 +45,6 @@
   }
 }
 
-/* LAPTOP */
 @media only screen and (min-width: 850px) {
   .header-bar {
     padding: .5em 1.5em .25em;
@@ -58,9 +56,4 @@
     top: 1.8em;
     right: 1.6em;
   }
-}
-
-/* DESKTOP */
-@media only screen and (min-width: 1350px) {
-
 }

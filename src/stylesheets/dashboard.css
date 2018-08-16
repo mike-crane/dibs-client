@@ -80,10 +80,6 @@
   font-size: 45%;
 }
 
-.rbc-calendar .rbc-month-row {
-  font-size: 7px;
-}
-
 .rbc-calendar .rbc-date-cell {
   padding-right: 2px;
 }
@@ -143,9 +139,6 @@
   .rbc-calendar .rbc-header {
     font-size: 90%;
   }
-  .rbc-calendar .rbc-month-row {
-    font-size: 1em;
-  }
   .rbc-calendar .rbc-date-cell {
     padding-right: 5px;
   }
@@ -157,7 +150,7 @@
   }
 }
 
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 875px) {
   .dashboard-protected-data {
     display: inline-block;
     width: 28%;
@@ -169,6 +162,9 @@
     margin: 30px 0 0;
     font-size: 1em;
   }
+  .dashboard-container {
+    width: 85%;
+  }
   .dashboard-calendar-container {
     width: 65%;
     display: inline-block;
@@ -179,5 +175,11 @@
 @media only screen and (min-width: 1200px) {
   .dashboard-protected-data h2 {
     font-size: 1.25em;
+  }
+  .dashboard-container {
+    width: 80%;
+  }
+  .dashboard-calendar-container {
+      height: 600px;
   }
 }
