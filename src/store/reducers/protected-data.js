@@ -1,4 +1,4 @@
-import deepcopy from "deepcopy";
+import deepcopy from "../../deepcopy";
 
 import {
   FETCH_PROPERTY_DATA_SUCCESS,
