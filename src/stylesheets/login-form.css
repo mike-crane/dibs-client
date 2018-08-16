@@ -3,6 +3,7 @@
   padding: .25em 0;
   margin: 0 0 2em;
   background: #d3d3d3;
+  font-size: .9em;
 }
 
 .login-form-section {
@@ -15,4 +16,19 @@
   border-radius: 4px;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (min-width: 550px) {
+  .login-form h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+
+}
+
+@media only screen and (min-width: 1350px) {
+
 }

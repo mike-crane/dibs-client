@@ -108,7 +108,7 @@ class EditProperty extends Component {
 
           <div className="form-section">
             <label htmlFor="thumbUrl" className="property-photo">
-              Property Image Address
+              Property Image Url   <span>(optional)</span>
             </label>
             <Field component={Input} type="text" name="thumbUrl" />
           </div>

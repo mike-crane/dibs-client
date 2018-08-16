@@ -1,5 +1,5 @@
 .footer {
-  padding: 1em;
+  padding: .5em;
   background: #4A4A4A;
   text-align: center;
   margin-top: 2em;
@@ -12,4 +12,11 @@
 
 .footer img {
   width: 75px;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (min-width: 550px) {
+  .footer {
+    padding: 1em;
+  }
 }

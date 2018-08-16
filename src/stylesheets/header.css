@@ -1,6 +1,6 @@
 .header-bar {
   position: relative;
-  padding: .5em 1.5em .25em;
+  padding: .25em .25em .1em .5em;
   background: #4A4A4A;
 }
 
@@ -11,18 +11,56 @@
 }
 
 .header-bar img {
-  width: 150px;
+  width: 75px;
 }
 
 .logout-button {
   position: absolute;
-  top: 1.8em;
-  right: 1.6em;
+  top: 1.2em;
+  right: 1em;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
+  border-radius: 2px;
+  font-size: 10px;
   color: #3A7C98;
-  padding: 5px 10px;
+  padding: 4px 6px;
   cursor: pointer;
+}
+
+/* MEDIA QUERIES */
+
+/* TABLET */
+@media only screen and (min-width: 550px) {
+  .header-bar {
+    padding: .5em 1em .25em;
+  }
+  .header-bar img {
+    width: 125px;
+  }
+  .logout-button {
+    top: 1.4em;
+    right: 1em;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+}
+
+/* LAPTOP */
+@media only screen and (min-width: 850px) {
+  .header-bar {
+    padding: .5em 1.5em .25em;
+  }
+  .header-bar img {
+    width: 150px;
+  }
+  .logout-button {
+    top: 1.8em;
+    right: 1.6em;
+  }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1350px) {
+
 }

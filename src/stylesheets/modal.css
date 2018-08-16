@@ -9,23 +9,27 @@
 
 .modal-content {
   position: absolute;
-  top: 30%;
-  left: 30%;
-  right: 30%;
-  bottom: 40%;
+  top: 15%;
+  left: 5%;
+  right: 5%;
+  bottom: 55%;
   border: 1px solid #ccc;
   background: #fff;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 4px;
   outline: none;
-  padding: 10px 40px;
+  padding: 20px;
   z-index: 999;
 }
 
 .modal-content h2 {
-  font-size: 1.2em;
-  margin: .5em 0 1.5em;
+  font-size: 1em;
+  margin: 1em 0;
+}
+
+.modal-content p {
+  margin: 0 0 .5em;
 }
 
 .modal-content span {
@@ -64,4 +68,30 @@
 .delete-res-button svg {
   width: 40px;
   height: 40px;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (min-width: 550px) {
+  .modal-content {
+    top: 30%;
+    left: 30%;
+    right: 30%;
+    bottom: 40%;
+    padding: 10px 40px;
+  }
+  .modal-content h2 {
+    font-size: 1.2em;
+    margin: .5em 0 1.5em;
+  }
+  .modal-content p {
+    margin: 1em 0;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+
+}
+
+@media only screen and (min-width: 1350px) {
+
 }

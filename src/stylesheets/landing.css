@@ -14,21 +14,47 @@
 
 .home .ribbon h2 {
   margin: 0 0 .5em;
+  font-size: 1em;
 }
 
 .home .ribbon p {
-  width: 600px;
+  width: 95%;
   margin: 0 auto 1em;
+  font-size: .9em;
 }
 
 .image-wrapper {
   box-shadow: 0px 0px 8px 1px rgba(90,90,90,1);
   border-radius: 10px;
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
 }
 
 .image-wrapper img {
   width: 99%;
   padding-top: 5px;
+}
+
+
+/* MEDIA QUERIES */
+@media only screen and (min-width: 550px) {
+  .home .ribbon h2 {
+    font-size: 1.5em;
+  }
+  .home .ribbon p {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .home .ribbon p {
+      width: 600px;
+  }
+  .image-wrapper {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1350px) {
+
 }
