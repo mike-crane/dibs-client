@@ -1,5 +1,3 @@
-import deepcopy from "../../deepcopy";
-
 import {
   FETCH_PROPERTY_DATA_SUCCESS,
   FETCH_PROPERTY_DATA_ERROR,
@@ -113,7 +111,7 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, { error: action.error });
   }
   if (action.type === SET_SELECTED_PROPERTY) {
-    const newReservation = deepcopy(state.currentReservation);
+    const newReservation = JSON.parse(JSON.stringify(state.currentReservation));
     newReservation.propertyID = action.property.id;
     newReservation.propertyName = action.property.name;
     newReservation.username = action.username;
@@ -132,13 +130,13 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, { selectedReservation: {title: "", guest: "", start: "", end: ""} });
   }
   if (action.type === SET_SELECTED_DATE) {
-    const reservationDates = deepcopy(state.currentReservation);
+    const reservationDates = JSON.parse(JSON.stringify(state.currentReservation));
     reservationDates.start = action.slotInfo.start;
     reservationDates.end = action.slotInfo.end;
     return Object.assign({}, state, { currentReservation: reservationDates });
   } 
   if (action.type === CLEAR_SELECTED_DATE) {
-    const clearDates = deepcopy(state.currentReservation);
+    const clearDates = JSON.parse(JSON.stringify(state.currentReservation));
     clearDates.start = "";
     clearDates.end = "";
     return Object.assign({}, state, { currentReservation: clearDates });
