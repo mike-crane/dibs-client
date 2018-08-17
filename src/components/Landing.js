@@ -16,7 +16,7 @@ export function Landing(props) {
   }
 
   return (
-    <div className='home'>
+    <div className='home' role="main">
       <LoginForm />
       <div className="login-wrapper">
         <p>Not registered?</p> <Link to='/register'>Register</Link>

@@ -19,7 +19,9 @@ class Header extends Component {
     // Only render the log out button if we are logged in
     let logOutButton;
     if (this.props.loggedIn) {
-      logOutButton = <button className='logout-button' onClick={() => this.logOut()}>Log out</button>;
+      logOutButton = <button className="logout-button" tabIndex="0" onClick={() => this.logOut()}>
+          Log out
+        </button>;
     }
     return <div className="header-bar">
         <Link to="/dashboard">

@@ -22,13 +22,14 @@
 .reservations-button {
   display: block;
   margin: 0 15%;
-  background: #E55E59;
-  color: #fff;
+  background: #FFF;
+  color: #3A7C98;
+  border: 3px solid #E55E59;
   font-weight: bold;
   font-size: .9em;
   text-align: center;
   border-radius: 4px;
-  padding: 5px;
+  padding: 2px;
   margin-top: 15px;
   text-decoration: none;
 }

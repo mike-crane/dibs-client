@@ -92,17 +92,11 @@ class EditProperty extends Component {
             <label htmlFor="type" className="property-label">
               Property type
             </label>
-            <Field name="type" component="select" validate={[required]}>
-              <option />
-              <option value="house" name="house">
-                House
-              </option>
-              <option value="condo" name="condo">
-                Condo
-              </option>
-              <option value="apartment" name="apartment">
-                Apartment
-              </option>
+            <Field name="type" aria-label="property-type" component="select" validate={[required]}>
+              <option value="select">Select Type</option>
+              <option value="house">House</option>
+              <option value="condo">Condo</option>
+              <option value="apartment">Apartment</option>
             </Field>
           </div>
 

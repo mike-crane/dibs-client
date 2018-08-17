@@ -54,7 +54,7 @@
 }
 
 .delete-property-button {
-  background: #E55E59;
+  background: #BC4D49;
   color: #fff;
   font-weight: bold;
   display: block;
@@ -124,7 +124,7 @@ legend {
 }
 
 .property-photo span {
-  color: lightgray;
+  color: #757575;
   font-size: .9em;
 }
 

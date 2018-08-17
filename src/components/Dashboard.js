@@ -109,10 +109,10 @@ class Dashboard extends Component {
               {moment(this.props.selectedReservation.end).format("dddd, ")}
               &nbsp; {moment(this.props.selectedReservation.end).format("MMM Do")}
             </p>
-            <button className="modal-button" onClick={() => this.handleCloseModal()}>
+            <button className="modal-button" aria-label="close" onClick={() => this.handleCloseModal()}>
               <Close />
             </button>
-          <button className="delete-res-button" onClick={() => this.handleDeleteRes(this.props.selectedReservation.guest, this.props.selectedReservation.id, this.props.reservations)}>
+            <button className="delete-res-button" aria-label="delete" onClick={() => this.handleDeleteRes(this.props.selectedReservation.guest, this.props.selectedReservation.id, this.props.reservations)}>
               <Trash />
             </button>
           </ReactModal>

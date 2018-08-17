@@ -65,7 +65,7 @@ class AddProperty extends Component {
             <label htmlFor="type" className="property-label">
               Property type
             </label>
-            <Field name="type" id="type" component="select" validate={[required, nonEmpty]}>
+            <Field name="type" id="type" component="select" aria-label="property-type" validate={[required, nonEmpty]}>
               <option value="select">Select Type</option>
               <option value="house">House</option>
               <option value="condo">Condo</option>

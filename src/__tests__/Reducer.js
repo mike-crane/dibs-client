@@ -1,19 +1,7 @@
 import reducer from '../store/reducers/protected-data';
 import {
-  // fetchPropertyDataSuccess,
-  // fetchReservationDataSuccess,
-  // fetchUserReservationDataSuccess,
   postPropertyDataSuccess,
-  postReservationDataSuccess,
-  // editSelectedPropertySuccess,
-  // deleteSelectedPropertySuccess,
-  // deleteReservationSuccess,
-  // setSelectedProperty,
-  // showSelectedReservation,
-  // clearSelectedReservation,
-  // clearSelectedProperty,
-  // setSelectedDate,
-  // clearSelectedDate
+  postReservationDataSuccess
 } from "../actions/protected-data";
 
 
@@ -123,36 +111,6 @@ describe('reducer', () => {
     expect(state).toBe(currentState);
   });
 
-  // describe("fetchPropertyDataSuccess", () => {
-  //   it("Should list all properties", () => {
-  //     let state;
-  //     state = reducer(state, fetchPropertyDataSuccess());
-
-  //     expect(state).toEqual({
-  //       user: null,
-  //       selectedProperty: null,
-  //       properties: [],
-  //       currentReservation: {
-  //         propertyID: null,
-  //         propertyName: "",
-  //         username: "",
-  //         start: "",
-  //         end: ""
-  //       },
-  //       selectedReservation: {
-  //         title: "",
-  //         guest: "",
-  //         start: "",
-  //         end: "",
-  //         id: null
-  //       },
-  //       reservations: [],
-  //       showModal: false,
-  //       error: null
-  //     });
-  //   });
-  // });
-
   describe('postPropertyDataSuccess', () => {
     it('Should add a new property', () => {
       let state;
@@ -233,55 +191,4 @@ describe('reducer', () => {
       });
     });
   });
-
-  // describe("deleteSelectedPropertySuccess", () => {
-  //   it("Should delete the selected property", () => {
-  //     let state = {
-  //       user: null,
-  //       selectedProperty: null,
-  //       properties: [property, property2],
-  //       currentReservation: {
-  //         propertyID: null,
-  //         propertyName: "",
-  //         username: "",
-  //         start: "",
-  //         end: ""
-  //       },
-  //       selectedReservation: {
-  //         title: "",
-  //         guest: "",
-  //         start: "",
-  //         end: "",
-  //         id: null
-  //       },
-  //       reservations: [],
-  //       showModal: false,
-  //       error: null
-  //     };
-  //     state = reducer(state, deleteSelectedPropertySuccess(property.id, property));
-  //     expect(state).toEqual({
-  //       user: null,
-  //       selectedProperty: null,
-  //       properties: [property2],
-  //       currentReservation: {
-  //         propertyID: null,
-  //         propertyName: "",
-  //         username: "",
-  //         start: "",
-  //         end: ""
-  //       },
-  //       selectedReservation: {
-  //         title: "",
-  //         guest: "",
-  //         start: "",
-  //         end: "",
-  //         id: null
-  //       },
-  //       reservations: [],
-  //       showModal: false,
-  //       error: null
-  //     });
-  //   });
-  // });
-
 });

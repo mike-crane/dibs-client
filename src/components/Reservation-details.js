@@ -17,7 +17,7 @@ class ReservationDetails extends Component {
     let saveReservationButton;
 
     if (this.props.currentReservation.start) {
-      saveReservationButton = <button>Save Reservation</button>;
+      saveReservationButton = <button tabIndex="0">Save Reservation</button>;
     }
 
     if (this.props.currentReservation.propertyID) {
@@ -26,15 +26,15 @@ class ReservationDetails extends Component {
           <form onSubmit={e => this.onPostReservationData(e)}>
             <div className="res-block">
               <label htmlFor="res-name">Guest: </label>
-              <input id="res-name" type="text" readOnly value={this.props.name}/>
+              <input id="res-name" type="text" tabIndex="-1" readOnly value={this.props.name}/>
             </div>
             <div className="res-block">
               <label htmlFor="res-start">From: </label>
-              <input id="res-start" type="text" readOnly value={this.props.currentReservation.start.toLocaleString("en-US", options)} />
+            <input id="res-start" type="text" tabIndex="-1" readOnly value={this.props.currentReservation.start.toLocaleString("en-US", options)} />
             </div>
             <div className="res-block">
               <label htmlFor="res-end">To: </label>
-              <input id="res-end" type="text" readOnly value={this.props.currentReservation.end.toLocaleString("en-US", options)}/>
+            <input id="res-end" type="text" tabIndex="-1" readOnly value={this.props.currentReservation.end.toLocaleString("en-US", options)}/>
             </div>
             {saveReservationButton}
           </form>

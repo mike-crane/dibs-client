@@ -57,6 +57,7 @@ export class Reservations extends Component {
       deleteButton = (
         <button
           className="delete-res-button"
+          aria-label="delete"
           onClick={() =>
             this.handleDeleteRes(
               this.props.selectedReservation.id,
@@ -134,6 +135,7 @@ export class Reservations extends Component {
             <button
               className="modal-button"
               onClick={() => this.handleCloseModal()}
+              aria-label="close"
             >
               <Close />
             </button>

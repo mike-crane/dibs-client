@@ -17,7 +17,7 @@ class Properties extends Component {
 
     let username = this.props.username;
 
-    let propertyList = this.props.properties.map(property => <div className="property-container" key={property.id} onClick={() => this.onPropertySelect(property, username)}><img className="property-thumbnail" src={property.thumbUrl} alt={property.name} /><div className="middle"><div className="text">{property.name}</div></div></div>);
+    let propertyList = this.props.properties.map(property => <div className="property-container" key={property.id} onClick={() => this.onPropertySelect(property, username)}><img className="property-thumbnail" tabIndex="0" src={property.thumbUrl} alt={property.name} /><div className="middle"><div className="text">{property.name}</div></div></div>);
     
     let propertiesHeading = <h3>Select a Property</h3>;
 
@@ -30,7 +30,7 @@ class Properties extends Component {
         {propertiesHeading}
         <div className='property-thumbnails'>
           {propertyList}
-          <Link className='add-property-button' to='/add-property'><FaPlus /></Link>
+          <Link className='add-property-button' aria-label="add property" to='/add-property'><FaPlus /></Link>
         </div>
       </div>
     );
