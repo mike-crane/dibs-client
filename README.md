@@ -45,11 +45,11 @@ Being part of a large family that continues to grow with each new generation, it
 
 Landing:
 
-![landing](src/images/screenshots/landing.png)
+![landing](src/images/screenshots/landing1.png)
 
 Registration:
 
-![registration](src/images/screenshots/registration.png)
+![registration](src/images/screenshots/registration1.png)
 
 Dashboard:
 
@@ -57,11 +57,11 @@ Dashboard:
 
 Reservations:
 
-![reservations](src/images/screenshots/reservations.png)
+![reservations](src/images/screenshots/reservations1.png)
 
 Add Property:
 
-![add property](src/images/screenshots/add-property.png)
+![add property](src/images/screenshots/add-property1.png)
 
 Edit Property:
 

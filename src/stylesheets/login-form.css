@@ -31,6 +31,11 @@
   width: 100%;
 }
 
+.form-error {
+  text-align: center;
+  color: rgb(218, 55, 73);
+}
+
 /* MEDIA QUERIES */
 @media only screen and (min-width: 550px) {
   .login-form h2 {

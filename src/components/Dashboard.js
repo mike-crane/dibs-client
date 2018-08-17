@@ -43,6 +43,7 @@ class Dashboard extends Component {
     this.props.dispatch(deleteReservation(id, reservation));
     this.props.dispatch(hideModal());
     this.props.dispatch(fetchUserReservationData(user));
+    this.props.history.push("/dashboard");
   }
 
   render() {

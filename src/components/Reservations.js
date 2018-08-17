@@ -99,6 +99,7 @@ export class Reservations extends Component {
               selectable
               events={events}
               views={["month"]}
+              longPressThreshold={100}
               onSelectSlot={slotInfo => this.onDateSelect(slotInfo)}
               onSelectEvent={event => this.handleSelectEvent(event)}
             />

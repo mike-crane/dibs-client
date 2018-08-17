@@ -20,14 +20,14 @@ class AddProperty extends Component {
   render() {
     return <div className="new-property">
         <h2>New Property</h2>
-      <form className="list-property" autoComplete="off" onSubmit={this.props.handleSubmit(
+        <form className="list-property" autoComplete="off" onSubmit={this.props.handleSubmit(
             values => this.onSubmit(values)
           )}>
           <div className="form-section">
             <label htmlFor="name" className="address-name">
               Property name
             </label>
-          <Field component={Input} type="text" name="name" id="name" validate={[required, nonEmpty]} />
+            <Field component={Input} type="text" name="name" id="name" validate={[required, nonEmpty]} />
           </div>
 
           <fieldset>
@@ -75,9 +75,9 @@ class AddProperty extends Component {
 
           <div className="form-section">
             <label htmlFor="thumbUrl" className="property-photo">
-              Image Url  <span>(optional)</span>
+              Image Url <span>(optional)</span>
             </label>
-          <Field component={Input} type="text" name="thumbUrl" />
+          <Field component={Input} type="url" name="thumbUrl" required pattern=".*\.png\." />
           </div>
 
           <button className="save-property-button" type="submit" disabled={this.props.pristine || this.props.submitting}>

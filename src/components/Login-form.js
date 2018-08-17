@@ -19,24 +19,22 @@ class LoginForm extends Component {
         </div>
       );
     }
-    return (
-      <form className='login-form' autoComplete="off" onSubmit={this.props.handleSubmit(
+    return <form className="login-form" autoComplete="off" onSubmit={this.props.handleSubmit(
           values => this.onSubmit(values)
         )}>
-        {error}
         <h2>Log in to Start Calling Dibs Now</h2>
-        <div className='login-form-section'>
-          <label htmlFor='username'>Username</label>
-          <Field component={Input} type='text' name='username' id='username' autoComplete='off' validate={[required, nonEmpty]} />
-          <label htmlFor='password'>Password</label>
-          <Field component={Input} type='password' name='password' id='password' autoComplete='off' validate={[required, nonEmpty]} />
-        
-          <button className='login-button' disabled={this.props.pristine || this.props.submitting}>
+        {error}
+        <div className="login-form-section">
+          <label htmlFor="username">Username</label>
+          <Field component={Input} type="text" name="username" id="username" autoComplete="off" validate={[required, nonEmpty]} />
+          <label htmlFor="password">Password</label>
+          <Field component={Input} type="password" name="password" id="password" autoComplete="off" validate={[required, nonEmpty]} />
+
+          <button className="login-button" disabled={this.props.pristine || this.props.submitting}>
             Log in
           </button>
         </div>
-      </form>
-    );
+      </form>;
   }
 }
 
