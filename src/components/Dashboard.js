@@ -21,7 +21,8 @@ import '../stylesheets/dashboard.css';
 import "../stylesheets/modal.css";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
-ReactModal.setAppElement("#root");
+
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -68,9 +69,7 @@ class Dashboard extends Component {
 
     if (this.props.reservations.length === 0) {
       reservationData = (
-        <p>
-          <em>You do not have any active reservations</em>
-        </p>
+        <p className="active-res-message">You do not have any active reservations</p>
       );
     }
 

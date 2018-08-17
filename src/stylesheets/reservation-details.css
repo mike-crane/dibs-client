@@ -29,7 +29,7 @@
 }
 
 .res-block {
-  width: 200px;
+  width: 225px;
   margin: 0 auto;
 }
 
@@ -37,7 +37,7 @@
   background-color: transparent;
   border: none;
   font-size: .9em;
-  width: 70%;
+  width: 50%;
 }
 
 .res-block:nth-child(3) {
@@ -72,6 +72,7 @@
   }
   .res-block input {
     font-size: 1em;
+    width: 70%;
   }
   .res-block label {
     font-size: 1em;

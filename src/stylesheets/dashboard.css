@@ -67,6 +67,11 @@
   font-size: .8em;
 }
 
+.active-res-message {
+  text-align: center;
+  font-style: italic;
+}
+
 .rbc-calendar .rbc-toolbar .rbc-toolbar-label {
   font-size: .9em;
 }
