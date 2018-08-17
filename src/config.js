@@ -1,2 +1,2 @@
 export const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/api';
+  (window.location.href.indexOf('localhost')>-1) ? 'http://localhost:8080/api' : 'https://dibs-app.herokuapp.com/api';
