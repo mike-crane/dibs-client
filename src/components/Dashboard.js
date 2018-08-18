@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   fetchUserReservationData,
   showModal,
@@ -10,16 +10,16 @@ import {
   clearSelectedProperty,
   deleteReservation
 } from "../actions/protected-data";
-import requiresLogin from './Requires-login';
-import Ribbon from './Ribbon';
-import BigCalendar from 'react-big-calendar';
-import moment from 'moment';
+import requiresLogin from "./Requires-login";
+import Ribbon from "./Ribbon";
+import BigCalendar from "react-big-calendar";
+import moment from "moment";
 import ReactModal from "react-modal";
 import Close from "react-icons/lib/io/close-round";
 import Trash from "react-icons/lib/ti/trash";
-import '../stylesheets/dashboard.css';
+import "../stylesheets/dashboard.css";
 import "../stylesheets/modal.css";
-import 'react-big-calendar/lib/css/react-big-calendar.css';
+import "react-big-calendar/lib/css/react-big-calendar.css";
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
@@ -61,19 +61,28 @@ class Dashboard extends Component {
 
     let reservations = this.props.reservations.map((reservation, index) => (
       <div key={index}>
-        <div className="active-res-property">{reservation.propertyName}</div> <div className="active-res-time">{moment(reservation.start).format("MMM Do")} - {moment(reservation.end).format("MMM Do")}</div>
+        <div className="active-res-property">{reservation.propertyName}</div>{" "}
+        <div className="active-res-time">
+          {moment(reservation.start).format("MMM Do")} -{" "}
+          {moment(reservation.end).format("MMM Do")}
+        </div>
       </div>
     ));
 
     let reservationData;
 
+    // check if any active reservations exist and if not display a message rather than leaving the space empty
+
     if (this.props.reservations.length === 0) {
       reservationData = (
-        <p className="active-res-message">You do not have any active reservations</p>
+        <p className="active-res-message">
+          You do not have any active reservations
+        </p>
       );
     }
 
-    return <div className="dashboard">
+    return (
+      <div className="dashboard">
         <div className="welcome-message">
           <h2>Welcome {this.props.username}</h2>
         </div>
@@ -87,9 +96,18 @@ class Dashboard extends Component {
             </Link>
           </div>
           <div className="dashboard-calendar-container">
-            <BigCalendar events={events} views={["month"]} onSelectEvent={event => this.handleSelectEvent(event)} />
+            <BigCalendar
+              events={events}
+              views={["month"]}
+              onSelectEvent={event => this.handleSelectEvent(event)}
+            />
           </div>
-          <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
+          <ReactModal
+            className="modal-content"
+            overlayClassName="modal-overlay"
+            isOpen={this.props.showModal}
+            contentLabel="Reservation Details"
+          >
             <h2>{this.props.selectedReservation.title}</h2>
             <p>
               <strong>
@@ -101,23 +119,40 @@ class Dashboard extends Component {
               <strong>From:</strong>
               &nbsp;&nbsp;&nbsp;
               {moment(this.props.selectedReservation.start).format("dddd, ")}
-              &nbsp; {moment(this.props.selectedReservation.start).format("MMM Do")}
+              &nbsp;{" "}
+              {moment(this.props.selectedReservation.start).format("MMM Do")}
             </p>
             <p>
               <strong>To:</strong>
               &nbsp;&nbsp;&nbsp;
               {moment(this.props.selectedReservation.end).format("dddd, ")}
-              &nbsp; {moment(this.props.selectedReservation.end).format("MMM Do")}
+              &nbsp;{" "}
+              {moment(this.props.selectedReservation.end).format("MMM Do")}
             </p>
-            <button className="modal-button" aria-label="close" onClick={() => this.handleCloseModal()}>
+            <button
+              className="modal-button"
+              aria-label="close"
+              onClick={() => this.handleCloseModal()}
+            >
               <Close />
             </button>
-            <button className="delete-res-button" aria-label="delete" onClick={() => this.handleDeleteRes(this.props.selectedReservation.guest, this.props.selectedReservation.id, this.props.reservations)}>
+            <button
+              className="delete-res-button"
+              aria-label="delete"
+              onClick={() =>
+                this.handleDeleteRes(
+                  this.props.selectedReservation.guest,
+                  this.props.selectedReservation.id,
+                  this.props.reservations
+                )
+              }
+            >
               <Trash />
             </button>
           </ReactModal>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 

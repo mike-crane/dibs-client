@@ -1,103 +1,88 @@
 .welcome-message {
-  text-align: center;
+	text-align: center;
 }
-
 .welcome-message h2 {
-  text-align: center;
-  padding: .25em 0;
-  margin: 0 0 2em;
-  background: #d3d3d3;
-  font-size: .9em;
+	text-align: center;
+	padding: .25em 0;
+	margin: 0 0 2em;
+	background: #d3d3d3;
+	font-size: .9em;
 }
-
 .dashboard-calendar-container {
-  height: 250px;
-  width: 95%;
-  margin: 0 auto;
-  display: block;
-  position: relative;
-  z-index: 0;
+	height: 250px;
+	width: 95%;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	z-index: 0;
 }
-
 .reservations-button {
-  display: block;
-  margin: 0 15%;
-  background: #FFF;
-  color: #3A7C98;
-  border: 3px solid #E55E59;
-  font-weight: bold;
-  font-size: .9em;
-  text-align: center;
-  border-radius: 4px;
-  padding: 2px;
-  margin-top: 15px;
-  text-decoration: none;
+	display: block;
+	margin: 0 15%;
+	background: #FFF;
+	color: #3A7C98;
+	border: 3px solid #E55E59;
+	font-weight: bold;
+	font-size: .9em;
+	text-align: center;
+	border-radius: 4px;
+	padding: 2px;
+	margin-top: 15px;
+	text-decoration: none;
 }
-
 .dashboard-protected-data {
-  display: block;
-  width: 90%;
-  margin: 0 auto 1em;
-  padding: .5em;
-  background: #FFE554;
-  border-radius: 4px;
+	display: block;
+	width: 90%;
+	margin: 0 auto 1em;
+	padding: .5em;
+	background: #FFE554;
+	border-radius: 4px;
 }
-
 .dashboard-protected-data h2 {
-  display: inline-block;
-  font-size: .9em;
-  border-bottom: 1px solid #000;
-  padding-bottom: 2px;
-  margin: 0;
+	display: inline-block;
+	font-size: .9em;
+	border-bottom: 1px solid #000;
+	padding-bottom: 2px;
+	margin: 0;
 }
-
 .dashboard-container {
-  margin: 0 auto;
-  width: 95%;
+	margin: 0 auto;
+	width: 95%;
 }
-
 .active-res-property {
-  font-size: .9em;
-  font-weight: bold;
-  text-align: center;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: center;
 }
-
 .active-res-time {
-  text-align: center;
-  margin-bottom: .5em;
-  font-size: .8em;
+	text-align: center;
+	margin-bottom: .5em;
+	font-size: .8em;
 }
-
 .active-res-message {
-  text-align: center;
-  font-style: italic;
+	text-align: center;
+	font-style: italic;
 }
-
 .rbc-calendar .rbc-toolbar .rbc-toolbar-label {
-  font-size: .9em;
+	font-size: .9em;
 }
-
 .rbc-calendar .rbc-toolbar button {
-  font-size: 8px;
-  padding: .15rem .25rem;
+	font-size: 8px;
+	padding: .15rem .25rem;
 }
-
 .rbc-calendar .rbc-header {
-  font-size: 45%;
+	font-size: 45%;
 }
-
 .rbc-calendar .rbc-date-cell {
-  padding-right: 2px;
+	padding-right: 2px;
 }
-
 .rbc-calendar .rbc-event {
-  padding: 1px 3px;
-  border: none;
-  border-radius: 2px;
+	padding: 1px 3px;
+	border: none;
+	border-radius: 2px;
 }
-
 .rbc-calendar .rbc-row-segment .rbc-event-content {
-  font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 /* MEDIA QUERIES */
@@ -180,12 +165,12 @@
 
 @media only screen and (min-width: 1200px) {
   .dashboard-protected-data h2 {
-    font-size: 1.25em;
+  	font-size: 1.25em;
   }
   .dashboard-container {
-    width: 80%;
+  	width: 80%;
   }
   .dashboard-calendar-container {
-      height: 600px;
+  	height: 600px;
   }
 }

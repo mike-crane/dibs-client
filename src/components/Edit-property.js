@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { required } from "../validators";
-import Input from './Input';
-import { 
-  editSelectedProperty, 
-  deleteProperty, 
-  fetchPropertyData, 
-  setSelectedProperty, 
-  clearSelectedProperty 
+import Input from "./Input";
+import {
+  editSelectedProperty,
+  deleteProperty,
+  fetchPropertyData,
+  setSelectedProperty,
+  clearSelectedProperty
 } from "../actions/protected-data";
-import '../stylesheets/edit-property.css';
+import "../stylesheets/edit-property.css";
 
 class EditProperty extends Component {
   componentDidMount() {
     this.handleInitialize();
   }
 
+  // pull in the selected property data to prepopulate the edit form fields
   handleInitialize() {
     const initData = {
       name: this.props.selectedProperty.name,
@@ -34,6 +35,7 @@ class EditProperty extends Component {
   }
 
   onSubmit(values) {
+    // if a property image url is not provided, set to the default image url 
     if (!values.thumbUrl) {
       values.thumbUrl =
         "https://github.com/mike-crane/dibs-client/blob/master/src/images/default-property.png?raw=true";
@@ -51,11 +53,14 @@ class EditProperty extends Component {
   }
 
   render() {
-    return <div className="edit-property">
+    return (
+      <div className="edit-property">
         <h2>Edit Property</h2>
-        <form className="list-property" autoComplete="off" onSubmit={this.props.handleSubmit(
-            values => this.onSubmit(values)
-          )}>
+        <form
+          className="list-property"
+          autoComplete="off"
+          onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+        >
           <h3>{this.props.selectedProperty.name}</h3>
           <fieldset>
             <legend>Property Address</legend>
@@ -63,28 +68,52 @@ class EditProperty extends Component {
               <label htmlFor="street" className="address-label">
                 Street
               </label>
-              <Field component={Input} type="text" name="street" id="street" validate={[required]} />
+              <Field
+                component={Input}
+                type="text"
+                name="street"
+                id="street"
+                validate={[required]}
+              />
             </div>
 
             <div className="form-section">
               <label htmlFor="city" className="address-label">
                 City
               </label>
-              <Field component={Input} type="text" name="city" id="city" validate={[required]} />
+              <Field
+                component={Input}
+                type="text"
+                name="city"
+                id="city"
+                validate={[required]}
+              />
             </div>
 
             <div className="form-section">
               <label htmlFor="state" className="address-label">
                 State
               </label>
-              <Field component={Input} type="text" name="state" id="state" validate={[required]} />
+              <Field
+                component={Input}
+                type="text"
+                name="state"
+                id="state"
+                validate={[required]}
+              />
             </div>
 
             <div className="form-section">
               <label htmlFor="zipcode" className="address-label">
                 Zip Code
               </label>
-              <Field component={Input} type="text" name="zipcode" id="zipcode" validate={[required]} />
+              <Field
+                component={Input}
+                type="text"
+                name="zipcode"
+                id="zipcode"
+                validate={[required]}
+              />
             </div>
           </fieldset>
 
@@ -92,7 +121,12 @@ class EditProperty extends Component {
             <label htmlFor="type" className="property-label">
               Property type
             </label>
-            <Field name="type" aria-label="property-type" component="select" validate={[required]}>
+            <Field
+              name="type"
+              aria-label="property-type"
+              component="select"
+              validate={[required]}
+            >
               <option value="select">Select Type</option>
               <option value="house">House</option>
               <option value="condo">Condo</option>
@@ -102,22 +136,36 @@ class EditProperty extends Component {
 
           <div className="form-section">
             <label htmlFor="thumbUrl" className="property-photo">
-              Image Url   <span>(optional)</span>
+              Image Url <span>(optional)</span>
             </label>
             <Field component={Input} type="text" name="thumbUrl" />
           </div>
 
-          <button className="save-property-button" type="submit" disabled={this.props.pristine || this.props.submitting}>
+          <button
+            className="save-property-button"
+            type="submit"
+            disabled={this.props.pristine || this.props.submitting}
+          >
             Save
           </button>
           <Link className="cancel-button" to="/reservations">
             Cancel
           </Link>
-          <button className="delete-property-button" type="button" onClick={() => this.handleDeleteProperty(this.props.selectedProperty.id, this.props.properties)}>
+          <button
+            className="delete-property-button"
+            type="button"
+            onClick={() =>
+              this.handleDeleteProperty(
+                this.props.selectedProperty.id,
+                this.props.properties
+              )
+            }
+          >
             Delete Property
           </button>
         </form>
-      </div>;
+      </div>
+    );
   }
 }
 
@@ -128,5 +176,5 @@ const mapStateToProps = state => ({
 });
 
 export default reduxForm({
-  form: 'editProperty'
+  form: "editProperty"
 })(connect(mapStateToProps)(EditProperty));

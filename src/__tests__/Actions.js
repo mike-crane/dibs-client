@@ -49,9 +49,9 @@ import {
   hideModal
 } from "../actions/protected-data";
 
-describe('fetchPropertyDataSuccess', () => {
-  it('Should return the action', () => {
-    const data = 'property data';
+describe("fetchPropertyDataSuccess", () => {
+  it("Should return the action", () => {
+    const data = "property data";
     const action = fetchPropertyDataSuccess(data);
     expect(action.type).toEqual(FETCH_PROPERTY_DATA_SUCCESS);
     expect(action.data).toEqual(data);

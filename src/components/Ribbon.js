@@ -1,11 +1,13 @@
-import React from 'react';
-import '../stylesheets/ribbon.css';
+import React from "react";
+import "../stylesheets/ribbon.css";
 
-const Ribbon = (props) => {
-  return <div className="ribbon">
+const Ribbon = props => {
+  return (
+    <div className="ribbon">
       <h2>{props.heading}</h2>
       <p>{props.subheading}</p>
-    </div>;
+    </div>
+  );
 };
 
 export default Ribbon;

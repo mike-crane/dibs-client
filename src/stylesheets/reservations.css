@@ -1,130 +1,117 @@
 .reservations h2 {
-  text-align: center;
-  font-size: .9em;
-  padding: .25em 0;
-  margin: 0;
-  background: #d3d3d3;
+	text-align: center;
+	font-size: .9em;
+	padding: .25em 0;
+	margin: 0;
+	background: #d3d3d3;
 }
-
 .reservations > h3 {
-  text-align: center;
-  margin: 1.5em 4em 0;
-  font-size: .9em;
+	text-align: center;
+	margin: 1.5em 4em 0;
+	font-size: .9em;
 }
-
 .reservation-section {
-  width: 90%;
-  margin: 1em auto;
-  border: 10px solid #FFE554;
-  border-radius: 10px;
-  background: #FFE554;
+	width: 90%;
+	margin: 1em auto;
+	border: 10px solid #FFE554;
+	border-radius: 10px;
+	background: #FFE554;
 }
-
 .calendar-container {
-  height: 300px;
-  width: 95%;
-  margin: 1em auto 3em;
-  position: relative;
-  z-index: 0;
+	height: 300px;
+	width: 95%;
+	margin: 1em auto 3em;
+	position: relative;
+	z-index: 0;
 }
-
 .rbc-event {
-  background-color: #3A7C98;
-  color: #FFF;
-  border: 2px solid #3A7C98;
+	background-color: #3A7C98;
+	color: #FFF;
+	border: 2px solid #3A7C98;
 }
-
 .rbc-calendar .rbc-toolbar .rbc-toolbar-label {
-  text-align: right;
-  font-weight: bold;
-  font-size: .9em;
+	text-align: right;
+	font-weight: bold;
+	font-size: .9em;
 }
-
 .rbc-calendar .rbc-toolbar button {
-  font-size: 8px;
-  padding: .15rem .25rem;
+	font-size: 8px;
+	padding: .15rem .25rem;
 }
-
 .rbc-calendar .rbc-header {
-  font-size: 45%;
+	font-size: 45%;
 }
-
 .rbc-calendar .rbc-month-row {
-  font-size: .5em;
+	font-size: .5em;
 }
-
 .rbc-calendar .rbc-date-cell {
-  padding-right: 2px;
+	padding-right: 2px;
 }
-
 .rbc-calendar .rbc-event {
-  padding: 1px 3px;
-  border: none;
-  border-radius: 2px;
+	padding: 1px 3px;
+	border: none;
+	border-radius: 2px;
 }
-
 .rbc-calendar .rbc-row-segment .rbc-event-content {
-  font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 550px) {
-  .reservation-section {
-    width: 70%;
-  }
-  .calendar-container {
-    height: 400px;
-  }
-  .rbc-calendar .rbc-month-row {
-    font-size: .8em;
-  }
+	.reservation-section {
+		width: 70%;
+	}
+	.calendar-container {
+		height: 400px;
+	}
+	.rbc-calendar .rbc-month-row {
+		font-size: .8em;
+	}
 }
-
 @media only screen and (min-width: 700px) {
-  .reservations h2 {
-    font-size: 1.5em;
-  }
-  .reservations > h3 {
-    margin-top: 3em;
-    margin: 3em 0 0;
-    font-size: 1.5em;
-  }
-  .reservation-section {
-    margin: 1em auto 3em;
-    width: 625px;
-    /* width: 700px; */
-  }
-  .calendar-container {
-    height: 580px;
-    width: 700px;
-    margin: 1em auto 3em;
-  }
-  .rbc-calendar .rbc-toolbar .rbc-toolbar-label {
-    font-size: 1.25em;
-  }
-  .rbc-calendar .rbc-toolbar button {
-    font-size: .7em;
-    padding: .375rem 1rem;
-  }
-  .rbc-calendar .rbc-header {
-    font-size: 90%;
-  }
-  .rbc-calendar .rbc-month-row {
-    font-size: 1em;
-  }
-  .rbc-calendar .rbc-date-cell {
-    padding-right: 5px;
-  }
-  .rbc-calendar .rbc-event {
-    padding: 2px 5px;
-  }
-  .rbc-calendar .rbc-row-segment .rbc-event-content {
-    font-size: 1em;
-  }
+	.reservations h2 {
+		font-size: 1.5em;
+	}
+	.reservations > h3 {
+		margin-top: 3em;
+		margin: 3em 0 0;
+		font-size: 1.5em;
+	}
+	.reservation-section {
+		margin: 1em auto 3em;
+		width: 625px;
+		/* width: 700px; */
+	}
+	.calendar-container {
+		height: 580px;
+		width: 700px;
+		margin: 1em auto 3em;
+	}
+	.rbc-calendar .rbc-toolbar .rbc-toolbar-label {
+		font-size: 1.25em;
+	}
+	.rbc-calendar .rbc-toolbar button {
+		font-size: .7em;
+		padding: .375rem 1rem;
+	}
+	.rbc-calendar .rbc-header {
+		font-size: 90%;
+	}
+	.rbc-calendar .rbc-month-row {
+		font-size: 1em;
+	}
+	.rbc-calendar .rbc-date-cell {
+		padding-right: 5px;
+	}
+	.rbc-calendar .rbc-event {
+		padding: 2px 5px;
+	}
+	.rbc-calendar .rbc-row-segment .rbc-event-content {
+		font-size: 1em;
+	}
 }
-
 @media only screen and (min-width: 850px) {
-  .reservation-section {
-    width: 700px;
-  }
+	.reservation-section {
+		width: 700px;
+	}
 }

@@ -1,21 +1,20 @@
-import reducer from '../store/reducers/protected-data';
+import reducer from "../store/reducers/protected-data";
 import {
   postPropertyDataSuccess,
   postReservationDataSuccess
 } from "../actions/protected-data";
 
-
-describe('reducer', () => {
+describe("reducer", () => {
   // Set up some dummy data
-  const propertyName = 'Beach house';
-  const street = '1 South St';
-  const city = 'Pleasantville';
-  const state = 'WY';
-  const zipcode = '00000';
-  const type = 'house';
-  const owner = 'Bob';
-  const thumbUrl = 'https://www.example.com';
-  const propertyId = '8909323';
+  const propertyName = "Beach house";
+  const street = "1 South St";
+  const city = "Pleasantville";
+  const state = "WY";
+  const zipcode = "00000";
+  const type = "house";
+  const owner = "Bob";
+  const thumbUrl = "https://www.example.com";
+  const propertyId = "8909323";
 
   const property2Name = "Moutain house";
   const street2 = "20 Boulder St";
@@ -29,8 +28,8 @@ describe('reducer', () => {
 
   const reservationProperty = "Beach house";
   const username = "dibs_demo";
-  const start = '8/12/2018';
-  const end = '8/20/2018';
+  const start = "8/12/2018";
+  const end = "8/20/2018";
   const reservationId = "5434354";
 
   const reservation2Property = "Moutain house";
@@ -79,8 +78,8 @@ describe('reducer', () => {
     id: reservation2Id
   };
 
-  it('Should set the initial state when nothing is passed in', () => {
-    const state = reducer(undefined, { type: '__UNKNOWN' });
+  it("Should set the initial state when nothing is passed in", () => {
+    const state = reducer(undefined, { type: "__UNKNOWN" });
     expect(state).toEqual({
       user: null,
       selectedProperty: null,
@@ -105,14 +104,14 @@ describe('reducer', () => {
     });
   });
 
-  it('Should return the current state on an unknown action', () => {
+  it("Should return the current state on an unknown action", () => {
     let currentState = {};
-    const state = reducer(currentState, { type: '__UNKNOWN' });
+    const state = reducer(currentState, { type: "__UNKNOWN" });
     expect(state).toBe(currentState);
   });
 
-  describe('postPropertyDataSuccess', () => {
-    it('Should add a new property', () => {
+  describe("postPropertyDataSuccess", () => {
+    it("Should add a new property", () => {
       let state;
       state = reducer(state, postPropertyDataSuccess(property));
       state = reducer(state, postPropertyDataSuccess(property2));

@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import App from './components';
+import App from "./components";
 import store from "./store";
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from "./registerServiceWorker";
 import "./stylesheets/index.css";
 
 ReactDOM.render(

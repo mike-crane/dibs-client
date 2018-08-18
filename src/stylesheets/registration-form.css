@@ -1,16 +1,15 @@
 .registration-form-section {
-  width: 150px;
-  margin: 0 auto;
+	width: 150px;
+	margin: 0 auto;
 }
-
 .register-button {
-  display: block;
-  margin: 1em auto;
-  color: #fff;
-  background-color: #3A7C98;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  padding: 5px 10px;
-  cursor: pointer;
+	display: block;
+	margin: 1em auto;
+	color: #fff;
+	background-color: #3A7C98;
+	border: none;
+	border-radius: 4px;
+	font-weight: bold;
+	padding: 5px 10px;
+	cursor: pointer;
 }

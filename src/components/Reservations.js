@@ -53,6 +53,8 @@ export class Reservations extends Component {
 
   render() {
     let deleteButton;
+
+    // check if user is the own who made the reservation and if true render the delete button
     if (this.props.selectedReservation.guest === this.props.username) {
       deleteButton = (
         <button
@@ -81,6 +83,7 @@ export class Reservations extends Component {
       };
     });
 
+    // check if a property has been selected and if so, show the property details and calendar
     if (this.props.selectedProperty) {
       return (
         <div className="reservations">

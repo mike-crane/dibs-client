@@ -1,133 +1,116 @@
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(74, 74, 74, .85);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(74, 74, 74, .85);
 }
-
 .modal-content {
-  position: absolute;
-  top: 15%;
-  left: 5%;
-  right: 5%;
-  bottom: 55%;
-  border: 1px solid #ccc;
-  background: #fff;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 4px;
-  outline: none;
-  padding: 20px;
-  z-index: 999;
+	position: absolute;
+	top: 15%;
+	left: 5%;
+	right: 5%;
+	bottom: 55%;
+	border: 1px solid #ccc;
+	background: #fff;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	border-radius: 4px;
+	outline: none;
+	padding: 20px;
+	z-index: 999;
 }
-
 .modal-content h2 {
-    font-size: .85em;
-    margin: 0 0 .85em;
+	font-size: .85em;
+	margin: 0 0 .85em;
 }
-
 .modal-content p {
-  margin: 0 0 .5em;
-  font-size: .8em;
+	margin: 0 0 .5em;
+	font-size: .8em;
 }
-
 .modal-content span {
-  font-weight: 700;
-  padding-right: 1em;
+	font-weight: 700;
+	padding-right: 1em;
 }
-
 .modal-button {
-  background-color: transparent;
-  position: absolute;
-  top: 8px;
-  right: 3px;
-  border: none;
-  cursor: pointer;
+	background-color: transparent;
+	position: absolute;
+	top: 8px;
+	right: 3px;
+	border: none;
+	cursor: pointer;
 }
-
 .modal-button svg {
-  height: 30px;
-  width: 30px;
+	height: 30px;
+	width: 30px;
 }
-
 .modal-dates {
-  margin-top: .5em;
-  margin-bottom: 0;
+	margin-top: .5em;
+	margin-bottom: 0;
 }
-
 .delete-res-button {
-  background-color: transparent;
-  color: #E55E59;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  position: absolute;
-  right: 5px;
-  bottom: 10px;
+	background-color: transparent;
+	color: #E55E59;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	position: absolute;
+	right: 5px;
+	bottom: 10px;
 }
-
 .delete-res-button svg {
-  width: 40px;
-  height: 40px;
+	width: 40px;
+	height: 40px;
 }
-
 .form-input input[type="text"],
 .form-input input[type="password"] {
-    width: 125px;
+	width: 125px;
 }
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 550px) {
-  .modal-content {
-    top: 30%;
-    left: 15%;
-    right: 15%;
-    bottom: 40%;
-    padding: 10px 40px;
-  }
-  .modal-content h2 {
-    font-size: 1.2em;
-    margin: 1.5em 0;
-  }
-  .modal-content p {
-    margin: 1em 0;
-    font-size: 1em;
-  }
+	.modal-content {
+		top: 30%;
+		left: 15%;
+		right: 15%;
+		bottom: 40%;
+		padding: 10px 40px;
+	}
+	.modal-content h2 {
+		font-size: 1.2em;
+		margin: 1.5em 0;
+	}
+	.modal-content p {
+		margin: 1em 0;
+		font-size: 1em;
+	}
 }
-
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) { 
-    .modal-content {
-      top: 20%;
-      left: 15%;
-      right: 15%;
-      bottom: 20%;
-      padding: 10px 30px;
-    }
-    .modal-content p {
-      margin: 0 0 .25em;
-    }
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+	.modal-content {
+		top: 20%;
+		left: 15%;
+		right: 15%;
+		bottom: 20%;
+		padding: 10px 30px;
+	}
+	.modal-content p {
+		margin: 0 0 .25em;
+	}
 }
-
 @media only screen and (min-width: 850px) {
-  .modal-content {
-    left: 27%;
-    right: 27%;
-  }
-  .form-input input[type="text"],
-  .form-input input[type="password"] {
-    width: 150px;
-  }
+	.modal-content {
+		left: 27%;
+		right: 27%;
+	}
+	.form-input input[type="text"],
+	.form-input input[type="password"] {
+		width: 150px;
+	}
 }
-
 @media only screen and (min-width: 1350px) {
-  .form-input input[type="text"],
-  .form-input input[type="password"] {
-    width: 170px;
-  }
+	.form-input input[type="text"],
+	.form-input input[type="password"] {
+		width: 170px;
+	}
 }

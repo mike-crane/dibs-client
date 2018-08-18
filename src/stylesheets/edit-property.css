@@ -2,177 +2,156 @@
 .delete-property-button,
 .submit-property-button,
 .cancel-property-button {
-  border-radius: 4px;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+	border-radius: 4px;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
 }
-
 .new-property h2 {
-  text-align: center;
-  padding: .25em 0;
-  margin: 0;
-  background: #d3d3d3;
-  font-size: 1em;
+	text-align: center;
+	padding: .25em 0;
+	margin: 0;
+	background: #d3d3d3;
+	font-size: 1em;
 }
-
 .edit-property h2 {
-  text-align: center;
-  padding: .25em 0;
-  margin: 0;
-  background: #d3d3d3;
+	text-align: center;
+	padding: .25em 0;
+	margin: 0;
+	background: #d3d3d3;
 }
-
 .save-property-button,
 .cancel-property-button {
-  display: inline-block;
-  width: 45%;
-  margin-top: 2em;
+	display: inline-block;
+	width: 45%;
+	margin-top: 2em;
 }
-
 .save-property-button {
-  margin-right: 8%;
-  margin-left: 1%;
-  background: #3A7C98;
-  color: #fff;
+	margin-right: 8%;
+	margin-left: 1%;
+	background: #3A7C98;
+	color: #fff;
 }
-
 .cancel-button {
-  background: #5A5A5A;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  width: 45%;
-  display: inline-block;
-  text-align: center;
-  padding: 9.5px 0 9.5px 0;
-  border-radius: 4px;
-  text-decoration: none;
-  border: none;
+	background: #5A5A5A;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	width: 45%;
+	display: inline-block;
+	text-align: center;
+	padding: 9.5px 0 9.5px 0;
+	border-radius: 4px;
+	text-decoration: none;
+	border: none;
 }
-
 .delete-property-button {
-  background: #BC4D49;
-  color: #fff;
-  font-weight: bold;
-  display: block;
-  width: 98%;
-  margin: 2em 0 0 1%;
+	background: #BC4D49;
+	color: #fff;
+	font-weight: bold;
+	display: block;
+	width: 98%;
+	margin: 2em 0 0 1%;
 }
-
 .submit-property-button {
-  width: 99%;
-  display: block;
-  margin: 1em auto;
-  background: #E55E59;
-  color: #fff;
-  font-weight: bold;
+	width: 99%;
+	display: block;
+	margin: 1em auto;
+	background: #E55E59;
+	color: #fff;
+	font-weight: bold;
 }
-
 fieldset {
-  margin-top: 1em;
-  border: 2px solid #000;
-  border-radius: 5px;
+	margin-top: 1em;
+	border: 2px solid #000;
+	border-radius: 5px;
 }
-
 .form-section {
-  margin-top: .5em;
+	margin-top: .5em;
 }
-
 legend {
-  font-weight: bold;
+	font-weight: bold;
 }
-
 .list-property {
-  width: 90%;
-  margin: 3em auto 1em;
+	width: 90%;
+	margin: 3em auto 1em;
 }
-
 .list-property h2,
 .list-property h3 {
-  text-align: center;
+	text-align: center;
 }
-
 .form-input {
-  display: inline-block;
+	display: inline-block;
 }
-
 #property-type {
-  margin-right: 1em;
+	margin-right: 1em;
 }
-
 .address-label {
-  width: 70px;
-  display: inline-block;
-  font-size: .9em;
+	width: 70px;
+	display: inline-block;
+	font-size: .9em;
 }
-
 .property-label {
-  width: 110px;
-  display: inline-block;
-  margin: 1em 0 0 5px;
-  font-size: .9em;
+	width: 110px;
+	display: inline-block;
+	margin: 1em 0 0 5px;
+	font-size: .9em;
 }
-
 .property-photo {
-  width: 140px;
-  display: inline-block;
-  margin: 1em 0 0 5px;
-  font-size: .9em;
+	width: 140px;
+	display: inline-block;
+	margin: 1em 0 0 5px;
+	font-size: .9em;
 }
-
 .property-photo span {
-  color: #757575;
-  font-size: .9em;
+	color: #757575;
+	font-size: .9em;
 }
-
 .address-name {
-  width: 115px;
-  display: inline-block;
-  font-weight: bold;
-  font-size: .9em;
-  margin: 0 0 1em 15px;
+	width: 115px;
+	display: inline-block;
+	font-weight: bold;
+	font-size: .9em;
+	margin: 0 0 1em 15px;
 }
 .form-input input {
-  font-size: .9em;
+	font-size: .9em;
 }
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 550px) {
-  .new-property h2 {
-    font-size: 1.5em;
-  }
-  .list-property {
-    width: 50%;
-  }
-  .address-name {
-    width: 150px;
-    font-size: 1.25em;
-  }
-  .address-label {
-    width: 80px;
-    font-size: 1em;
-  }
-  .property-photo {
-    margin: 1em 0 0 15px;
-    font-size: 1em;
-  }
-  .property-label {
-    margin: 1em 0 0 15px;
-    font-size: 1em;
-  }
+	.new-property h2 {
+		font-size: 1.5em;
+	}
+	.list-property {
+		width: 50%;
+	}
+	.address-name {
+		width: 150px;
+		font-size: 1.25em;
+	}
+	.address-label {
+		width: 80px;
+		font-size: 1em;
+	}
+	.property-photo {
+		margin: 1em 0 0 15px;
+		font-size: 1em;
+	}
+	.property-label {
+		margin: 1em 0 0 15px;
+		font-size: 1em;
+	}
 }
-
 @media only screen and (min-width: 850px) {
-  .list-property {
-    width: 35%;
-  }
+	.list-property {
+		width: 35%;
+	}
 }
-
 @media only screen and (min-width: 1350px) {
-  .list-property {
-    width: 25%;
-  }
+	.list-property {
+		width: 25%;
+	}
 }
