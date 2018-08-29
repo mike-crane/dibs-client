@@ -8,11 +8,27 @@ import "../stylesheets/reservation-details.css";
 import "../stylesheets/modal.css";
 
 class ReservationDetails extends Component {
+  componentWillMount() {
+    this.props.dispatch(addDays(this.props.currentReservation, 1));
+  }
+
   onPostReservationData(event) {
     this.props.dispatch(postReservationData(this.props.currentReservation));
     this.props.dispatch(clearSelectedDate());
     event.preventDefault();
   }
+
+  //function to add days to a given date. 
+	// addDays(endDate, numberOfDays) {
+  //   let returnDate = new Date(
+  //     endDate.getFullYear(),
+  //     endDate.getMonth(),
+  //     endDate.getDate() + numberOfDays,
+  //     endDate.getHours(),
+  //     endDate.getMinutes(),
+  //     endDate.getSeconds());
+  //   return returnDate;
+  // }
 
   render() {
     let options = { weekday: "long", month: "short", day: "numeric" };

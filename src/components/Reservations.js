@@ -32,7 +32,7 @@ export class Reservations extends Component {
   }
 
   onDateSelect(slotInfo) {
-    this.props.dispatch(setSelectedDate(slotInfo));
+    this.props.dispatch(setSelectedDate(slotInfo)); 
   }
 
   handleSelectEvent(event) {
