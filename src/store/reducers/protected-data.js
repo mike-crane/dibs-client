@@ -22,8 +22,7 @@ import {
   SET_SELECTED_DATE,
   CLEAR_SELECTED_DATE,
   SHOW_MODAL,
-  HIDE_MODAL,
-  // ADD_DAYS
+  HIDE_MODAL
 } from "../../actions/protected-data";
 
 const initialState = {
@@ -158,8 +157,5 @@ export default function reducer(state = initialState, action) {
   if (action.type === HIDE_MODAL) {
     return Object.assign({}, state, { showModal: false });
   }
-  // if (action.type === ADD_DAYS) {
-  //   return Object.assign({}, state, { showModal: false });
-  // }
   return state;
 }

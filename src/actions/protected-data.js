@@ -271,11 +271,4 @@ export const hideModal = () => ({
   type: HIDE_MODAL
 });
 
-// export const ADD_DAYS = "ADD_DAYS";
-// export const addDays = (date, days) => ({
-//   type: ADD_DAYS,
-//   date,
-//   days
-// });
-
 
