@@ -32,7 +32,6 @@ export class Reservations extends Component {
   }
 
   onDateSelect(slotInfo) {
-    console.log(slotInfo.end);
     this.props.dispatch(setSelectedDate(slotInfo)); 
   }
 
@@ -94,11 +93,9 @@ export class Reservations extends Component {
 
     // check if a property has been selected and if so, show the property details and calendar
     if (this.props.selectedProperty) {
-      return (
-        <div className="reservations">
+      return <div className="reservations">
           <h2>Reservations</h2>
           <Properties />
-          <h3>Drag the mouse over the calendar to select a date/time range</h3>
           <div className="reservation-section">
             <div className="selected-property">
               <PropertyDetails />
@@ -107,22 +104,13 @@ export class Reservations extends Component {
               <ReservationDetails />
             </div>
           </div>
+          <h3>
+            Drag the mouse over the calendar to select a date/time range
+          </h3>
           <div className="calendar-container">
-            <BigCalendar
-              selectable
-              events={events}
-              views={["month"]}
-              longPressThreshold={100}
-              onSelectSlot={slotInfo => this.fixDate(slotInfo)}
-              onSelectEvent={event => this.handleSelectEvent(event)}
-            />
+            <BigCalendar selectable events={events} views={["month"]} longPressThreshold={100} onSelectSlot={slotInfo => this.fixDate(slotInfo)} onSelectEvent={event => this.handleSelectEvent(event)} />
           </div>
-          <ReactModal
-            className="modal-content"
-            overlayClassName="modal-overlay"
-            isOpen={this.props.showModal}
-            contentLabel="Reservation Details"
-          >
+          <ReactModal className="modal-content" overlayClassName="modal-overlay" isOpen={this.props.showModal} contentLabel="Reservation Details">
             <h2>{this.props.selectedReservation.title}</h2>
             <p>
               <strong>
@@ -134,27 +122,20 @@ export class Reservations extends Component {
               <strong>From:</strong>
               &nbsp;&nbsp;&nbsp;
               {moment(this.props.selectedReservation.start).format("dddd, ")}
-              &nbsp;{" "}
-              {moment(this.props.selectedReservation.start).format("MMM Do")}
+              &nbsp; {moment(this.props.selectedReservation.start).format("MMM Do")}
             </p>
             <p className="modal-dates">
               <strong>To:</strong>
               &nbsp;&nbsp;&nbsp;
               {moment(this.props.selectedReservation.end).format("dddd, ")}
-              &nbsp;{" "}
-              {moment(this.props.selectedReservation.end).format("MMM Do")}
+              &nbsp; {moment(this.props.selectedReservation.end).format("MMM Do")}
             </p>
-            <button
-              className="modal-button"
-              onClick={() => this.handleCloseModal()}
-              aria-label="close"
-            >
+            <button className="modal-button" onClick={() => this.handleCloseModal()} aria-label="close">
               <Close />
             </button>
             {deleteButton}
           </ReactModal>
-        </div>
-      );
+        </div>;
     } else {
       return (
         <div className="reservations">
