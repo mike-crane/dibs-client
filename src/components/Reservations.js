@@ -32,6 +32,7 @@ export class Reservations extends Component {
   }
 
   onDateSelect(slotInfo) {
+    console.log(slotInfo.end);
     this.props.dispatch(setSelectedDate(slotInfo)); 
   }
 
@@ -49,6 +50,14 @@ export class Reservations extends Component {
     this.props.dispatch(deleteReservation(id, reservation));
     this.props.dispatch(hideModal());
     this.props.dispatch(fetchReservationData());
+  }
+
+  // increment the selected end date 1 day
+  fixDate(slotInfo) {
+    let newdate = new Date(slotInfo.end);
+    newdate.setDate(newdate.getDate() + 1);
+    slotInfo.end = newdate;
+    this.onDateSelect(slotInfo);
   }
 
   render() {
@@ -104,7 +113,7 @@ export class Reservations extends Component {
               events={events}
               views={["month"]}
               longPressThreshold={100}
-              onSelectSlot={slotInfo => this.onDateSelect(slotInfo)}
+              onSelectSlot={slotInfo => this.fixDate(slotInfo)}
               onSelectEvent={event => this.handleSelectEvent(event)}
             />
           </div>
