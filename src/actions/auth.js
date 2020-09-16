@@ -48,7 +48,8 @@ export const login = (username, password) => dispatch => {
     fetch(`${API_BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": `${API_BASE_URL}`,
       },
       body: JSON.stringify({
         username,
