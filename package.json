@@ -6,7 +6,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jwt-decode": "^2.2.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "react": "^16.4.1",
     "react-big-calendar": "^0.19.2",
     "react-dom": "^16.4.1",
